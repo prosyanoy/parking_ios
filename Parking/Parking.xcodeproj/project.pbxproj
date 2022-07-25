@@ -12,6 +12,12 @@
 		263836BE288C1EDB00EA4353 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263836BD288C1EDB00EA4353 /* ViewController.swift */; };
 		263836C3288C1EDD00EA4353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263836C2288C1EDD00EA4353 /* Assets.xcassets */; };
 		263836C6288C1EDD00EA4353 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */; };
+		94D2155B288F285E00DFE786 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21550288F285E00DFE786 /* Parking.swift */; };
+		94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21552288F285E00DFE786 /* ParkingGateway.swift */; };
+		94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */; };
+		94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */; };
+		94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2155A288F285E00DFE786 /* ParkingRepository.swift */; };
+		94D21562288F293F00DFE786 /* BabyNet in Frameworks */ = {isa = PBXBuildFile; productRef = 94D21561288F293F00DFE786 /* BabyNet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,11 @@
 		263836C2288C1EDD00EA4353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		263836C5288C1EDD00EA4353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		263836C7288C1EDD00EA4353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94D21550288F285E00DFE786 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		94D21552288F285E00DFE786 /* ParkingGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingGateway.swift; sourceTree = "<group>"; };
+		94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkEntity.swift; sourceTree = "<group>"; };
+		94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkRepository.swift; sourceTree = "<group>"; };
+		94D2155A288F285E00DFE786 /* ParkingRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D21562288F293F00DFE786 /* BabyNet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,11 +69,88 @@
 				263836B9288C1EDB00EA4353 /* AppDelegate.swift */,
 				263836BB288C1EDB00EA4353 /* SceneDelegate.swift */,
 				263836BD288C1EDB00EA4353 /* ViewController.swift */,
+				94D2154D288F285E00DFE786 /* Domain */,
+				94D21553288F285E00DFE786 /* Data */,
 				263836C2288C1EDD00EA4353 /* Assets.xcassets */,
 				263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */,
 				263836C7288C1EDD00EA4353 /* Info.plist */,
 			);
 			path = Parking;
+			sourceTree = "<group>";
+		};
+		94D2154D288F285E00DFE786 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				94D2154E288F285E00DFE786 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		94D2154E288F285E00DFE786 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				94D2154F288F285E00DFE786 /* Parking */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		94D2154F288F285E00DFE786 /* Parking */ = {
+			isa = PBXGroup;
+			children = (
+				94D21550288F285E00DFE786 /* Parking.swift */,
+				94D21551288F285E00DFE786 /* Gateway */,
+			);
+			path = Parking;
+			sourceTree = "<group>";
+		};
+		94D21551288F285E00DFE786 /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				94D21552288F285E00DFE786 /* ParkingGateway.swift */,
+			);
+			path = Gateway;
+			sourceTree = "<group>";
+		};
+		94D21553288F285E00DFE786 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				94D21554288F285E00DFE786 /* Gateways */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		94D21554288F285E00DFE786 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				94D21555288F285E00DFE786 /* Parking */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		94D21555288F285E00DFE786 /* Parking */ = {
+			isa = PBXGroup;
+			children = (
+				94D21556288F285E00DFE786 /* Network */,
+				94D2155A288F285E00DFE786 /* ParkingRepository.swift */,
+			);
+			path = Parking;
+			sourceTree = "<group>";
+		};
+		94D21556288F285E00DFE786 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				94D21557288F285E00DFE786 /* Entity */,
+				94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		94D21557288F285E00DFE786 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +169,9 @@
 			dependencies = (
 			);
 			name = Parking;
+			packageProductDependencies = (
+				94D21561288F293F00DFE786 /* BabyNet */,
+			);
 			productName = Parking;
 			productReference = 263836B6288C1EDB00EA4353 /* Parking.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +200,9 @@
 				Base,
 			);
 			mainGroup = 263836AD288C1EDB00EA4353;
+			packageReferences = (
+				94D21560288F293F00DFE786 /* XCRemoteSwiftPackageReference "BabyNet" */,
+			);
 			productRefGroup = 263836B7288C1EDB00EA4353 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -134,9 +229,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
 				263836BE288C1EDB00EA4353 /* ViewController.swift in Sources */,
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
+				94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */,
 				263836BC288C1EDB00EA4353 /* SceneDelegate.swift in Sources */,
+				94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */,
+				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
+				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -258,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -275,6 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49V2NFTYLV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -302,6 +403,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49V2NFTYLV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -344,6 +446,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94D21560288F293F00DFE786 /* XCRemoteSwiftPackageReference "BabyNet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/4440449/BabyNet";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94D21561288F293F00DFE786 /* BabyNet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94D21560288F293F00DFE786 /* XCRemoteSwiftPackageReference "BabyNet" */;
+			productName = BabyNet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 263836AE288C1EDB00EA4353 /* Project object */;
 }
