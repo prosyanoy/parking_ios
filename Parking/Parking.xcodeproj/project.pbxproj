@@ -142,8 +142,8 @@
 		94D21555288F285E00DFE786 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
-				94D21556288F285E00DFE786 /* Network */,
 				94D2155A288F285E00DFE786 /* ParkingRepository.swift */,
+				94D21556288F285E00DFE786 /* Network */,
 			);
 			path = Parking;
 			sourceTree = "<group>";
