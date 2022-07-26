@@ -12,6 +12,17 @@
 		263836BE288C1EDB00EA4353 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263836BD288C1EDB00EA4353 /* ViewController.swift */; };
 		263836C3288C1EDD00EA4353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263836C2288C1EDD00EA4353 /* Assets.xcassets */; };
 		263836C6288C1EDD00EA4353 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */; };
+		9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3C28900773002B1C12 /* MainMapViewController.swift */; };
+		9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */; };
+		9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */; };
+		9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */; };
+		9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4428900855002B1C12 /* OrderSheetAnimator.swift */; };
+		9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF49289032A9002B1C12 /* ScaleButton.swift */; };
+		9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4C28906ADF002B1C12 /* MainMapViewModel.swift */; };
+		9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */; };
+		9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF5228906B33002B1C12 /* MainMapRouter.swift */; };
+		9408FF5728906C89002B1C12 /* MommysEye in Frameworks */ = {isa = PBXBuildFile; productRef = 9408FF5628906C89002B1C12 /* MommysEye */; };
+		9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */; };
 		94D2155B288F285E00DFE786 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21550288F285E00DFE786 /* Parking.swift */; };
 		94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21552288F285E00DFE786 /* ParkingGateway.swift */; };
 		94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */; };
@@ -30,6 +41,16 @@
 		263836C2288C1EDD00EA4353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		263836C5288C1EDD00EA4353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		263836C7288C1EDD00EA4353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9408FF3C28900773002B1C12 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
+		9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheetViewController.swift; sourceTree = "<group>"; };
+		9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetTransitionDelegate.swift; sourceTree = "<group>"; };
+		9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetPresentationViewController.swift; sourceTree = "<group>"; };
+		9408FF4428900855002B1C12 /* OrderSheetAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetAnimator.swift; sourceTree = "<group>"; };
+		9408FF49289032A9002B1C12 /* ScaleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButton.swift; sourceTree = "<group>"; };
+		9408FF4C28906ADF002B1C12 /* MainMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewModel.swift; sourceTree = "<group>"; };
+		9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapConfigurator.swift; sourceTree = "<group>"; };
+		9408FF5228906B33002B1C12 /* MainMapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapRouter.swift; sourceTree = "<group>"; };
+		9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfiguratorProtocol.swift; sourceTree = "<group>"; };
 		94D21550288F285E00DFE786 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		94D21552288F285E00DFE786 /* ParkingGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingGateway.swift; sourceTree = "<group>"; };
 		94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkEntity.swift; sourceTree = "<group>"; };
@@ -42,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9408FF5728906C89002B1C12 /* MommysEye in Frameworks */,
 				94D21562288F293F00DFE786 /* BabyNet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,11 +105,101 @@
 				263836BD288C1EDB00EA4353 /* ViewController.swift */,
 				94D2154D288F285E00DFE786 /* Domain */,
 				94D21553288F285E00DFE786 /* Data */,
+				9408FF39289006FB002B1C12 /* Scenes */,
 				263836C2288C1EDD00EA4353 /* Assets.xcassets */,
 				263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */,
 				263836C7288C1EDD00EA4353 /* Info.plist */,
 			);
 			path = Parking;
+			sourceTree = "<group>";
+		};
+		9408FF39289006FB002B1C12 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF3A28900717002B1C12 /* MainMap */,
+				9408FF40289007F9002B1C12 /* OrderSheet */,
+				9408FF4B289032BB002B1C12 /* Infrastructure */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9408FF3A28900717002B1C12 /* MainMap */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF5128906B1D002B1C12 /* Configurator */,
+				9408FF3B2890072C002B1C12 /* View */,
+				9408FF4E28906AE3002B1C12 /* ViewModel */,
+				9408FF5428906B36002B1C12 /* MainMapRouter */,
+			);
+			path = MainMap;
+			sourceTree = "<group>";
+		};
+		9408FF3B2890072C002B1C12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF3C28900773002B1C12 /* MainMapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9408FF40289007F9002B1C12 /* OrderSheet */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF4128900804002B1C12 /* View */,
+			);
+			path = OrderSheet;
+			sourceTree = "<group>";
+		};
+		9408FF4128900804002B1C12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */,
+				9408FF482890085B002B1C12 /* TransitionDelegate */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9408FF482890085B002B1C12 /* TransitionDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF4428900855002B1C12 /* OrderSheetAnimator.swift */,
+				9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */,
+				9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */,
+			);
+			path = TransitionDelegate;
+			sourceTree = "<group>";
+		};
+		9408FF4B289032BB002B1C12 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF49289032A9002B1C12 /* ScaleButton.swift */,
+				9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		9408FF4E28906AE3002B1C12 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF4C28906ADF002B1C12 /* MainMapViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9408FF5128906B1D002B1C12 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		9408FF5428906B36002B1C12 /* MainMapRouter */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF5228906B33002B1C12 /* MainMapRouter.swift */,
+			);
+			path = MainMapRouter;
 			sourceTree = "<group>";
 		};
 		94D2154D288F285E00DFE786 /* Domain */ = {
@@ -185,6 +297,7 @@
 			name = Parking;
 			packageProductDependencies = (
 				94D21561288F293F00DFE786 /* BabyNet */,
+				9408FF5628906C89002B1C12 /* MommysEye */,
 			);
 			productName = Parking;
 			productReference = 263836B6288C1EDB00EA4353 /* Parking.app */;
@@ -216,6 +329,7 @@
 			mainGroup = 263836AD288C1EDB00EA4353;
 			packageReferences = (
 				94D21560288F293F00DFE786 /* XCRemoteSwiftPackageReference "BabyNet" */,
+				9408FF5528906C89002B1C12 /* XCRemoteSwiftPackageReference "MommysEye" */,
 			);
 			productRefGroup = 263836B7288C1EDB00EA4353 /* Products */;
 			projectDirPath = "";
@@ -286,13 +400,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
+				9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */,
 				263836BE288C1EDB00EA4353 /* ViewController.swift in Sources */,
+				9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */,
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
 				94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */,
+				9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */,
+				9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */,
 				263836BC288C1EDB00EA4353 /* SceneDelegate.swift in Sources */,
 				94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */,
+				9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */,
+				9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */,
+				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
+				9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
+				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
 				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
+				9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +630,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9408FF5528906C89002B1C12 /* XCRemoteSwiftPackageReference "MommysEye" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/4440449/MommysEye";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		94D21560288F293F00DFE786 /* XCRemoteSwiftPackageReference "BabyNet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/4440449/BabyNet";
@@ -517,6 +649,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9408FF5628906C89002B1C12 /* MommysEye */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9408FF5528906C89002B1C12 /* XCRemoteSwiftPackageReference "MommysEye" */;
+			productName = MommysEye;
+		};
 		94D21561288F293F00DFE786 /* BabyNet */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 94D21560288F293F00DFE786 /* XCRemoteSwiftPackageReference "BabyNet" */;
