@@ -29,7 +29,7 @@
 		94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */; };
 		94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2155A288F285E00DFE786 /* ParkingRepository.swift */; };
 		94D21562288F293F00DFE786 /* BabyNet in Frameworks */ = {isa = PBXBuildFile; productRef = 94D21561288F293F00DFE786 /* BabyNet */; };
-		D87A3383834F2786F4D1F3E3 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
+		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +41,7 @@
 		263836C2288C1EDD00EA4353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		263836C5288C1EDD00EA4353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		263836C7288C1EDD00EA4353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D33C7897C19DB274E75BBA0 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
 		9408FF3C28900773002B1C12 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
 		9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheetViewController.swift; sourceTree = "<group>"; };
 		9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetTransitionDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkEntity.swift; sourceTree = "<group>"; };
 		94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkRepository.swift; sourceTree = "<group>"; };
 		94D2155A288F285E00DFE786 /* ParkingRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRepository.swift; sourceTree = "<group>"; };
+		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			files = (
 				9408FF5728906C89002B1C12 /* MommysEye in Frameworks */,
 				94D21562288F293F00DFE786 /* BabyNet in Frameworks */,
+				C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,8 +87,8 @@
 			children = (
 				263836B8288C1EDB00EA4353 /* Parking */,
 				263836B7288C1EDB00EA4353 /* Products */,
-				3F8251EBE229D710A580D6D2 /* Pods */,
 				0E6DE7E6314E1890555D5490 /* Frameworks */,
+				70132BFEC5A13D73BE9433FB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,12 +108,21 @@
 				263836BD288C1EDB00EA4353 /* ViewController.swift */,
 				94D2154D288F285E00DFE786 /* Domain */,
 				94D21553288F285E00DFE786 /* Data */,
-				9408FF39289006FB002B1C12 /* Scenes */,
+				9468EEF72891488B0098DD98 /* Presentation */,
 				263836C2288C1EDD00EA4353 /* Assets.xcassets */,
 				263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */,
 				263836C7288C1EDD00EA4353 /* Info.plist */,
 			);
 			path = Parking;
+			sourceTree = "<group>";
+		};
+		70132BFEC5A13D73BE9433FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */,
+				2D33C7897C19DB274E75BBA0 /* Pods-Parking.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		9408FF39289006FB002B1C12 /* Scenes */ = {
@@ -200,6 +212,14 @@
 				9408FF5228906B33002B1C12 /* MainMapRouter.swift */,
 			);
 			path = MainMapRouter;
+			sourceTree = "<group>";
+		};
+		9468EEF72891488B0098DD98 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF39289006FB002B1C12 /* Scenes */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		94D2154D288F285E00DFE786 /* Domain */ = {
@@ -550,7 +570,7 @@
 		};
 		263836CB288C1EDD00EA4353 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E4D8C9582E13AB78C0AC51A /* Pods-Parking.debug.xcconfig */;
+			baseConfigurationReference = A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -579,7 +599,7 @@
 		};
 		263836CC288C1EDD00EA4353 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3F66521B2E52FB2EE8B4D0D /* Pods-Parking.release.xcconfig */;
+			baseConfigurationReference = 2D33C7897C19DB274E75BBA0 /* Pods-Parking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
