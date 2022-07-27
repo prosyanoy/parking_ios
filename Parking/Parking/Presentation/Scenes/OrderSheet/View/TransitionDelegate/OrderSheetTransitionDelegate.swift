@@ -1,0 +1,27 @@
+//
+//  OrderSheetTransitionDelegate.swift
+//  Parking
+//
+//  Created by Maxim on 26.07.2022.
+//
+
+import UIKit
+
+
+final class OrderSheetTransitionDelegate: NSObject,
+                                     UIViewControllerTransitioningDelegate {
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return OrderSheetPresentationViewController(presentedViewController: presented,
+                                               presenting: presenting ?? source)
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return OrderSheetPresentAnimator()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return OrderSheetDismissAnimator()
+    }
+    
+}

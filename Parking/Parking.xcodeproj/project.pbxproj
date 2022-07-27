@@ -12,7 +12,24 @@
 		263836BE288C1EDB00EA4353 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263836BD288C1EDB00EA4353 /* ViewController.swift */; };
 		263836C3288C1EDD00EA4353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263836C2288C1EDD00EA4353 /* Assets.xcassets */; };
 		263836C6288C1EDD00EA4353 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */; };
-		D87A3383834F2786F4D1F3E3 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
+		9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3C28900773002B1C12 /* MainMapViewController.swift */; };
+		9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */; };
+		9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */; };
+		9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */; };
+		9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4428900855002B1C12 /* OrderSheetAnimator.swift */; };
+		9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF49289032A9002B1C12 /* ScaleButton.swift */; };
+		9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4C28906ADF002B1C12 /* MainMapViewModel.swift */; };
+		9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */; };
+		9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF5228906B33002B1C12 /* MainMapRouter.swift */; };
+		9408FF5728906C89002B1C12 /* MommysEye in Frameworks */ = {isa = PBXBuildFile; productRef = 9408FF5628906C89002B1C12 /* MommysEye */; };
+		9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */; };
+		94D2155B288F285E00DFE786 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21550288F285E00DFE786 /* Parking.swift */; };
+		94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21552288F285E00DFE786 /* ParkingGateway.swift */; };
+		94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */; };
+		94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */; };
+		94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2155A288F285E00DFE786 /* ParkingRepository.swift */; };
+		94D21562288F293F00DFE786 /* BabyNet in Frameworks */ = {isa = PBXBuildFile; productRef = 94D21561288F293F00DFE786 /* BabyNet */; };
+		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +41,23 @@
 		263836C2288C1EDD00EA4353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		263836C5288C1EDD00EA4353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		263836C7288C1EDD00EA4353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E4D8C9582E13AB78C0AC51A /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
-		F3F66521B2E52FB2EE8B4D0D /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
+		2D33C7897C19DB274E75BBA0 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
+		9408FF3C28900773002B1C12 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
+		9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheetViewController.swift; sourceTree = "<group>"; };
+		9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetTransitionDelegate.swift; sourceTree = "<group>"; };
+		9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetPresentationViewController.swift; sourceTree = "<group>"; };
+		9408FF4428900855002B1C12 /* OrderSheetAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetAnimator.swift; sourceTree = "<group>"; };
+		9408FF49289032A9002B1C12 /* ScaleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButton.swift; sourceTree = "<group>"; };
+		9408FF4C28906ADF002B1C12 /* MainMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewModel.swift; sourceTree = "<group>"; };
+		9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapConfigurator.swift; sourceTree = "<group>"; };
+		9408FF5228906B33002B1C12 /* MainMapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapRouter.swift; sourceTree = "<group>"; };
+		9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfiguratorProtocol.swift; sourceTree = "<group>"; };
+		94D21550288F285E00DFE786 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		94D21552288F285E00DFE786 /* ParkingGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingGateway.swift; sourceTree = "<group>"; };
+		94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkEntity.swift; sourceTree = "<group>"; };
+		94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkRepository.swift; sourceTree = "<group>"; };
+		94D2155A288F285E00DFE786 /* ParkingRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRepository.swift; sourceTree = "<group>"; };
+		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D87A3383834F2786F4D1F3E3 /* Pods_Parking.framework in Frameworks */,
+				9408FF5728906C89002B1C12 /* MommysEye in Frameworks */,
+				94D21562288F293F00DFE786 /* BabyNet in Frameworks */,
+				C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,8 +87,8 @@
 			children = (
 				263836B8288C1EDB00EA4353 /* Parking */,
 				263836B7288C1EDB00EA4353 /* Products */,
-				3F8251EBE229D710A580D6D2 /* Pods */,
 				0E6DE7E6314E1890555D5490 /* Frameworks */,
+				70132BFEC5A13D73BE9433FB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +106,9 @@
 				263836B9288C1EDB00EA4353 /* AppDelegate.swift */,
 				263836BB288C1EDB00EA4353 /* SceneDelegate.swift */,
 				263836BD288C1EDB00EA4353 /* ViewController.swift */,
+				94D2154D288F285E00DFE786 /* Domain */,
+				94D21553288F285E00DFE786 /* Data */,
+				9468EEF72891488B0098DD98 /* Presentation */,
 				263836C2288C1EDD00EA4353 /* Assets.xcassets */,
 				263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */,
 				263836C7288C1EDD00EA4353 /* Info.plist */,
@@ -79,14 +116,185 @@
 			path = Parking;
 			sourceTree = "<group>";
 		};
-		3F8251EBE229D710A580D6D2 /* Pods */ = {
+		70132BFEC5A13D73BE9433FB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7E4D8C9582E13AB78C0AC51A /* Pods-Parking.debug.xcconfig */,
-				F3F66521B2E52FB2EE8B4D0D /* Pods-Parking.release.xcconfig */,
+				A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */,
+				2D33C7897C19DB274E75BBA0 /* Pods-Parking.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9408FF39289006FB002B1C12 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF3A28900717002B1C12 /* MainMap */,
+				9408FF40289007F9002B1C12 /* OrderSheet */,
+				9408FF4B289032BB002B1C12 /* Infrastructure */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9408FF3A28900717002B1C12 /* MainMap */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF5128906B1D002B1C12 /* Configurator */,
+				9408FF3B2890072C002B1C12 /* View */,
+				9408FF4E28906AE3002B1C12 /* ViewModel */,
+				9408FF5428906B36002B1C12 /* MainMapRouter */,
+			);
+			path = MainMap;
+			sourceTree = "<group>";
+		};
+		9408FF3B2890072C002B1C12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF3C28900773002B1C12 /* MainMapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9408FF40289007F9002B1C12 /* OrderSheet */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF4128900804002B1C12 /* View */,
+			);
+			path = OrderSheet;
+			sourceTree = "<group>";
+		};
+		9408FF4128900804002B1C12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */,
+				9408FF482890085B002B1C12 /* TransitionDelegate */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9408FF482890085B002B1C12 /* TransitionDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF4428900855002B1C12 /* OrderSheetAnimator.swift */,
+				9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */,
+				9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */,
+			);
+			path = TransitionDelegate;
+			sourceTree = "<group>";
+		};
+		9408FF4B289032BB002B1C12 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF49289032A9002B1C12 /* ScaleButton.swift */,
+				9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		9408FF4E28906AE3002B1C12 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF4C28906ADF002B1C12 /* MainMapViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9408FF5128906B1D002B1C12 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		9408FF5428906B36002B1C12 /* MainMapRouter */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF5228906B33002B1C12 /* MainMapRouter.swift */,
+			);
+			path = MainMapRouter;
+			sourceTree = "<group>";
+		};
+		9468EEF72891488B0098DD98 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9408FF39289006FB002B1C12 /* Scenes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		94D2154D288F285E00DFE786 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				94D2154E288F285E00DFE786 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		94D2154E288F285E00DFE786 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				94D2154F288F285E00DFE786 /* Parking */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		94D2154F288F285E00DFE786 /* Parking */ = {
+			isa = PBXGroup;
+			children = (
+				94D21550288F285E00DFE786 /* Parking.swift */,
+				94D21551288F285E00DFE786 /* Gateway */,
+			);
+			path = Parking;
+			sourceTree = "<group>";
+		};
+		94D21551288F285E00DFE786 /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				94D21552288F285E00DFE786 /* ParkingGateway.swift */,
+			);
+			path = Gateway;
+			sourceTree = "<group>";
+		};
+		94D21553288F285E00DFE786 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				94D21554288F285E00DFE786 /* Gateways */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		94D21554288F285E00DFE786 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				94D21555288F285E00DFE786 /* Parking */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		94D21555288F285E00DFE786 /* Parking */ = {
+			isa = PBXGroup;
+			children = (
+				94D2155A288F285E00DFE786 /* ParkingRepository.swift */,
+				94D21556288F285E00DFE786 /* Network */,
+			);
+			path = Parking;
+			sourceTree = "<group>";
+		};
+		94D21556288F285E00DFE786 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				94D21557288F285E00DFE786 /* Entity */,
+				94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		94D21557288F285E00DFE786 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +315,10 @@
 			dependencies = (
 			);
 			name = Parking;
+			packageProductDependencies = (
+				94D21561288F293F00DFE786 /* BabyNet */,
+				9408FF5628906C89002B1C12 /* MommysEye */,
+			);
 			productName = Parking;
 			productReference = 263836B6288C1EDB00EA4353 /* Parking.app */;
 			productType = "com.apple.product-type.application";
@@ -135,6 +347,10 @@
 				Base,
 			);
 			mainGroup = 263836AD288C1EDB00EA4353;
+			packageReferences = (
+				94D21560288F293F00DFE786 /* XCRemoteSwiftPackageReference "BabyNet" */,
+				9408FF5528906C89002B1C12 /* XCRemoteSwiftPackageReference "MommysEye" */,
+			);
 			productRefGroup = 263836B7288C1EDB00EA4353 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -203,9 +419,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
+				9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */,
 				263836BE288C1EDB00EA4353 /* ViewController.swift in Sources */,
+				9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */,
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
+				94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */,
+				9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */,
+				9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */,
 				263836BC288C1EDB00EA4353 /* SceneDelegate.swift in Sources */,
+				94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */,
+				9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */,
+				9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */,
+				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
+				9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */,
+				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
+				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
+				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
+				9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -327,7 +558,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -339,12 +570,13 @@
 		};
 		263836CB288C1EDD00EA4353 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E4D8C9582E13AB78C0AC51A /* Pods-Parking.debug.xcconfig */;
+			baseConfigurationReference = A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49V2NFTYLV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -367,12 +599,13 @@
 		};
 		263836CC288C1EDD00EA4353 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3F66521B2E52FB2EE8B4D0D /* Pods-Parking.release.xcconfig */;
+			baseConfigurationReference = 2D33C7897C19DB274E75BBA0 /* Pods-Parking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49V2NFTYLV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -415,6 +648,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9408FF5528906C89002B1C12 /* XCRemoteSwiftPackageReference "MommysEye" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/4440449/MommysEye";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		94D21560288F293F00DFE786 /* XCRemoteSwiftPackageReference "BabyNet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/4440449/BabyNet";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9408FF5628906C89002B1C12 /* MommysEye */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9408FF5528906C89002B1C12 /* XCRemoteSwiftPackageReference "MommysEye" */;
+			productName = MommysEye;
+		};
+		94D21561288F293F00DFE786 /* BabyNet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94D21560288F293F00DFE786 /* XCRemoteSwiftPackageReference "BabyNet" */;
+			productName = BabyNet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 263836AE288C1EDB00EA4353 /* Project object */;
 }
