@@ -17,9 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 		window = UIWindow(windowScene: scene)
 		window?.makeKeyAndVisible()
-
-		let mapView = YMKMapView(frame: .zero, vulkanPreferred: true) ?? YMKMapView()
-		window?.rootViewController = ViewController(mapView: mapView)
+		window?.rootViewController = MainMapConfigurator.configure()
 	}
 
 	func sceneDidDisconnect(_ scene: UIScene) {
