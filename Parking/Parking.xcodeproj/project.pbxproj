@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263836B9288C1EDB00EA4353 /* AppDelegate.swift */; };
 		263836BC288C1EDB00EA4353 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263836BB288C1EDB00EA4353 /* SceneDelegate.swift */; };
-		263836BE288C1EDB00EA4353 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263836BD288C1EDB00EA4353 /* ViewController.swift */; };
 		263836C3288C1EDD00EA4353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263836C2288C1EDD00EA4353 /* Assets.xcassets */; };
 		263836C6288C1EDD00EA4353 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */; };
+		267D55E0289286E2007AA452 /* MapButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D55DF289286E2007AA452 /* MapButtonsView.swift */; };
+		267D55E22892BB87007AA452 /* CashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D55E12892BB87007AA452 /* CashView.swift */; };
 		9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3C28900773002B1C12 /* MainMapViewController.swift */; };
 		9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */; };
 		9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */; };
@@ -37,10 +38,11 @@
 		263836B6288C1EDB00EA4353 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		263836B9288C1EDB00EA4353 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		263836BB288C1EDB00EA4353 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		263836BD288C1EDB00EA4353 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		263836C2288C1EDD00EA4353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		263836C5288C1EDD00EA4353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		263836C7288C1EDD00EA4353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		267D55DF289286E2007AA452 /* MapButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonsView.swift; sourceTree = "<group>"; };
+		267D55E12892BB87007AA452 /* CashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashView.swift; sourceTree = "<group>"; };
 		2D33C7897C19DB274E75BBA0 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
 		9408FF3C28900773002B1C12 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
 		9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheetViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +107,6 @@
 			children = (
 				263836B9288C1EDB00EA4353 /* AppDelegate.swift */,
 				263836BB288C1EDB00EA4353 /* SceneDelegate.swift */,
-				263836BD288C1EDB00EA4353 /* ViewController.swift */,
 				94D2154D288F285E00DFE786 /* Domain */,
 				94D21553288F285E00DFE786 /* Data */,
 				9468EEF72891488B0098DD98 /* Presentation */,
@@ -114,6 +115,23 @@
 				263836C7288C1EDD00EA4353 /* Info.plist */,
 			);
 			path = Parking;
+			sourceTree = "<group>";
+		};
+		267D55DD2892868F007AA452 /* MapButtonsLayer */ = {
+			isa = PBXGroup;
+			children = (
+				267D55DE289286A9007AA452 /* View */,
+			);
+			path = MapButtonsLayer;
+			sourceTree = "<group>";
+		};
+		267D55DE289286A9007AA452 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				267D55DF289286E2007AA452 /* MapButtonsView.swift */,
+				267D55E12892BB87007AA452 /* CashView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		70132BFEC5A13D73BE9433FB /* Pods */ = {
@@ -129,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				9408FF3A28900717002B1C12 /* MainMap */,
+				267D55DD2892868F007AA452 /* MapButtonsLayer */,
 				9408FF40289007F9002B1C12 /* OrderSheet */,
 				9408FF4B289032BB002B1C12 /* Infrastructure */,
 			);
@@ -283,8 +302,8 @@
 		94D21556288F285E00DFE786 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				94D21557288F285E00DFE786 /* Entity */,
 				94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */,
+				94D21557288F285E00DFE786 /* Entity */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -421,7 +440,6 @@
 			files = (
 				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
 				9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */,
-				263836BE288C1EDB00EA4353 /* ViewController.swift in Sources */,
 				9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */,
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
 				94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */,
@@ -434,7 +452,9 @@
 				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
 				9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
+				267D55E22892BB87007AA452 /* CashView.swift in Sources */,
 				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
+				267D55E0289286E2007AA452 /* MapButtonsView.swift in Sources */,
 				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
 				9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */,
 			);
@@ -576,9 +596,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 49V2NFTYLV;
+				DEVELOPMENT_TEAM = 7LV5WFLC5J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -589,7 +610,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.prosyanoy.Parking;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.prosyanoy.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -605,9 +626,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 49V2NFTYLV;
+				DEVELOPMENT_TEAM = 7LV5WFLC5J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -618,7 +640,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.prosyanoy.Parking;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.prosyanoy.Parking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

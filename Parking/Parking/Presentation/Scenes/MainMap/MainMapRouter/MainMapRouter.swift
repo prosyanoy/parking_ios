@@ -32,9 +32,11 @@ final class MainMapRouter: MainMapRouterProtocol {
 
     func parkingButtonTapped() {
         let transitionDelegate = OrderSheetTransitionDelegate()
-        let orderVC = OrderSheetViewController(transitionDelegate: transitionDelegate,
-                                               nibName: nil,
-                                               bundle: nil)
+        let orderVC = OrderSheetViewController(
+			transitionDelegate: transitionDelegate,
+			nibName: nil,
+			bundle: nil
+		)
         orderVC.modalPresentationStyle = .custom
         orderVC.transitioningDelegate = transitionDelegate
         navigationContainer.present(orderVC, animated: true,
