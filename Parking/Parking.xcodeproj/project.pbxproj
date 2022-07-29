@@ -11,6 +11,7 @@
 		263836BC288C1EDB00EA4353 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263836BB288C1EDB00EA4353 /* SceneDelegate.swift */; };
 		263836C3288C1EDD00EA4353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263836C2288C1EDD00EA4353 /* Assets.xcassets */; };
 		263836C6288C1EDD00EA4353 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */; };
+		2668D8FD2893E2F00034BDA0 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2668D8FC2893E2F00034BDA0 /* Keys.plist */; };
 		267D55E0289286E2007AA452 /* MapButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D55DF289286E2007AA452 /* MapButtonsView.swift */; };
 		267D55E22892BB87007AA452 /* CashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D55E12892BB87007AA452 /* CashView.swift */; };
 		9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3C28900773002B1C12 /* MainMapViewController.swift */; };
@@ -41,6 +42,7 @@
 		263836C2288C1EDD00EA4353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		263836C5288C1EDD00EA4353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		263836C7288C1EDD00EA4353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2668D8FC2893E2F00034BDA0 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		267D55DF289286E2007AA452 /* MapButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonsView.swift; sourceTree = "<group>"; };
 		267D55E12892BB87007AA452 /* CashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashView.swift; sourceTree = "<group>"; };
 		2D33C7897C19DB274E75BBA0 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,16 +107,25 @@
 		263836B8288C1EDB00EA4353 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
-				263836B9288C1EDB00EA4353 /* AppDelegate.swift */,
-				263836BB288C1EDB00EA4353 /* SceneDelegate.swift */,
+				2668D8FE2893EAF70034BDA0 /* Support Files */,
 				94D2154D288F285E00DFE786 /* Domain */,
 				94D21553288F285E00DFE786 /* Data */,
 				9468EEF72891488B0098DD98 /* Presentation */,
 				263836C2288C1EDD00EA4353 /* Assets.xcassets */,
 				263836C4288C1EDD00EA4353 /* LaunchScreen.storyboard */,
+				2668D8FC2893E2F00034BDA0 /* Keys.plist */,
 				263836C7288C1EDD00EA4353 /* Info.plist */,
 			);
 			path = Parking;
+			sourceTree = "<group>";
+		};
+		2668D8FE2893EAF70034BDA0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				263836B9288C1EDB00EA4353 /* AppDelegate.swift */,
+				263836BB288C1EDB00EA4353 /* SceneDelegate.swift */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 		267D55DD2892868F007AA452 /* MapButtonsLayer */ = {
@@ -384,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2668D8FD2893E2F00034BDA0 /* Keys.plist in Resources */,
 				263836C6288C1EDD00EA4353 /* LaunchScreen.storyboard in Resources */,
 				263836C3288C1EDD00EA4353 /* Assets.xcassets in Resources */,
 			);
