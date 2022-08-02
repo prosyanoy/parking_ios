@@ -9,15 +9,22 @@ import Foundation
 import MommysEye
 
 
+protocol MainMapDrawerDataSource: AnyObject {
+    var parkings: Publisher<[Parking]> { get }
+    func onParkingObjectTapped(parking: Parking,
+                               dismissOrderSheetCallback: @escaping () -> Void)
+}
 
 protocol MainMapViewModelProtocol {
     func viewDidLoad()
     func parkingButtonTapped()
+    //    func onParkingObjectTapped(parking: Parking)
     var parkings: Publisher<[Parking]> { get }
 }
 
 
-final class MainMapViewModel: MainMapViewModelProtocol {
+final class MainMapViewModel: MainMapViewModelProtocol,
+                              MainMapDrawerDataSource {
     
     // MARK: - Dependencies
     
@@ -26,7 +33,7 @@ final class MainMapViewModel: MainMapViewModelProtocol {
     
     
     // MARK: - Init
-
+    
     init(parkingRepository: ParkingGateway,
          router: MainMapRouterProtocol) {
         self.parkingRepository = parkingRepository
@@ -41,6 +48,23 @@ final class MainMapViewModel: MainMapViewModelProtocol {
     // MARK: - Interface
     
     func viewDidLoad() {
+        loadInititalState()
+    }
+    
+    func parkingButtonTapped() {
+        router.parkingButtonTapped()
+    }
+    
+    func onParkingObjectTapped(parking: Parking,
+                               dismissOrderSheetCallback: @escaping () -> Void) {
+        router.parkingButtonTapped(parking: parking,
+                                   dismissOrderSheetCallback)
+    }
+    
+    
+    // MARK: - Private
+    
+    private func loadInititalState() {
         let _ = Task {
             do {
                 let parkings = try await parkingRepository.fetch()
@@ -49,10 +73,6 @@ final class MainMapViewModel: MainMapViewModelProtocol {
                 
             }
         }
-    }
-    
-    func parkingButtonTapped() {
-        router.parkingButtonTapped()
     }
     
     

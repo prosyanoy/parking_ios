@@ -27,18 +27,22 @@ final class OrderSheetPresentationViewController: UIPresentationController {
     @objc private func dimmViewdidTap() {
         // Тап по карте - скрыть Bottom sheet до минимального значения (medium)
         // Как в Яндекс картах
-        toMediumSheetAnimate()
+        presentedViewController.dismiss(animated: true,
+                                        completion: nil)
+//        toMediumSheetAnimate()
     }
     
     @objc private func dimmViewdidPan(_ recognizer: UIPanGestureRecognizer) {
         // Свайп по карте - скрыть Bottom sheet до минимального значения (medium)
         // Как в Яндекс картах
-        switch recognizer.state {
-        case .began:
-            toMediumSheetAnimate()
-        default:
-            return
-        }
+        presentedViewController.dismiss(animated: true,
+                                        completion: nil)
+//        switch recognizer.state {
+//        case .began:
+//            toMediumSheetAnimate()
+//        default:
+//            return
+//        }
     }
     
     

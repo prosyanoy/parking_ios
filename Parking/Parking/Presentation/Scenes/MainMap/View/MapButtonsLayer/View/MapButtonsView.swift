@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class MapButtonsView: UIView {
+    
 	private let menuButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false

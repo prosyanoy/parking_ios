@@ -13,19 +13,23 @@ final class MainMapViewController: UIViewController {
     // MARK: - Dependencies
     
     private let viewModel: MainMapViewModelProtocol
-	private let mapView: YMKMapView
-	private let mapButtonsLayer: MapButtonsView
+    private let mapButtonsLayer: MapButtonsView
+    private let mapView: YMKMapView
+    private let yMapDrawer: MainMapYMKDrawerProtocol
+
     
     // MARK: - Init
     
     init(viewModel: MainMapViewModelProtocol,
+         mapButtons: MapButtonsView,
 		 mapView: YMKMapView,
-		 mapButtons: MapButtonsView,
+         yMapDrawer: MainMapYMKDrawerProtocol,
          nibName nibNameOrNil: String?,
          bundle nibBundleOrNil: Bundle?) {
+        self.mapButtonsLayer = mapButtons
         self.viewModel = viewModel
-		self.mapView = mapView
-		self.mapButtonsLayer = mapButtons
+        self.mapView = mapView
+        self.yMapDrawer = yMapDrawer
         super.init(nibName: nibNameOrNil,
                    bundle: nibBundleOrNil)
     }
@@ -39,9 +43,10 @@ final class MainMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-		setupMapView()
+        yMapDrawer.setupYMapView(userGeo: nil)
         setupLayout()
+        setupObservers()
+        viewModel.viewDidLoad()
     }
 
 	override func viewDidLayoutSubviews() {
@@ -72,15 +77,6 @@ final class MainMapViewController: UIViewController {
     @objc private func parkingButtonTapped() {
         viewModel.parkingButtonTapped()
     }
-
-	private func setupMapView() {
-		let mapTarget = YMKPoint(latitude: 55.751574, longitude: 37.573856)
-		mapView.mapWindow.map.move(
-			with: YMKCameraPosition.init(target: mapTarget, zoom: 15, azimuth: 0, tilt: 0),
-			animationType: YMKAnimation(type: YMKAnimationType.smooth, duration: 5),
-			cameraCallback: nil
-		)
-	}
 
     private func setupLayout() {
 		mapView.translatesAutoresizingMaskIntoConstraints = false

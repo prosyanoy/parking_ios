@@ -9,6 +9,7 @@ import BabyNet
 import UIKit
 import YandexMapsMobile
 
+
 final class MainMapConfigurator: SceneConfiguratorProtocol_CN {
     
     static func configure() -> UIViewController {
@@ -18,19 +19,18 @@ final class MainMapConfigurator: SceneConfiguratorProtocol_CN {
         let navigationContainer = UINavigationController()
         navigationContainer.navigationBar.isHidden = true
         let router = MainMapRouter(navigationContainer: navigationContainer)
-        let viewModel = MainMapViewModel(
-			parkingRepository: parkingRepository,
-			router: router
-		)
-		let mapView = YMKMapView(frame: .zero, vulkanPreferred: true) ?? YMKMapView()
-		let mapButtonsLayer = MapButtonsView()
-        let mapVC = MainMapViewController(
-			viewModel: viewModel,
-			mapView: mapView,
-			mapButtons: mapButtonsLayer,
-			nibName: nil,
-			bundle: nil
-		)
+        let viewModel = MainMapViewModel(parkingRepository: parkingRepository,
+                                         router: router)
+        let mapView = YMKMapView(frame: .zero, vulkanPreferred: true) ?? YMKMapView()
+        let yMapDrawer = MainMapYMKDrawer(mapView: mapView,
+                                          yMapDataSource: viewModel)
+        let mapButtonsLayer = MapButtonsView()
+        let mapVC = MainMapViewController(viewModel: viewModel,
+                                          mapButtons: mapButtonsLayer,
+                                          mapView: mapView,
+                                          yMapDrawer: yMapDrawer,
+                                          nibName: nil,
+                                          bundle: nil)
         navigationContainer.viewControllers = [mapVC]
         return navigationContainer
     }

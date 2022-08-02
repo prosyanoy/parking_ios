@@ -12,10 +12,17 @@ final class OrderSheetViewController: UIViewController {
     
     private let transitionDelegate: UIViewControllerTransitioningDelegate
     
+    private let parking: Parking
+    private let dismissOrderSheetCallback: () -> Void
+    
     init(transitionDelegate: UIViewControllerTransitioningDelegate,
+         parking: Parking,
+         dismissOrderSheetCallback: @escaping () -> Void,
          nibName nibNameOrNil: String?,
          bundle nibBundleOrNil: Bundle?) {
         self.transitionDelegate = transitionDelegate
+        self.parking = parking
+        self.dismissOrderSheetCallback = dismissOrderSheetCallback
         super.init(nibName: nibNameOrNil,
                    bundle: nibBundleOrNil)
     }
@@ -34,6 +41,7 @@ final class OrderSheetViewController: UIViewController {
         view.backgroundColor = .white
         view.layer.cornerRadius = 14
         setupLayout()
+        setuplabels(parking: parking)
     }
     
     private lazy var dismissButton: UIButton = {
@@ -130,8 +138,18 @@ final class OrderSheetViewController: UIViewController {
         payButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         payButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
+    
+    
+    private func setuplabels(parking: Parking) {
+        priceLabel.text = "Стоимость парковки:  \(String(parking.hourCost))"
+        adressLabel.text = "Адрес парковки: \(parking.adress)"
+    }
+    
+    deinit {
+        dismissOrderSheetCallback()
+        print("Order Sheet is deinit")
+    }
 }
-
 
 
 

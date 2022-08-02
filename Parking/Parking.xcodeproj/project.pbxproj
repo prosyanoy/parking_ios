@@ -31,6 +31,10 @@
 		94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */; };
 		94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2155A288F285E00DFE786 /* ParkingRepository.swift */; };
 		94D21562288F293F00DFE786 /* BabyNet in Frameworks */ = {isa = PBXBuildFile; productRef = 94D21561288F293F00DFE786 /* BabyNet */; };
+		94D5770D28995E6400C7F7D3 /* MainMapYMKDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5770C28995E6400C7F7D3 /* MainMapYMKDrawer.swift */; };
+		94D5771128995F0000C7F7D3 /* TextDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5770E28995F0000C7F7D3 /* TextDrawer.swift */; };
+		94D5771228995F0000C7F7D3 /* SelectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5770F28995F0000C7F7D3 /* SelectedState.swift */; };
+		94D5771328995F0000C7F7D3 /* ImageScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5771028995F0000C7F7D3 /* ImageScaler.swift */; };
 		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +65,10 @@
 		94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkEntity.swift; sourceTree = "<group>"; };
 		94D21559288F285E00DFE786 /* ParkingNetworkRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkRepository.swift; sourceTree = "<group>"; };
 		94D2155A288F285E00DFE786 /* ParkingRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRepository.swift; sourceTree = "<group>"; };
+		94D5770C28995E6400C7F7D3 /* MainMapYMKDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMapYMKDrawer.swift; sourceTree = "<group>"; };
+		94D5770E28995F0000C7F7D3 /* TextDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDrawer.swift; sourceTree = "<group>"; };
+		94D5770F28995F0000C7F7D3 /* SelectedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedState.swift; sourceTree = "<group>"; };
+		94D5771028995F0000C7F7D3 /* ImageScaler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScaler.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				9408FF3A28900717002B1C12 /* MainMap */,
-				267D55DD2892868F007AA452 /* MapButtonsLayer */,
 				9408FF40289007F9002B1C12 /* OrderSheet */,
 				9408FF4B289032BB002B1C12 /* Infrastructure */,
 			);
@@ -171,7 +178,7 @@
 				9408FF5128906B1D002B1C12 /* Configurator */,
 				9408FF3B2890072C002B1C12 /* View */,
 				9408FF4E28906AE3002B1C12 /* ViewModel */,
-				9408FF5428906B36002B1C12 /* MainMapRouter */,
+				9408FF5428906B36002B1C12 /* Router */,
 			);
 			path = MainMap;
 			sourceTree = "<group>";
@@ -180,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				9408FF3C28900773002B1C12 /* MainMapViewController.swift */,
+				267D55DD2892868F007AA452 /* MapButtonsLayer */,
+				94D5770B28995E6400C7F7D3 /* YMKDrawer */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +225,9 @@
 			children = (
 				9408FF49289032A9002B1C12 /* ScaleButton.swift */,
 				9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */,
+				94D5771028995F0000C7F7D3 /* ImageScaler.swift */,
+				94D5770F28995F0000C7F7D3 /* SelectedState.swift */,
+				94D5770E28995F0000C7F7D3 /* TextDrawer.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -236,12 +248,12 @@
 			path = Configurator;
 			sourceTree = "<group>";
 		};
-		9408FF5428906B36002B1C12 /* MainMapRouter */ = {
+		9408FF5428906B36002B1C12 /* Router */ = {
 			isa = PBXGroup;
 			children = (
 				9408FF5228906B33002B1C12 /* MainMapRouter.swift */,
 			);
-			path = MainMapRouter;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		9468EEF72891488B0098DD98 /* Presentation */ = {
@@ -325,6 +337,14 @@
 				94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		94D5770B28995E6400C7F7D3 /* YMKDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				94D5770C28995E6400C7F7D3 /* MainMapYMKDrawer.swift */,
+			);
+			path = YMKDrawer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,7 +473,9 @@
 				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
 				9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */,
 				9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */,
+				94D5771328995F0000C7F7D3 /* ImageScaler.swift in Sources */,
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
+				94D5771128995F0000C7F7D3 /* TextDrawer.swift in Sources */,
 				94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */,
 				9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */,
 				9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */,
@@ -461,6 +483,7 @@
 				94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */,
 				9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */,
 				9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */,
+				94D5771228995F0000C7F7D3 /* SelectedState.swift in Sources */,
 				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
 				9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
@@ -468,6 +491,7 @@
 				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
 				267D55E0289286E2007AA452 /* MapButtonsView.swift in Sources */,
 				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
+				94D5770D28995E6400C7F7D3 /* MainMapYMKDrawer.swift in Sources */,
 				9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
