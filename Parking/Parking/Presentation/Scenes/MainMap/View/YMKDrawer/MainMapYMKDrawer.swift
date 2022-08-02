@@ -198,7 +198,7 @@ final class MainMapYMKDrawer: NSObject,
                           y: placemarkYOffset * 1.8,
                           width: placemarkWidth,
                           height: placemarkHeight)
-        let text = "\(Int(parkingCost)) ₽"
+        let text = "\(Int(parkingCost))\u{2006}₽"
         let image = view.drawImageWithText(text: text,
                                            textAttributes: textAtr,
                                            textFrame: rect) ?? UIImage()
