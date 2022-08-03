@@ -150,7 +150,7 @@ final class MainMapYMKDrawer: NSObject,
     // MARK: - CLUSTER
     
     private func drawPlacemarkImage(parkingCost: Float,
-                                    isSelected: SelectedState) -> UIImage {
+                                    isSelected: SelectionState) -> UIImage {
         // Placemark + shadow frame
         let view = UIView(frame: CGRect(x: 0, y: 0,
                                         width: 65, height: 32))
@@ -290,7 +290,7 @@ final class MainMapYMKDrawer: NSObject,
         print(parkingPlacesBindingTable.count)
     }
     
-    private func setColor(polyline: YMKPolylineMapObject, isSelected: SelectedState) {
+    private func setColor(polyline: YMKPolylineMapObject, isSelected: SelectionState) {
         switch isSelected {
         case .selected:
             let color = #colorLiteral(red: 0.2235294118, green: 0.7058823529, blue: 0.1411764706, alpha: 1)
@@ -301,7 +301,7 @@ final class MainMapYMKDrawer: NSObject,
         }
     }
     
-    private func setColor(polygon: YMKPolygonMapObject, isSelected: SelectedState) {
+    private func setColor(polygon: YMKPolygonMapObject, isSelected: SelectionState) {
         switch isSelected {
         case .selected:
             let fillColor = #colorLiteral(red: 0.3950589611, green: 0.8737713836, blue: 0.3007746849, alpha: 1).withAlphaComponent(0.7)
