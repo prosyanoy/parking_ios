@@ -105,6 +105,14 @@ final class MainMapYMKDrawer: NSObject,
               let placemark = parkingPlacemarksBindingTable[parking.id] else {
                   return false
               }
+        let position = YMKCameraPosition(target: placemark.geometry,
+                                         zoom: map.cameraPosition.zoom,
+                                         azimuth: 0,
+                                         tilt: 0)
+        map.move(with: position,
+                 animationType: .init(type: .smooth,
+                                      duration: 0.3),
+                 cameraCallback: nil)
         switch mapObject {
         case let polyline as YMKPolylineMapObject:
             setColor(polyline: polyline,
@@ -172,7 +180,7 @@ final class MainMapYMKDrawer: NSObject,
         case .selected:
             layer.backgroundColor = #colorLiteral(red: 0.2235294118, green: 0.7058823529, blue: 0.1411764706, alpha: 1).cgColor
         case .unselected:
-            layer.backgroundColor = #colorLiteral(red: 0.1837217808, green: 0.5907443166, blue: 0.8327997923, alpha: 1).cgColor
+            layer.backgroundColor = #colorLiteral(red: 0.05098039216, green: 0.6823529412, blue: 0.9882352941, alpha: 1).cgColor
         }
         view.layer.addSublayer(layer)
         
