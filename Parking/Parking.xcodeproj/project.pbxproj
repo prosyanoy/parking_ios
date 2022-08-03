@@ -33,7 +33,7 @@
 		94D21562288F293F00DFE786 /* BabyNet in Frameworks */ = {isa = PBXBuildFile; productRef = 94D21561288F293F00DFE786 /* BabyNet */; };
 		94D5770D28995E6400C7F7D3 /* MainMapYMKDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5770C28995E6400C7F7D3 /* MainMapYMKDrawer.swift */; };
 		94D5771128995F0000C7F7D3 /* TextDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5770E28995F0000C7F7D3 /* TextDrawer.swift */; };
-		94D5771228995F0000C7F7D3 /* SelectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5770F28995F0000C7F7D3 /* SelectedState.swift */; };
+		94D5771228995F0000C7F7D3 /* SelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5770F28995F0000C7F7D3 /* SelectionState.swift */; };
 		94D5771328995F0000C7F7D3 /* ImageScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5771028995F0000C7F7D3 /* ImageScaler.swift */; };
 		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
@@ -67,7 +67,7 @@
 		94D2155A288F285E00DFE786 /* ParkingRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingRepository.swift; sourceTree = "<group>"; };
 		94D5770C28995E6400C7F7D3 /* MainMapYMKDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMapYMKDrawer.swift; sourceTree = "<group>"; };
 		94D5770E28995F0000C7F7D3 /* TextDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDrawer.swift; sourceTree = "<group>"; };
-		94D5770F28995F0000C7F7D3 /* SelectedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedState.swift; sourceTree = "<group>"; };
+		94D5770F28995F0000C7F7D3 /* SelectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionState.swift; sourceTree = "<group>"; };
 		94D5771028995F0000C7F7D3 /* ImageScaler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScaler.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,7 +226,7 @@
 				9408FF49289032A9002B1C12 /* ScaleButton.swift */,
 				9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */,
 				94D5771028995F0000C7F7D3 /* ImageScaler.swift */,
-				94D5770F28995F0000C7F7D3 /* SelectedState.swift */,
+				94D5770F28995F0000C7F7D3 /* SelectionState.swift */,
 				94D5770E28995F0000C7F7D3 /* TextDrawer.swift */,
 			);
 			path = Infrastructure;
@@ -483,7 +483,7 @@
 				94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */,
 				9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */,
 				9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */,
-				94D5771228995F0000C7F7D3 /* SelectedState.swift in Sources */,
+				94D5771228995F0000C7F7D3 /* SelectionState.swift in Sources */,
 				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
 				9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
