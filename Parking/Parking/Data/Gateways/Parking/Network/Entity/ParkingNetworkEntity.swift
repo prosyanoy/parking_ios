@@ -72,7 +72,7 @@ struct ParkingNetworkEntity: Codable,
                   let hourCost = Float(self.hourCost) else {
                       throw ParkingNetworkEntityError.parseToDomain("invalid string format")
                   }
-            let coordinates = coordinates.parseToDomain()
+            let coordinates = try coordinates.parseToDomain()
             return .init(id: id,
                          coordinates: coordinates,
                          adress: self.adress,
@@ -117,9 +117,11 @@ struct ParkingNetworkEntity: Codable,
         }
         
         // MARK: DomainConvertable
-        func parseToDomain() -> Parking.Coordinates {
+        func parseToDomain() throws -> Parking.Coordinates {
+            guard let type = Parking.CoordinateType(rawValue: self.type) else {
+                throw ParkingNetworkEntityError.parseToDomain("invalid Coordinate type --> \(self.type)") }
             return .init(point: self.point,
-                         type: self.type,
+                         type: type,
                          form: self.list)
         }
     }

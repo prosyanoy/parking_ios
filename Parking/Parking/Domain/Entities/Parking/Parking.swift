@@ -9,6 +9,7 @@
 
 
 struct Parking {
+    
     let id: Int
     let coordinates: Coordinates
     let adress: String
@@ -16,8 +17,13 @@ struct Parking {
     
     struct Coordinates {
         var point: [Double]
-        var type: String
+        var type: CoordinateType
         var form: [[Double]]
+    }
+    
+    enum CoordinateType: String {
+        case polyGon = "g"
+        case polyLine = "l"
     }
     
 }
