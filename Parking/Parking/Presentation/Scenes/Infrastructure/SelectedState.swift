@@ -6,7 +6,7 @@
 //
 
 
-enum SelectedState {
+enum SelectionState {
     case selected
     case unselected
 }
