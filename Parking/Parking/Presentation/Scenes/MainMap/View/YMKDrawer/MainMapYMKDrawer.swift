@@ -234,6 +234,16 @@ final class MainMapYMKDrawer: NSObject,
     }
     
     func onClusterTap(with cluster: YMKCluster) -> Bool {
+        let clusterPoint = cluster.appearance.geometry
+        let newZoom = map.cameraPosition.zoom + 1.08
+        let position = YMKCameraPosition(target: clusterPoint,
+                                         zoom: newZoom,
+                                         azimuth: 0,
+                                         tilt: 0)
+        map.move(with: position,
+                 animationType: .init(type: .smooth,
+                                      duration: 0.5),
+                 cameraCallback: nil)
         return true
     }
     
