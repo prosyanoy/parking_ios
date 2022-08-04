@@ -14,6 +14,7 @@
 		2668D8FD2893E2F00034BDA0 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2668D8FC2893E2F00034BDA0 /* Keys.plist */; };
 		267D55E0289286E2007AA452 /* MapButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D55DF289286E2007AA452 /* MapButtonsView.swift */; };
 		267D55E22892BB87007AA452 /* CashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D55E12892BB87007AA452 /* CashView.swift */; };
+		7EE34EAF289C440A008563E7 /* OnboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE34EAE289C440A008563E7 /* OnboardVC.swift */; };
 		9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3C28900773002B1C12 /* MainMapViewController.swift */; };
 		9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */; };
 		9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */; };
@@ -50,6 +51,7 @@
 		267D55DF289286E2007AA452 /* MapButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonsView.swift; sourceTree = "<group>"; };
 		267D55E12892BB87007AA452 /* CashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashView.swift; sourceTree = "<group>"; };
 		2D33C7897C19DB274E75BBA0 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
+		7EE34EAE289C440A008563E7 /* OnboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardVC.swift; sourceTree = "<group>"; };
 		9408FF3C28900773002B1C12 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
 		9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheetViewController.swift; sourceTree = "<group>"; };
 		9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetTransitionDelegate.swift; sourceTree = "<group>"; };
@@ -162,9 +164,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7EE34EAD289C43FC008563E7 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				7EE34EAE289C440A008563E7 /* OnboardVC.swift */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
 		9408FF39289006FB002B1C12 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				7EE34EAD289C43FC008563E7 /* Onboard */,
 				9408FF3A28900717002B1C12 /* MainMap */,
 				9408FF40289007F9002B1C12 /* OrderSheet */,
 				9408FF4B289032BB002B1C12 /* Infrastructure */,
@@ -486,6 +497,7 @@
 				94D5771228995F0000C7F7D3 /* SelectionState.swift in Sources */,
 				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
 				9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */,
+				7EE34EAF289C440A008563E7 /* OnboardVC.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
 				267D55E22892BB87007AA452 /* CashView.swift in Sources */,
 				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
