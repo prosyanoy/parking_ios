@@ -7,10 +7,11 @@
 
 import UIKit
 import YandexMapsMobile
+import CoreLocation
 
 
 protocol MainMapYMKDrawerProtocol {
-    func setupYMapView(userGeo: [Double]?)
+    func setupYMapView()
 }
 
 
@@ -19,6 +20,7 @@ final class MainMapYMKDrawer: NSObject,
                               YMKClusterListener,
                               YMKClusterTapListener,
                               YMKMapCameraListener,
+                              YMKUserLocationObjectListener,
                               MainMapYMKDrawerProtocol {
     
     // MARK: - Dependencies
@@ -38,27 +40,11 @@ final class MainMapYMKDrawer: NSObject,
     }
     
     
-    // MARK: - Private State
+    // MARK: - Private
     
     // Геттер для удобства
     private unowned var map: YMKMap {
         return yMapView.mapWindow.map
-    }
-    
-    func setupYMapView(userGeo: [Double]?) {
-        let geo = userGeo ?? [43.590097,
-                              39.721887]
-        let ymkPoint = YMKPoint(latitude: geo[0],
-                                longitude: geo[1])
-        let position = YMKCameraPosition(target: ymkPoint,
-                                         zoom: 15,
-                                         azimuth: 0,
-                                         tilt: 0)
-        map.move(with: position,
-                 animationType: .init(type: .smooth,
-                                      duration: 3),
-                 cameraCallback: nil)
-        map.addCameraListener(with: self)
     }
     
     private func setupObservers() {
@@ -68,7 +54,59 @@ final class MainMapYMKDrawer: NSObject,
         }
     }
     
+    
+    // MARK: - MainMapYMKDrawerProtocol
 
+    func setupYMapView() {
+        let defaultPoint = YMKPoint(latitude: 43.590097,
+                                    longitude: 39.721887)
+        let defaultCameraPosition = YMKCameraPosition(target: defaultPoint,
+                                                      zoom: 11,
+                                                      azimuth: 0,
+                                                      tilt: 0)
+        map.move(with: defaultCameraPosition)
+        
+        let userLocationLayer = YMKMapKit.sharedInstance().createUserLocationLayer(with: yMapView.mapWindow)
+        userLocationLayer.setVisibleWithOn(true)
+        userLocationLayer.isHeadingEnabled = false
+        userLocationLayer.setObjectListenerWith(self)
+        map.addCameraListener(with: self)
+        self.userLocationLayer = userLocationLayer
+    }
+    
+    
+    // MARK: Yandex Map Kit interface
+    // MARK: - USER LOCATION
+    
+    // Беру отсюда камера позишн юзера
+    private var userLocationLayer: YMKUserLocationLayer?
+    // Флаг для того, чтобы перебросить камеру на юзер локацию единожды (Без использования якоря)
+    private var userLocationView: YMKUserLocationView?
+    
+    
+    func onObjectAdded(with view: YMKUserLocationView) {
+        let image = UIImage(named:"userLocation")?.scale(toSize: CGSize(width: 25,
+                                                                        height: 25)) ?? UIImage()
+        view.arrow.setIconWith(image)
+        view.pin.setIconWith(image)
+        view.accuracyCircle.fillColor = .blue.withAlphaComponent(0.2)
+    }
+    
+    func onObjectRemoved(with view: YMKUserLocationView) {
+        
+    }
+    
+    func onObjectUpdated(with view: YMKUserLocationView, event: YMKObjectEvent) {
+        guard view != userLocationView,
+        let userPosition = userLocationLayer?.cameraPosition() else { return }
+        let zoomUserPosition = YMKCameraPosition(target: userPosition.target,
+                                                 zoom: 16,
+                                                 azimuth: 0,
+                                                 tilt: 0)
+        map.move(with: zoomUserPosition)
+        userLocationView = view
+    }
+    
     // MARK: - CAMERA POSITION
     
     func onCameraPositionChanged(with map: YMKMap, cameraPosition: YMKCameraPosition, cameraUpdateReason: YMKCameraUpdateReason, finished: Bool) {
@@ -292,7 +330,6 @@ final class MainMapYMKDrawer: NSObject,
         polygonMapObject.addTapListener(with: self)
         polygonMapObjects.append(polygonMapObject)
         parkingPlacesBindingTable[polygonMapObject] = parking
-        print(parkingPlacesBindingTable.count)
     }
     
     private func drawPolyline(points: [YMKPoint], parking: Parking) {
@@ -305,7 +342,6 @@ final class MainMapYMKDrawer: NSObject,
         polylineMapObject.addTapListener(with: self)
         polylineMapObjects.append(polylineMapObject)
         parkingPlacesBindingTable[polylineMapObject] = parking
-        print(parkingPlacesBindingTable.count)
     }
     
     private func setColor(polyline: YMKPolylineMapObject, isSelected: SelectionState) {
