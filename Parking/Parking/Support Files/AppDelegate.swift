@@ -7,6 +7,8 @@
 
 import UIKit
 import YandexMapsMobile
+import UserNotifications
+//import CoreLocation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
 	) -> Bool {
 		setupMapKit()
+        // Для отображения приложения в настройках девайса
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { isAllowed, error in }
 		return true
 	}
 

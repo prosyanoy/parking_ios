@@ -43,8 +43,8 @@ final class MainMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        yMapDrawer.setupYMapView(userGeo: nil)
         setupLayout()
+        yMapDrawer.setupYMapView()
         setupObservers()
         viewModel.viewDidLoad()
     }
