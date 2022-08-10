@@ -21,7 +21,7 @@ final class ParkingTableViewCell: UITableViewCell {
     
     // MARK: - State
 
-    var isCollapsedCell = true
+    private var isCollapsedCell = true
     
     
     // MARK: - Init
