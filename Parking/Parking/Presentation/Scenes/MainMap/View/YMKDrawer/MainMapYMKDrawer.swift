@@ -83,13 +83,41 @@ final class MainMapYMKDrawer: NSObject,
     // Флаг для того, чтобы перебросить камеру на юзер локацию единожды (Без использования якоря)
     private var userLocationView: YMKUserLocationView?
     
+    private lazy var userLocationPlacemark: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0,
+                                        width: 40, height: 40))
+        view.isOpaque = false
+        
+        let placemarkHeight = view.bounds.height * 0.6
+        let placemarkWidth = view.bounds.width * 0.6
+        let placemarkXOffset = CGFloat((view.bounds.width - placemarkWidth) / 2)
+        let placemarkYOffset = CGFloat((view.bounds.height - placemarkHeight) / 2)
+        let placemarkRect = CGRect(x: placemarkXOffset, y: placemarkYOffset,
+                                   width: placemarkWidth, height: placemarkHeight)
+        let placemarkLayer = CALayer()
+        placemarkLayer.frame = placemarkRect
+        placemarkLayer.cornerRadius = placemarkHeight / 2
+        placemarkLayer.backgroundColor = #colorLiteral(red: 0.2853988409, green: 0.5743046999, blue: 0.8819203973, alpha: 1).cgColor
+        placemarkLayer.borderWidth = 3.5
+        placemarkLayer.borderColor = UIColor.white.cgColor
+        view.layer.addSublayer(placemarkLayer)
+        
+        view.layer.shadowPath = UIBezierPath(rect: placemarkRect).cgPath
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 5)
+        view.layer.shadowRadius = 3
+        view.layer.shadowOpacity = 0.30
+    
+        return view
+    }()
     
     func onObjectAdded(with view: YMKUserLocationView) {
-        let image = UIImage(named:"userLocation")?.scale(toSize: CGSize(width: 25,
-                                                                        height: 25)) ?? UIImage()
-        view.arrow.setIconWith(image)
-        view.pin.setIconWith(image)
-        view.accuracyCircle.fillColor = .blue.withAlphaComponent(0.2)
+        guard let userPlacemarkProvider = YRTViewProvider(uiView: userLocationPlacemark) else {
+            return
+        }
+        view.arrow.setViewWithView(userPlacemarkProvider)
+        view.pin.setViewWithView(userPlacemarkProvider)
+        view.accuracyCircle.fillColor = .systemBlue.withAlphaComponent(0.2)
     }
     
     func onObjectRemoved(with view: YMKUserLocationView) {
@@ -209,18 +237,18 @@ final class MainMapYMKDrawer: NSObject,
         let placemarkYOffset = CGFloat((view.bounds.height - placemarkHeight) / 2)
         let placemarkRect = CGRect(x: placemarkXOffset, y: placemarkYOffset,
                                    width: placemarkWidth, height: placemarkHeight)
-        let layer = CALayer()
-        layer.frame = placemarkRect
-        layer.cornerRadius = placemarkHeight / 2
-        layer.borderWidth = 3
-        layer.borderColor = UIColor.white.cgColor
+        let placemarkLayer = CALayer()
+        placemarkLayer.frame = placemarkRect
+        placemarkLayer.cornerRadius = placemarkHeight / 2
+        placemarkLayer.borderWidth = 3
+        placemarkLayer.borderColor = UIColor.white.cgColor
         switch isSelected {
         case .selected:
-            layer.backgroundColor = #colorLiteral(red: 0.2235294118, green: 0.7058823529, blue: 0.1411764706, alpha: 1).cgColor
+            placemarkLayer.backgroundColor = #colorLiteral(red: 0.2235294118, green: 0.7058823529, blue: 0.1411764706, alpha: 1).cgColor
         case .unselected:
-            layer.backgroundColor = #colorLiteral(red: 0.05098039216, green: 0.6823529412, blue: 0.9882352941, alpha: 1).cgColor
+            placemarkLayer.backgroundColor = #colorLiteral(red: 0.05098039216, green: 0.6823529412, blue: 0.9882352941, alpha: 1).cgColor
         }
-        view.layer.addSublayer(layer)
+        view.layer.addSublayer(placemarkLayer)
         
         // Shadow
         view.layer.shadowColor = UIColor.black.cgColor
