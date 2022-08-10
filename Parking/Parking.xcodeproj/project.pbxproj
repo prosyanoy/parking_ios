@@ -18,7 +18,6 @@
 		9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */; };
 		9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */; };
 		9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */; };
-		9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4428900855002B1C12 /* OrderSheetAnimator.swift */; };
 		9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF49289032A9002B1C12 /* ScaleButton.swift */; };
 		9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4C28906ADF002B1C12 /* MainMapViewModel.swift */; };
 		9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */; };
@@ -35,6 +34,11 @@
 		94D5771128995F0000C7F7D3 /* TextDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5770E28995F0000C7F7D3 /* TextDrawer.swift */; };
 		94D5771228995F0000C7F7D3 /* SelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5770F28995F0000C7F7D3 /* SelectionState.swift */; };
 		94D5771328995F0000C7F7D3 /* ImageScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5771028995F0000C7F7D3 /* ImageScaler.swift */; };
+		94D5775028A27B2100C7F7D3 /* ResizingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5774F28A27B2100C7F7D3 /* ResizingTableView.swift */; };
+		94D5775228A27C0D00C7F7D3 /* UsersAutoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775128A27C0D00C7F7D3 /* UsersAutoTableViewCell.swift */; };
+		94D5775828A2800A00C7F7D3 /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775728A2800A00C7F7D3 /* ParkingTableViewCell.swift */; };
+		94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775928A2802E00C7F7D3 /* TimeTableViewCell.swift */; };
+		94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */; };
 		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +58,6 @@
 		9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheetViewController.swift; sourceTree = "<group>"; };
 		9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetTransitionDelegate.swift; sourceTree = "<group>"; };
 		9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetPresentationViewController.swift; sourceTree = "<group>"; };
-		9408FF4428900855002B1C12 /* OrderSheetAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSheetAnimator.swift; sourceTree = "<group>"; };
 		9408FF49289032A9002B1C12 /* ScaleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButton.swift; sourceTree = "<group>"; };
 		9408FF4C28906ADF002B1C12 /* MainMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewModel.swift; sourceTree = "<group>"; };
 		9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapConfigurator.swift; sourceTree = "<group>"; };
@@ -69,6 +72,11 @@
 		94D5770E28995F0000C7F7D3 /* TextDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDrawer.swift; sourceTree = "<group>"; };
 		94D5770F28995F0000C7F7D3 /* SelectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionState.swift; sourceTree = "<group>"; };
 		94D5771028995F0000C7F7D3 /* ImageScaler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScaler.swift; sourceTree = "<group>"; };
+		94D5774F28A27B2100C7F7D3 /* ResizingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizingTableView.swift; sourceTree = "<group>"; };
+		94D5775128A27C0D00C7F7D3 /* UsersAutoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAutoTableViewCell.swift; sourceTree = "<group>"; };
+		94D5775728A2800A00C7F7D3 /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
+		94D5775928A2802E00C7F7D3 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
+		94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelContentSizedButton.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				9408FF3E289007E1002B1C12 /* OrderSheetViewController.swift */,
+				94D5775328A27C1100C7F7D3 /* Cells */,
 				9408FF482890085B002B1C12 /* TransitionDelegate */,
 			);
 			path = View;
@@ -213,9 +222,8 @@
 		9408FF482890085B002B1C12 /* TransitionDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				9408FF4428900855002B1C12 /* OrderSheetAnimator.swift */,
-				9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */,
 				9408FF4228900855002B1C12 /* OrderSheetTransitionDelegate.swift */,
+				9408FF4328900855002B1C12 /* OrderSheetPresentationViewController.swift */,
 			);
 			path = TransitionDelegate;
 			sourceTree = "<group>";
@@ -228,6 +236,8 @@
 				94D5771028995F0000C7F7D3 /* ImageScaler.swift */,
 				94D5770F28995F0000C7F7D3 /* SelectionState.swift */,
 				94D5770E28995F0000C7F7D3 /* TextDrawer.swift */,
+				94D5774F28A27B2100C7F7D3 /* ResizingTableView.swift */,
+				94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -345,6 +355,16 @@
 				94D5770C28995E6400C7F7D3 /* MainMapYMKDrawer.swift */,
 			);
 			path = YMKDrawer;
+			sourceTree = "<group>";
+		};
+		94D5775328A27C1100C7F7D3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				94D5775128A27C0D00C7F7D3 /* UsersAutoTableViewCell.swift */,
+				94D5775728A2800A00C7F7D3 /* ParkingTableViewCell.swift */,
+				94D5775928A2802E00C7F7D3 /* TimeTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,9 +490,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D5775028A27B2100C7F7D3 /* ResizingTableView.swift in Sources */,
 				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
 				9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */,
 				9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */,
+				94D5775828A2800A00C7F7D3 /* ParkingTableViewCell.swift in Sources */,
 				94D5771328995F0000C7F7D3 /* ImageScaler.swift in Sources */,
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
 				94D5771128995F0000C7F7D3 /* TextDrawer.swift in Sources */,
@@ -485,11 +507,13 @@
 				9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */,
 				94D5771228995F0000C7F7D3 /* SelectionState.swift in Sources */,
 				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
-				9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
 				267D55E22892BB87007AA452 /* CashView.swift in Sources */,
 				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
+				94D5775228A27C0D00C7F7D3 /* UsersAutoTableViewCell.swift in Sources */,
 				267D55E0289286E2007AA452 /* MapButtonsView.swift in Sources */,
+				94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */,
+				94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */,
 				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
 				94D5770D28995E6400C7F7D3 /* MainMapYMKDrawer.swift in Sources */,
 				9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */,

@@ -8,12 +8,22 @@
 import UIKit
 
 
-final class OrderSheetViewController: UIViewController {
+final class OrderSheetViewController: UIViewController,
+                                      UITableViewDelegate,
+                                      UITableViewDataSource {
+    
+    // MARK: - Dependencies
     
     private let transitionDelegate: UIViewControllerTransitioningDelegate
+    private let dismissOrderSheetCallback: () -> Void
+    
+    
+    // MARK: - State
     
     private let parking: Parking
-    private let dismissOrderSheetCallback: () -> Void
+    
+    
+    // MARK: - Init
     
     init(transitionDelegate: UIViewControllerTransitioningDelegate,
          parking: Parking,
@@ -31,18 +41,32 @@ final class OrderSheetViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: - View's lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(scrollView)
-        scrollView.addSubview(priceLabel)
-        scrollView.addSubview(adressLabel)
-        view.addSubview(dismissButton)
-        view.addSubview(payButton)
         view.backgroundColor = .white
         view.layer.cornerRadius = 14
         setupLayout()
-        setuplabels(parking: parking)
     }
+    
+    
+    // MARK: - UI
+    
+    private lazy var tableView: ResizingTableView = {
+        let table = ResizingTableView()
+        table.register(UsersAutoTableViewCell.self,
+                       forCellReuseIdentifier: UsersAutoTableViewCell.identifier)
+        table.register(ParkingTableViewCell.self, forCellReuseIdentifier: ParkingTableViewCell.identifier)
+        table.register(TimeTableViewCell.self, forCellReuseIdentifier: TimeTableViewCell.identifier)
+        table.estimatedRowHeight = 70
+        table.rowHeight = UITableView.automaticDimension
+        table.separatorStyle = .none
+        table.delegate = self
+        table.dataSource = self
+        return table
+    }()
     
     private lazy var dismissButton: UIButton = {
         let button = UIButton(type: .system)
@@ -51,14 +75,8 @@ final class OrderSheetViewController: UIViewController {
         button.imageView?.layer.transform = CATransform3DMakeScale(2, 2, 0)
         button.tintColor = .systemGray
         button.isEnabled = false
-        button.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    @objc private func dismissButtonTapped() {
-        presentingViewController?.dismiss(animated: true, completion: nil)
-    }
     
     private lazy var payButton: UIButton = {
         let button = ScaleButton()
@@ -70,86 +88,97 @@ final class OrderSheetViewController: UIViewController {
         button.backgroundColor = #colorLiteral(red: 0, green: 0.7409000993, blue: 0.9917448163, alpha: 1)
         button.layer.cornerRadius = 25
         button.addTarget(self, action: #selector(payButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     @objc private func payButtonTapped() {
-        presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    private lazy var scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.isScrollEnabled = true
-        scroll.alwaysBounceVertical = true
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        return scroll
-    }()
     
-    private lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Стоимость парковки"
-        label.textColor = .label
-        label.numberOfLines = 0
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var adressLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Адрес парковки"
-        label.textColor = .label
-        label.numberOfLines = 0
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+    // MARK: - Layout
     
     private func setupLayout() {
-        dismissButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        dismissButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 5).isActive = true
+        view.addSubview(tableView)
+        view.addSubview(dismissButton)
+        view.addSubview(payButton)
+        
+        dismissButton.translatesAutoresizingMaskIntoConstraints = false
+        dismissButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 5).isActive = true // 5
         dismissButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        dismissButton.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        dismissButton.heightAnchor.constraint(equalToConstant: 15).isActive = true
         
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: dismissButton.bottomAnchor, constant: 5).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        scrollView.topAnchor.constraint(equalTo: dismissButton.bottomAnchor, constant: 5).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
-        priceLabel.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 10).isActive = true
-        priceLabel.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 15).isActive = true
-        priceLabel.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -10).isActive = true
-        priceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        
-        adressLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 15).isActive = true
-        adressLabel.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 15).isActive = true
-        adressLabel.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -10).isActive = true
-        adressLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        
-        payButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        payButton.bottomAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        payButton.translatesAutoresizingMaskIntoConstraints = false
+        payButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 10).isActive = true
         payButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         payButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         payButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        payButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
     }
     
     
-    private func setuplabels(parking: Parking) {
-        priceLabel.text = "Стоимость парковки:  \(String(parking.hourCost))"
-        adressLabel.text = "Адрес парковки: \(parking.adress)"
+    // MARK: - Table View
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: UsersAutoTableViewCell.identifier, for: indexPath) as? UsersAutoTableViewCell else {
+                fatalError()
+            }
+            cell.selectionStyle = .none
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ParkingTableViewCell.identifier, for: indexPath) as? ParkingTableViewCell else {
+                fatalError()
+            }
+            cell.selectionStyle = .none
+            cell.setParkingLabel(parking.adress)
+            cell.setParkingAdress(parking.adress)
+            cell.setParkingCost(String(parking.hourCost))
+            cell.setupDependencies(invalidateInternalCellSizeCallback: { [weak self] in
+                self?.tableView.beginUpdates()
+                self?.tableView.endUpdates()
+            })
+            return cell
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TimeTableViewCell.identifier, for: indexPath) as? TimeTableViewCell else {
+                fatalError()
+            }
+            cell.selectionStyle = .none
+            return cell
+        default:
+            fatalError()
+        }
+    }
+    
+    
+    // MARK: - Interface
+
+    func collapseCells() {
+        tableView.visibleCells.forEach { cell in
+            if let parkingCell = cell as? ParkingTableViewCell {
+                parkingCell.collapseCell()
+            }
+        }
+    }
+    
+    
+    // MARK: - Deinit
+
     deinit {
         dismissOrderSheetCallback()
-        print("Order Sheet is deinit")
     }
 }
-
-
-
