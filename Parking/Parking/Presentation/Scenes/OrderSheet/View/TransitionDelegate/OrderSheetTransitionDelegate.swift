@@ -16,12 +16,4 @@ final class OrderSheetTransitionDelegate: NSObject,
                                                presenting: presenting ?? source)
     }
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return OrderSheetPresentAnimator()
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return OrderSheetDismissAnimator()
-    }
-    
 }
