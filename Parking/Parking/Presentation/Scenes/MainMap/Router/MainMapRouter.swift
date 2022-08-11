@@ -11,7 +11,8 @@ import UIKit
 
 protocol MainMapRouterProtocol {
     func parkingButtonTapped()
-    func parkingButtonTapped(parking: Parking,
+    func onMapTap()
+    func onMapParkingObjectTap(parking: Parking,
                              _ dismissOrderSheetCallback: @escaping () -> Void)
 }
 
@@ -33,18 +34,18 @@ final class MainMapRouter: MainMapRouterProtocol {
     // MARK: - Interface
 
     func parkingButtonTapped() {
-//        let transitionDelegate = OrderSheetTransitionDelegate()
-//        let orderVC = OrderSheetViewController(transitionDelegate: transitionDelegate,
-//                                               nibName: nil,
-//                                               bundle: nil)
-//        orderVC.modalPresentationStyle = .custom
-//        orderVC.transitioningDelegate = transitionDelegate
-//        navigationContainer.present(orderVC, animated: true,
-//                                    completion: nil)
     }
     
-    func parkingButtonTapped(parking: Parking,
+    func onMapTap() {
+        guard let presentedVC = navigationContainer.presentedViewController as? OrderSheetViewController else { return }
+        presentedVC.dismiss(animated: true, completion: nil)
+    }
+    
+    func onMapParkingObjectTap(parking: Parking,
                              _ dismissOrderSheetCallback: @escaping () -> Void) {
+        if let presentedVC = navigationContainer.presentedViewController as? OrderSheetViewController {
+            presentedVC.dismiss(animated: true, completion: nil)
+        }
         let transitionDelegate = OrderSheetTransitionDelegate()
         let orderVC = OrderSheetViewController(transitionDelegate: transitionDelegate,
                                                parking: parking,
