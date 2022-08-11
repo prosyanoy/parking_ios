@@ -16,11 +16,12 @@ protocol MainMapYMKDrawerProtocol {
 
 
 final class MainMapYMKDrawer: NSObject,
+                              YMKMapCameraListener,
+                              YMKMapInputListener,
                               YMKMapObjectTapListener,
+                              YMKUserLocationObjectListener,
                               YMKClusterListener,
                               YMKClusterTapListener,
-                              YMKMapCameraListener,
-                              YMKUserLocationObjectListener,
                               MainMapYMKDrawerProtocol {
     
     // MARK: - Dependencies
@@ -71,6 +72,7 @@ final class MainMapYMKDrawer: NSObject,
         userLocationLayer.isHeadingEnabled = false
         userLocationLayer.setObjectListenerWith(self)
         map.addCameraListener(with: self)
+        map.addInputListener(with: self)
         self.userLocationLayer = userLocationLayer
     }
     
@@ -157,6 +159,16 @@ final class MainMapYMKDrawer: NSObject,
     
     // MARK: - TAPPABLE
     
+    // YMKMapInputListener
+    func onMapTap(with map: YMKMap, point: YMKPoint) {
+        yMapDataSource.onMapTap()
+    }
+    
+    func onMapLongTap(with map: YMKMap, point: YMKPoint) {
+        
+    }
+    
+    // YMKMapObjectTapListener
     // Для быстрого поиска Парковки по входящему объекту (Polyline / Polygon)
     private var parkingPlacesBindingTable = [YMKMapObject : Parking]()
     // Для быстрого поиска Плейсмарка по id парковки
@@ -187,7 +199,7 @@ final class MainMapYMKDrawer: NSObject,
             placemark.setIconWith(drawPlacemarkImage(
                 parkingCost: parking.hourCost,
                 isSelected: .selected))
-            yMapDataSource.onParkingObjectTapped(parking: parking,
+            yMapDataSource.onMapParkingObjectTap(parking: parking,
                                                  dismissOrderSheetCallback: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.setColor(polyline: polyline,
@@ -204,7 +216,7 @@ final class MainMapYMKDrawer: NSObject,
             placemark.setIconWith(drawPlacemarkImage(
                 parkingCost: parking.hourCost,
                 isSelected: .selected))
-            yMapDataSource.onParkingObjectTapped(parking: parking,
+            yMapDataSource.onMapParkingObjectTap(parking: parking,
                                                  dismissOrderSheetCallback: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.setColor(polygon: polygon,

@@ -57,9 +57,9 @@ final class MainMapViewController: UIViewController {
     // MARK: - Input data flow
     
     private func setupObservers() {
-        viewModel.parkings.subscribe(observer: self) { [weak self] parkings in
+//        viewModel.parkings.subscribe(observer: self) { [weak self] parkings in
             //update data callback...
-        }
+//        }
     }
 
     private lazy var parkingButton: UIButton = {

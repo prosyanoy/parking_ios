@@ -39,6 +39,7 @@
 		94D5775828A2800A00C7F7D3 /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775728A2800A00C7F7D3 /* ParkingTableViewCell.swift */; };
 		94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775928A2802E00C7F7D3 /* TimeTableViewCell.swift */; };
 		94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */; };
+		94F86A0C28A52FC600857209 /* TouchForwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F86A0B28A52FC600857209 /* TouchForwardView.swift */; };
 		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		94D5775728A2800A00C7F7D3 /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
 		94D5775928A2802E00C7F7D3 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
 		94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelContentSizedButton.swift; sourceTree = "<group>"; };
+		94F86A0B28A52FC600857209 /* TouchForwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchForwardView.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +240,7 @@
 				94D5770E28995F0000C7F7D3 /* TextDrawer.swift */,
 				94D5774F28A27B2100C7F7D3 /* ResizingTableView.swift */,
 				94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */,
+				94F86A0B28A52FC600857209 /* TouchForwardView.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */,
 				9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */,
 				263836BC288C1EDB00EA4353 /* SceneDelegate.swift in Sources */,
+				94F86A0C28A52FC600857209 /* TouchForwardView.swift in Sources */,
 				94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */,
 				9408FF3D28900773002B1C12 /* MainMapViewController.swift in Sources */,
 				9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */,

@@ -10,6 +10,16 @@ import UIKit
 
 final class OrderSheetPresentationViewController: UIPresentationController {
     
+    // MARK: - Forwarding touch through ContainerView
+
+    private lazy var touchForvardView: TouchForwardView = {
+        let view = TouchForwardView()
+        view.touchForwardTargetViews = [presentingViewController.view]
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    
     // MARK: - DimmView
     
     private lazy var dimmView: UIView = {
@@ -21,31 +31,6 @@ final class OrderSheetPresentationViewController: UIPresentationController {
     
     
     // MARK: - UIPresentationController
-    
-    // Container View's gestures
-    private lazy var containerViewTapGesture = UITapGestureRecognizer(
-        target: self,
-        action: #selector(containerViewdidTap)
-    )
-    private lazy var containerViewPanGesture = UIPanGestureRecognizer(
-        target: self,
-        action: #selector(containerViewdidPan)
-    )
-    
-    @objc private func containerViewdidTap() {
-        presentedViewController.dismiss(animated: true,
-                                        completion: nil)
-    }
-    
-    @objc private func containerViewdidPan(_ recognizer: UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-            presentedViewController.dismiss(animated: true,
-                                            completion: nil)
-        default:
-            break
-        }
-    }
 
     override func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
@@ -53,10 +38,15 @@ final class OrderSheetPresentationViewController: UIPresentationController {
               let presentedView = presentedView
         else { return }
         containerView.addSubview(dimmView)
-        containerView.addSubview(presentedView)
-        containerView.addGestureRecognizer(containerViewTapGesture)
-        containerView.addGestureRecognizer(containerViewPanGesture)
+        containerView.addSubview(touchForvardView)
+        touchForvardView.addSubview(presentedView)
         
+        touchForvardView.translatesAutoresizingMaskIntoConstraints = false
+        touchForvardView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        touchForvardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        touchForvardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        touchForvardView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+    
         dimmView.translatesAutoresizingMaskIntoConstraints = false
         dimmView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         dimmView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
