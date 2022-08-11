@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 
 final class MapButtonsView: UIView {
-    
+	let main: UINavigationController
 	private let menuButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setImage(UIImage(systemName: "list.dash"), for: .normal)
+		button.setImage(UIImage(named: "List"), for: .normal)
+		button.imageView?.contentMode = .scaleAspectFit
 		button.tintColor = .black
 		button.backgroundColor = .white
 		button.layer.cornerRadius = 20
@@ -33,7 +34,8 @@ final class MapButtonsView: UIView {
 	private let searchButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+		button.setImage(UIImage(named: "Glass"), for: .normal)
+		button.imageView?.contentMode = .scaleAspectFit
 		button.tintColor = .black
 		button.backgroundColor = .white
 		button.layer.cornerRadius = 20
@@ -47,7 +49,8 @@ final class MapButtonsView: UIView {
 	private let zoomPlusButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setImage(UIImage(systemName: "plus"), for: .normal)
+		button.setImage(UIImage(named: "Plus"), for: .normal)
+		button.imageView?.contentMode = .scaleAspectFit
 		button.tintColor = .black
 		button.backgroundColor = .white
 		button.layer.cornerRadius = 20
@@ -61,7 +64,8 @@ final class MapButtonsView: UIView {
 	private let zoomMinusButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setImage(UIImage(systemName: "minus"), for: .normal)
+		button.setImage(UIImage(named: "Minus"), for: .normal)
+		button.imageView?.contentMode = .scaleAspectFit
 		button.tintColor = .black
 		button.backgroundColor = .white
 		button.layer.cornerRadius = 20
@@ -75,7 +79,8 @@ final class MapButtonsView: UIView {
 	private let locationButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setImage(UIImage(systemName: "location"), for: .normal)
+		button.setImage(UIImage(named: "NavigationArrow"), for: .normal)
+		button.imageView?.contentMode = .scaleAspectFit
 		button.tintColor = .black
 		button.backgroundColor = .white
 		button.layer.cornerRadius = 20
@@ -86,10 +91,11 @@ final class MapButtonsView: UIView {
 		return button
 	}()
 
-	private let invalidButton: UIButton = {
+	private let wheelchairButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setImage(UIImage(systemName: "figure.roll"), for: .normal)
+		button.setImage(UIImage(named: "Wheelchair"), for: .normal)
+		button.imageView?.contentMode = .scaleAspectFit
 		button.tintColor = .black
 		button.backgroundColor = .white
 		button.layer.cornerRadius = 20
@@ -103,7 +109,8 @@ final class MapButtonsView: UIView {
 	private let infoButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setImage(UIImage(systemName: "questionmark"), for: .normal)
+		button.setImage(UIImage(named: "Info"), for: .normal)
+		button.imageView?.contentMode = .scaleAspectFit
 		button.tintColor = .black
 		button.backgroundColor = .white
 		button.layer.cornerRadius = 20
@@ -113,8 +120,9 @@ final class MapButtonsView: UIView {
 		button.layer.shadowColor = UIColor.black.cgColor
 		return button
 	}()
-
-	init() {
+	#warning("fix")
+	init(main: UINavigationController) {
+		self.main = main
 		super.init(frame: .zero)
 		addTargets()
 		setupLayout()
@@ -139,7 +147,7 @@ final class MapButtonsView: UIView {
 		zoomPlusButton.addTarget(self, action: #selector(zoomPlusButtonTapped(_:)), for: .touchUpInside)
 		zoomMinusButton.addTarget(self, action: #selector(zoomMinusButtonTapped(_:)), for: .touchUpInside)
 		locationButton.addTarget(self, action: #selector(currentPlaceButtonTapped(_:)), for: .touchUpInside)
-		invalidButton.addTarget(self, action: #selector(invalidButtonTapped(_:)), for: .touchUpInside)
+		wheelchairButton.addTarget(self, action: #selector(invalidButtonTapped(_:)), for: .touchUpInside)
 		infoButton.addTarget(self, action: #selector(infoButtonTapped(_:)), for: .touchUpInside)
 	}
 
@@ -163,7 +171,7 @@ final class MapButtonsView: UIView {
 		addSubview(zoomPlusButton)
 		addSubview(zoomMinusButton)
 		addSubview(locationButton)
-		addSubview(invalidButton)
+		addSubview(wheelchairButton)
 		addSubview(infoButton)
 
 		NSLayoutConstraint.activate([
@@ -195,12 +203,12 @@ final class MapButtonsView: UIView {
 			zoomPlusButton.widthAnchor.constraint(equalToConstant: 40),
 			zoomPlusButton.heightAnchor.constraint(equalTo: zoomPlusButton.widthAnchor),
 
-			invalidButton.topAnchor.constraint(equalTo: centerYAnchor, constant: 20),
-			invalidButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-			invalidButton.widthAnchor.constraint(equalToConstant: 40),
-			invalidButton.heightAnchor.constraint(equalTo: invalidButton.widthAnchor),
+			wheelchairButton.topAnchor.constraint(equalTo: centerYAnchor, constant: 20),
+			wheelchairButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+			wheelchairButton.widthAnchor.constraint(equalToConstant: 40),
+			wheelchairButton.heightAnchor.constraint(equalTo: wheelchairButton.widthAnchor),
 
-			infoButton.topAnchor.constraint(equalTo: invalidButton.bottomAnchor, constant: 20),
+			infoButton.topAnchor.constraint(equalTo: wheelchairButton.bottomAnchor, constant: 20),
 			infoButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 			infoButton.widthAnchor.constraint(equalToConstant: 40),
 			infoButton.heightAnchor.constraint(equalTo: infoButton.widthAnchor),
@@ -208,8 +216,10 @@ final class MapButtonsView: UIView {
 	}
 
 	@objc private func menuButtonTapped(_ sender: UIButton) {
-		print("menuButtonTapped")
+		let menuVC = MenuConfigurator.configure()
+		self.main.present(menuVC, animated: true)
 	}
+
 	@objc private func cashViewTapped(_ sender: UIButton) {
 		print("cashViewTapped")
 	}

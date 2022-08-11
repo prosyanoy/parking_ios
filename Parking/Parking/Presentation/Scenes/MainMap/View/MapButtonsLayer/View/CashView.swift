@@ -26,7 +26,8 @@ final class CashView: UIControl {
 	}()
 
 	private let plusView: UIImageView = {
-		let view = UIImageView(image: UIImage(systemName: "plus"))
+		let view = UIImageView(image: UIImage(named: "Plus"))
+		view.contentMode = .scaleAspectFit
 		view.translatesAutoresizingMaskIntoConstraints = false
 		return view
 	}()
