@@ -26,7 +26,8 @@ final class MainMapConfigurator: SceneConfiguratorProtocol_CN {
                                  vulkanPreferred: true) ?? YMKMapView()
         let yMapDrawer = MainMapYMKDrawer(mapView: mapView,
                                           yMapDataSource: viewModel)
-        let mapButtonsLayer = MapButtonsView()
+		#warning("fix")
+		let mapButtonsLayer = MapButtonsView(main: navigationContainer)
         let mapVC = MainMapViewController(viewModel: viewModel,
                                           mapButtons: mapButtonsLayer,
                                           mapView: mapView,
