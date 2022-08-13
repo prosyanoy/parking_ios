@@ -18,6 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		window = UIWindow(windowScene: scene)
 		window?.makeKeyAndVisible()
 		window?.rootViewController = MainMapConfigurator.configure()
+        
+        let onboardingViewCOntroller = OnboardingViewController()
+        onboardingViewCOntroller.modalPresentationStyle = .fullScreen
+        window?.rootViewController?.present(onboardingViewCOntroller, animated: false)
 	}
 
 	func sceneDidDisconnect(_ scene: UIScene) {
