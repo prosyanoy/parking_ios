@@ -13,6 +13,7 @@ protocol MainMapDrawerDataSource: AnyObject {
     var parkings: Publisher<[Parking]> { get }
     func onMapTap()
     func onMapParkingObjectTap(parking: Parking,
+                               didLayoutHeightCallback: @escaping (Float) -> Void,
                                dismissOrderSheetCallback: @escaping () -> Void)
 }
 
@@ -56,16 +57,18 @@ final class MainMapViewModel: MainMapViewModelProtocol,
     }
     
     
-   // MARK: - MainMapDrawerDataSource
+    // MARK: - MainMapDrawerDataSource
     
     func onMapTap() {
         router.onMapTap()
     }
     
     func onMapParkingObjectTap(parking: Parking,
+                               didLayoutHeightCallback: @escaping (Float) -> Void,
                                dismissOrderSheetCallback: @escaping () -> Void) {
         router.onMapParkingObjectTap(parking: parking,
-                                   dismissOrderSheetCallback)
+                                     didLayoutHeightCallback: didLayoutHeightCallback,
+                                     dismissOrderSheetCallback: dismissOrderSheetCallback)
     }
     
     

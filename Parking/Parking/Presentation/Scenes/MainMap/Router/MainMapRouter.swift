@@ -13,26 +13,27 @@ protocol MainMapRouterProtocol {
     func parkingButtonTapped()
     func onMapTap()
     func onMapParkingObjectTap(parking: Parking,
-                             _ dismissOrderSheetCallback: @escaping () -> Void)
+                               didLayoutHeightCallback: @escaping (Float) -> Void,
+                               dismissOrderSheetCallback: @escaping () -> Void)
 }
 
 
 final class MainMapRouter: MainMapRouterProtocol {
     
     // MARK: - Dependencies
-
+    
     private unowned var navigationContainer: UINavigationController
     
     
     // MARK: - Init
-
+    
     init(navigationContainer: UINavigationController) {
         self.navigationContainer = navigationContainer
     }
     
     
     // MARK: - Interface
-
+    
     func parkingButtonTapped() {
     }
     
@@ -42,13 +43,15 @@ final class MainMapRouter: MainMapRouterProtocol {
     }
     
     func onMapParkingObjectTap(parking: Parking,
-                             _ dismissOrderSheetCallback: @escaping () -> Void) {
+                               didLayoutHeightCallback: @escaping (Float) -> Void,
+                               dismissOrderSheetCallback: @escaping () -> Void) {
         if let presentedVC = navigationContainer.presentedViewController as? OrderSheetViewController {
             presentedVC.dismiss(animated: true, completion: nil)
         }
         let transitionDelegate = OrderSheetTransitionDelegate()
         let orderVC = OrderSheetViewController(transitionDelegate: transitionDelegate,
                                                parking: parking,
+                                               didLayoutHeightCallback: didLayoutHeightCallback,
                                                dismissOrderSheetCallback: dismissOrderSheetCallback,
                                                nibName: nil,
                                                bundle: nil)

@@ -15,6 +15,7 @@ final class OrderSheetViewController: UIViewController,
     // MARK: - Dependencies
     
     private let transitionDelegate: UIViewControllerTransitioningDelegate
+    private let didLayoutHeightCallback: (Float) -> Void
     private let dismissOrderSheetCallback: () -> Void
     
     
@@ -27,11 +28,13 @@ final class OrderSheetViewController: UIViewController,
     
     init(transitionDelegate: UIViewControllerTransitioningDelegate,
          parking: Parking,
+         didLayoutHeightCallback: @escaping (Float) -> Void,
          dismissOrderSheetCallback: @escaping () -> Void,
          nibName nibNameOrNil: String?,
          bundle nibBundleOrNil: Bundle?) {
         self.transitionDelegate = transitionDelegate
         self.parking = parking
+        self.didLayoutHeightCallback = didLayoutHeightCallback
         self.dismissOrderSheetCallback = dismissOrderSheetCallback
         super.init(nibName: nibNameOrNil,
                    bundle: nibBundleOrNil)
@@ -51,6 +54,11 @@ final class OrderSheetViewController: UIViewController,
         setupLayout()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        didLayoutHeightCallback(Float(view.frame.height))
+    }
+    
     
     // MARK: - UI
     
@@ -60,6 +68,7 @@ final class OrderSheetViewController: UIViewController,
                        forCellReuseIdentifier: UsersAutoTableViewCell.identifier)
         table.register(ParkingTableViewCell.self, forCellReuseIdentifier: ParkingTableViewCell.identifier)
         table.register(TimeTableViewCell.self, forCellReuseIdentifier: TimeTableViewCell.identifier)
+        table.backgroundColor = .white
         table.estimatedRowHeight = 70
         table.rowHeight = UITableView.automaticDimension
         table.separatorStyle = .none
@@ -166,7 +175,7 @@ final class OrderSheetViewController: UIViewController,
     
     
     // MARK: - Interface
-
+    
     func collapseCells() {
         tableView.visibleCells.forEach { cell in
             if let parkingCell = cell as? ParkingTableViewCell {
@@ -177,7 +186,7 @@ final class OrderSheetViewController: UIViewController,
     
     
     // MARK: - Deinit
-
+    
     deinit {
         dismissOrderSheetCallback()
     }

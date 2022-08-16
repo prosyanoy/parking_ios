@@ -50,10 +50,11 @@ final class MainMapViewController: UIViewController {
     }
 
 	override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 		mapButtonsLayer.setGradientBackground()
 	}
-
 	
+    
     // MARK: - Input data flow
     
     private func setupObservers() {
