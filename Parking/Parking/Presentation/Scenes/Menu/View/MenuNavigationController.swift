@@ -14,5 +14,6 @@ final class MenuNavigationController: UINavigationController {
 	}
 
 	private func configureUI() {
+        
 	}
 }

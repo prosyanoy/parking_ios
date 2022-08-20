@@ -1,28 +1,29 @@
 //
-//  MenuTableView.swift
+//  SettingsTableView.swift
 //  Parking
 //
-//  Created by Sofia Lupeko on 01.08.2022.
+//  Created by Анатолий Силиверстов on 17.08.2022.
 //
 
 import UIKit
 
-final class MenuTableView: UITableView {
-    
+final class SettingsTableView: UITableView {
+
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         setupContent()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setupContent() {
+        let lightGrayBackgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .white
+        backgroundColor = lightGrayBackgroundColor
         contentInset = .zero
-        allowsSelection = true
+        allowsSelection = false
         allowsMultipleSelection = false
         delaysContentTouches = true
         contentInsetAdjustmentBehavior = .always
@@ -30,16 +31,15 @@ final class MenuTableView: UITableView {
         showsVerticalScrollIndicator = true
         isScrollEnabled = true
         separatorStyle = .singleLine
-        separatorInset = UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 0)
         rowHeight = Constants.rowsHeight
-        
-        register(MenuCellView.self, forCellReuseIdentifier: MenuCellView.reuseIdentifier)
-        register(MenuHeaderView.self, forHeaderFooterViewReuseIdentifier: MenuHeaderView.reuseIdentifier)
+
+        register(SettingsCellView.self, forCellReuseIdentifier: SettingsCellView.reuseIdentifier)
+        register(SettingsHeaderView.self, forHeaderFooterViewReuseIdentifier: SettingsHeaderView.reuseIdentifier)
     }
 }
 
-extension MenuTableView {
+extension SettingsTableView {
     private struct Constants {
-        static var rowsHeight: CGFloat { 68 }
+        static var rowsHeight: CGFloat { 55 }
     }
 }
