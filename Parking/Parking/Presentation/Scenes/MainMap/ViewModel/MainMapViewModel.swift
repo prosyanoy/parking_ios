@@ -9,21 +9,27 @@ import Foundation
 import MommysEye
 
 
-protocol MainMapDrawerDataSource: AnyObject {
+protocol MainMapDrawerInteractorProtocol: AnyObject {
     var parkings: Publisher<[Parking]> { get }
     func onMapTap()
     func onMapParkingObjectTap(parking: Parking,
+                               didLayoutHeightCallback: @escaping (Float) -> Void,
                                dismissOrderSheetCallback: @escaping () -> Void)
+    func menuButtonTapped()
+    func paymentButtonTapped()
+    func searchButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void)
+    func searchParkingButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void,
+                                   didLayoutHeightCallback: @escaping (Float) -> Void,
+                                   dismissOrderSheetCallback: @escaping () -> Void)
 }
 
 protocol MainMapViewModelProtocol {
     func viewDidLoad()
-    func parkingButtonTapped()
 }
 
 
 final class MainMapViewModel: MainMapViewModelProtocol,
-                              MainMapDrawerDataSource {
+                              MainMapDrawerInteractorProtocol {
     
     // MARK: - Dependencies
     
@@ -45,30 +51,6 @@ final class MainMapViewModel: MainMapViewModelProtocol,
     var parkings = Publisher(value: [Parking]())
     
     
-    // MARK: - MainMapViewModelProtocol
-    
-    func viewDidLoad() {
-        loadInititalState()
-    }
-    
-    func parkingButtonTapped() {
-        router.parkingButtonTapped()
-    }
-    
-    
-   // MARK: - MainMapDrawerDataSource
-    
-    func onMapTap() {
-        router.onMapTap()
-    }
-    
-    func onMapParkingObjectTap(parking: Parking,
-                               dismissOrderSheetCallback: @escaping () -> Void) {
-        router.onMapParkingObjectTap(parking: parking,
-                                   dismissOrderSheetCallback)
-    }
-    
-    
     // MARK: - Private
     
     private func loadInititalState() {
@@ -80,6 +62,50 @@ final class MainMapViewModel: MainMapViewModelProtocol,
                 
             }
         }
+    }
+    
+    
+    // MARK: - MainMapViewModelProtocol
+    
+    func viewDidLoad() {
+        loadInititalState()
+    }
+    
+    
+    // MARK: - MainMapDrawerDataSource
+    
+    func onMapTap() {
+        router.onMapTap()
+    }
+    
+    func onMapParkingObjectTap(parking: Parking,
+                               didLayoutHeightCallback: @escaping (Float) -> Void,
+                               dismissOrderSheetCallback: @escaping () -> Void) {
+        router.onMapParkingObjectTap(parking: parking,
+                                     didLayoutHeightCallback: didLayoutHeightCallback,
+                                     dismissOrderSheetCallback: dismissOrderSheetCallback)
+    }
+    
+    func menuButtonTapped() {
+        router.menuButtonTapped()
+    }
+    
+    func paymentButtonTapped() {
+        router.paymentButtonTapped()
+    }
+    
+    func searchButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void) {
+        router.searchButtonTapped(parkings: parkings.value,
+                                  selectedParkingCallback: selectedParkingCallback)
+    }
+    
+    func searchParkingButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void,
+                                   didLayoutHeightCallback: @escaping (Float) -> Void,
+                                   dismissOrderSheetCallback: @escaping () -> Void) {
+        router.searchParkingButtonTapped(parkings: parkings.value,
+                                         selectedParkingCallback: selectedParkingCallback,
+                                         didLayoutHeightCallback: didLayoutHeightCallback,
+                                         dismissOrderSheetCallback: dismissOrderSheetCallback)
     }
     
 }

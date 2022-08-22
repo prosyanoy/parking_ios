@@ -13,23 +13,23 @@ final class MainMapViewController: UIViewController {
     // MARK: - Dependencies
     
     private let viewModel: MainMapViewModelProtocol
-    private let mapButtonsLayer: MapButtonsView
-    private let mapView: YMKMapView
     private let yMapDrawer: MainMapYMKDrawerProtocol
+    private let yMapView: YMKMapView
+    private let mapButtonsView: MapButtonsView
 
     
     // MARK: - Init
     
     init(viewModel: MainMapViewModelProtocol,
-         mapButtons: MapButtonsView,
-		 mapView: YMKMapView,
          yMapDrawer: MainMapYMKDrawerProtocol,
+         yMapView: YMKMapView,
+         mapButtonsView: MapButtonsView,
          nibName nibNameOrNil: String?,
          bundle nibBundleOrNil: Bundle?) {
-        self.mapButtonsLayer = mapButtons
         self.viewModel = viewModel
-        self.mapView = mapView
         self.yMapDrawer = yMapDrawer
+        self.yMapView = yMapView
+        self.mapButtonsView = mapButtonsView
         super.init(nibName: nibNameOrNil,
                    bundle: nibBundleOrNil)
     }
@@ -50,10 +50,11 @@ final class MainMapViewController: UIViewController {
     }
 
 	override func viewDidLayoutSubviews() {
-		mapButtonsLayer.setGradientBackground()
+        super.viewDidLayoutSubviews()
+        mapButtonsView.setGradientBackground()
 	}
-
 	
+    
     // MARK: - Input data flow
     
     private func setupObservers() {
@@ -62,46 +63,27 @@ final class MainMapViewController: UIViewController {
 //        }
     }
 
-    private lazy var parkingButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "p.circle"),
-                        for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 35
-        button.addTarget(self, action: #selector(parkingButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
     
-    @objc private func parkingButtonTapped() {
-        viewModel.parkingButtonTapped()
-    }
-
+    // MARK: - Layout
+    
     private func setupLayout() {
-		mapView.translatesAutoresizingMaskIntoConstraints = false
-		mapButtonsLayer.translatesAutoresizingMaskIntoConstraints = false
+		yMapView.translatesAutoresizingMaskIntoConstraints = false
+        mapButtonsView.translatesAutoresizingMaskIntoConstraints = false
 
-		view.addSubview(mapView)
-		view.addSubview(mapButtonsLayer)
-		view.addSubview(parkingButton)
+		view.addSubview(yMapView)
+		view.addSubview(mapButtonsView)
 
 		NSLayoutConstraint.activate([
-			mapView.topAnchor.constraint(equalTo: view.topAnchor),
-			mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-			mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            yMapView.topAnchor.constraint(equalTo: view.topAnchor),
+            yMapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            yMapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            yMapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-			mapButtonsLayer.topAnchor.constraint(equalTo: view.topAnchor),
-			mapButtonsLayer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-			mapButtonsLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			mapButtonsLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            mapButtonsView.topAnchor.constraint(equalTo: view.topAnchor),
+            mapButtonsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mapButtonsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapButtonsView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
 		])
-
-        parkingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        parkingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5).isActive = true
-        parkingButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        parkingButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
     
 }

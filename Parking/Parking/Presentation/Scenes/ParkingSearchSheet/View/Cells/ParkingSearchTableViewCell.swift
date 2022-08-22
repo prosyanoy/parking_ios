@@ -1,18 +1,23 @@
 //
-//  TimeTableViewCell.swift
+//  ParkingSearchTableViewCell.swift
 //  Parking
 //
-//  Created by Maxim Terpugov on 09.08.2022.
+//  Created by Maxim Terpugov on 19.08.2022.
 //
 
 import UIKit
 
 
-final class TimeTableViewCell: UITableViewCell {
+final class ParkingSearchTableViewCell: UITableViewCell {
     
     // MARK: - Static
 
-    static let identifier = String(describing: TimeTableViewCell.self)
+    static let identifier = String(describing: ParkingSearchTableViewCell.self)
+    
+    
+    // MARK: - Dependencies
+
+    private var viewModel: ParkingSearchBottomSheetViewModelProtocol?
     
     
     // MARK: - Init
@@ -29,12 +34,15 @@ final class TimeTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupDependencies(viewModel: ParkingSearchBottomSheetViewModelProtocol) {
+        self.viewModel = viewModel
+    }
     
     // MARK: - UI
-
-    private lazy var titleTimeLabel: UILabel = {
+    
+    private lazy var titleParkingLabel: UILabel = {
         let label = UILabel()
-        label.text = "Время"
+        label.text = "Парковка"
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textAlignment = .right
@@ -42,40 +50,45 @@ final class TimeTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var descriptionTimeButton: UIButton = {
+    private lazy var parkingSearchButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("1 час", for: .normal)
+        button.setTitle("Поиск", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         button.tintColor = .systemBlue
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .left
+        button.titleEdgeInsets.left = 3
+        let image = UIImage(systemName: "magnifyingglass")
+        let scaledImage = image?.scale(toSize: CGSize(width: 20, height: 18))
+        button.setImage(scaledImage, for: .normal)
         button.addTarget(self,
-                         action: #selector(descriptionAutoButtonTapped),
+                         action: #selector(parkingSearchButtonTapped),
                          for: .touchUpInside)
         return button
     }()
     
-    @objc private func descriptionAutoButtonTapped() {
-        print("descriptionAutoButtonTapped")
+    @objc private func parkingSearchButtonTapped() {
+        viewModel?.parkingSearchButtonTapped()
     }
     
     private lazy var horizontalStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [titleTimeLabel,
-                                                   descriptionTimeButton])
+        let stack = UIStackView(arrangedSubviews: [titleParkingLabel,
+                                                   parkingSearchButton])
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fillEqually
         stack.spacing = 10
-        stack.layoutMargins = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        stack.layoutMargins = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
         stack.isLayoutMarginsRelativeArrangement = true
+        stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
     private func setupLayout() {
         contentView.addSubview(horizontalStack)
-        horizontalStack.translatesAutoresizingMaskIntoConstraints = false
         horizontalStack.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         horizontalStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         horizontalStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     }
-    
     
 }

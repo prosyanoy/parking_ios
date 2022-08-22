@@ -34,6 +34,20 @@
 		9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF5228906B33002B1C12 /* MainMapRouter.swift */; };
 		9408FF5728906C89002B1C12 /* MommysEye in Frameworks */ = {isa = PBXBuildFile; productRef = 9408FF5628906C89002B1C12 /* MommysEye */; };
 		9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */; };
+		9496460528AF86CE0095FB6E /* ParkingSearchBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9496460428AF86CE0095FB6E /* ParkingSearchBottomSheet.swift */; };
+		9496460928AF89390095FB6E /* ParkingSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9496460828AF89390095FB6E /* ParkingSearchTableViewCell.swift */; };
+		9496460C28AF8AEF0095FB6E /* ParkingSearchBottomSheetTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9496460B28AF8AEF0095FB6E /* ParkingSearchBottomSheetTransitionDelegate.swift */; };
+		9496460F28AF8B440095FB6E /* ParkingSearchBottomSheetPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9496460E28AF8B440095FB6E /* ParkingSearchBottomSheetPresentationViewController.swift */; };
+		9496461128AF8B9C0095FB6E /* ParkingSearchBottomSheetSceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9496461028AF8B9C0095FB6E /* ParkingSearchBottomSheetSceneConfigurator.swift */; };
+		9496461428AF9DE80095FB6E /* ParkingSearchBottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9496461328AF9DE80095FB6E /* ParkingSearchBottomSheetViewModel.swift */; };
+		9496461628AF9E290095FB6E /* ParkingSearchBottomSheetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9496461528AF9E290095FB6E /* ParkingSearchBottomSheetRouter.swift */; };
+		94A7F45028ABE87A001FD271 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7F44F28ABE87A001FD271 /* PaymentViewController.swift */; };
+		94A7F45428ABE913001FD271 /* PaymentSceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7F45328ABE913001FD271 /* PaymentSceneConfigurator.swift */; };
+		94A7F45728ACD13A001FD271 /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7F45628ACD13A001FD271 /* PaymentMethodView.swift */; };
+		94A7F45A28ACFCA4001FD271 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7F45928ACFCA4001FD271 /* SearchViewController.swift */; };
+		94A7F45E28ACFE0E001FD271 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7F45D28ACFE0E001FD271 /* SearchTableViewCell.swift */; };
+		94A7F46128AD09D4001FD271 /* SearchSceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7F46028AD09D4001FD271 /* SearchSceneConfigurator.swift */; };
+		94A7F46428AD1E4E001FD271 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7F46328AD1E4E001FD271 /* SearchViewModel.swift */; };
 		94D2155B288F285E00DFE786 /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21550288F285E00DFE786 /* Parking.swift */; };
 		94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21552288F285E00DFE786 /* ParkingGateway.swift */; };
 		94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */; };
@@ -84,6 +98,20 @@
 		9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapConfigurator.swift; sourceTree = "<group>"; };
 		9408FF5228906B33002B1C12 /* MainMapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapRouter.swift; sourceTree = "<group>"; };
 		9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfiguratorProtocol.swift; sourceTree = "<group>"; };
+		9496460428AF86CE0095FB6E /* ParkingSearchBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSearchBottomSheet.swift; sourceTree = "<group>"; };
+		9496460828AF89390095FB6E /* ParkingSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSearchTableViewCell.swift; sourceTree = "<group>"; };
+		9496460B28AF8AEF0095FB6E /* ParkingSearchBottomSheetTransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSearchBottomSheetTransitionDelegate.swift; sourceTree = "<group>"; };
+		9496460E28AF8B440095FB6E /* ParkingSearchBottomSheetPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSearchBottomSheetPresentationViewController.swift; sourceTree = "<group>"; };
+		9496461028AF8B9C0095FB6E /* ParkingSearchBottomSheetSceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSearchBottomSheetSceneConfigurator.swift; sourceTree = "<group>"; };
+		9496461328AF9DE80095FB6E /* ParkingSearchBottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSearchBottomSheetViewModel.swift; sourceTree = "<group>"; };
+		9496461528AF9E290095FB6E /* ParkingSearchBottomSheetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSearchBottomSheetRouter.swift; sourceTree = "<group>"; };
+		94A7F44F28ABE87A001FD271 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		94A7F45328ABE913001FD271 /* PaymentSceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSceneConfigurator.swift; sourceTree = "<group>"; };
+		94A7F45628ACD13A001FD271 /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
+		94A7F45928ACFCA4001FD271 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		94A7F45D28ACFE0E001FD271 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		94A7F46028AD09D4001FD271 /* SearchSceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSceneConfigurator.swift; sourceTree = "<group>"; };
+		94A7F46328AD1E4E001FD271 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		94D21550288F285E00DFE786 /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
 		94D21552288F285E00DFE786 /* ParkingGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingGateway.swift; sourceTree = "<group>"; };
 		94D21558288F285E00DFE786 /* ParkingNetworkEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingNetworkEntity.swift; sourceTree = "<group>"; };
@@ -169,7 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				2643D904289B0CD6005D8E37 /* MapButtonsView.swift */,
-				2643D905289B0CD6005D8E37 /* CashView.swift */,
+				94A7F44E28ABE7DB001FD271 /* CashView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,6 +282,9 @@
 				9408FF3A28900717002B1C12 /* MainMap */,
 				26EC27082898038E00B84D2A /* Menu */,
 				9408FF40289007F9002B1C12 /* OrderSheet */,
+				94A7F45128ABE881001FD271 /* Payment */,
+				94A7F45B28ACFCA7001FD271 /* Search */,
+				9496460628AF86DE0095FB6E /* ParkingSearchSheet */,
 				9408FF4B289032BB002B1C12 /* Infrastructure */,
 			);
 			path = Scenes;
@@ -352,6 +383,153 @@
 				9408FF39289006FB002B1C12 /* Scenes */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		9496460628AF86DE0095FB6E /* ParkingSearchSheet */ = {
+			isa = PBXGroup;
+			children = (
+				9496461228AF8BA00095FB6E /* Configurator */,
+				9496460728AF86ED0095FB6E /* View */,
+				9496461728AF9F660095FB6E /* ViewModel */,
+				9496461828AF9F6C0095FB6E /* Router */,
+			);
+			path = ParkingSearchSheet;
+			sourceTree = "<group>";
+		};
+		9496460728AF86ED0095FB6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9496460428AF86CE0095FB6E /* ParkingSearchBottomSheet.swift */,
+				9496460A28AF893D0095FB6E /* Cells */,
+				9496460D28AF8AF20095FB6E /* TransitionDelegate */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9496460A28AF893D0095FB6E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9496460828AF89390095FB6E /* ParkingSearchTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9496460D28AF8AF20095FB6E /* TransitionDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				9496460B28AF8AEF0095FB6E /* ParkingSearchBottomSheetTransitionDelegate.swift */,
+				9496460E28AF8B440095FB6E /* ParkingSearchBottomSheetPresentationViewController.swift */,
+			);
+			path = TransitionDelegate;
+			sourceTree = "<group>";
+		};
+		9496461228AF8BA00095FB6E /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9496461028AF8B9C0095FB6E /* ParkingSearchBottomSheetSceneConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		9496461728AF9F660095FB6E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9496461328AF9DE80095FB6E /* ParkingSearchBottomSheetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9496461828AF9F6C0095FB6E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9496461528AF9E290095FB6E /* ParkingSearchBottomSheetRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		94A7F44E28ABE7DB001FD271 /* CashView */ = {
+			isa = PBXGroup;
+			children = (
+				2643D905289B0CD6005D8E37 /* CashView.swift */,
+			);
+			path = CashView;
+			sourceTree = "<group>";
+		};
+		94A7F45128ABE881001FD271 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				94A7F45528ABE917001FD271 /* Configurator */,
+				94A7F45228ABE896001FD271 /* View */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		94A7F45228ABE896001FD271 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94A7F44F28ABE87A001FD271 /* PaymentViewController.swift */,
+				94A7F45828ACD147001FD271 /* PaymentMethodView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		94A7F45528ABE917001FD271 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				94A7F45328ABE913001FD271 /* PaymentSceneConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		94A7F45828ACD147001FD271 /* PaymentMethodView */ = {
+			isa = PBXGroup;
+			children = (
+				94A7F45628ACD13A001FD271 /* PaymentMethodView.swift */,
+			);
+			path = PaymentMethodView;
+			sourceTree = "<group>";
+		};
+		94A7F45B28ACFCA7001FD271 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				94A7F46228AD0A8D001FD271 /* Configurator */,
+				94A7F45C28ACFCAC001FD271 /* View */,
+				94A7F46528AD1E51001FD271 /* ViewModel */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		94A7F45C28ACFCAC001FD271 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94A7F45928ACFCA4001FD271 /* SearchViewController.swift */,
+				94A7F45F28ACFE13001FD271 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		94A7F45F28ACFE13001FD271 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				94A7F45D28ACFE0E001FD271 /* SearchTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		94A7F46228AD0A8D001FD271 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				94A7F46028AD09D4001FD271 /* SearchSceneConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		94A7F46528AD1E51001FD271 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				94A7F46328AD1E4E001FD271 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		94D2154D288F285E00DFE786 /* Domain */ = {
@@ -571,18 +749,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A7F45428ABE913001FD271 /* PaymentSceneConfigurator.swift in Sources */,
 				94D5775028A27B2100C7F7D3 /* ResizingTableView.swift in Sources */,
+				94A7F45028ABE87A001FD271 /* PaymentViewController.swift in Sources */,
+				94A7F45728ACD13A001FD271 /* PaymentMethodView.swift in Sources */,
 				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
 				9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */,
+				94A7F46428AD1E4E001FD271 /* SearchViewModel.swift in Sources */,
 				26DB52FF289EEEF900CF0611 /* MenuHeaderView.swift in Sources */,
+				9496461628AF9E290095FB6E /* ParkingSearchBottomSheetRouter.swift in Sources */,
 				2643D907289B0CD6005D8E37 /* CashView.swift in Sources */,
 				9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */,
 				94D5775828A2800A00C7F7D3 /* ParkingTableViewCell.swift in Sources */,
 				94D5771328995F0000C7F7D3 /* ImageScaler.swift in Sources */,
 				26DB5301289EF1F200CF0611 /* MenuHeader.swift in Sources */,
+				9496460C28AF8AEF0095FB6E /* ParkingSearchBottomSheetTransitionDelegate.swift in Sources */,
+				9496461428AF9DE80095FB6E /* ParkingSearchBottomSheetViewModel.swift in Sources */,
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
 				94D5771128995F0000C7F7D3 /* TextDrawer.swift in Sources */,
 				94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */,
+				9496460928AF89390095FB6E /* ParkingSearchTableViewCell.swift in Sources */,
 				9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */,
 				9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */,
 				263836BC288C1EDB00EA4353 /* SceneDelegate.swift in Sources */,
@@ -596,16 +782,20 @@
 				26DB5306289FFFA600CF0611 /* MenuNavigationController.swift in Sources */,
 				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
 				26EC27102898077D00B84D2A /* MenuCell.swift in Sources */,
-				9408FF4728900855002B1C12 /* OrderSheetAnimator.swift in Sources */,
 				26EC271828980F4700B84D2A /* MenuViewController.swift in Sources */,
 				26EC270E2898050100B84D2A /* MenuCellView.swift in Sources */,
+				9496460F28AF8B440095FB6E /* ParkingSearchBottomSheetPresentationViewController.swift in Sources */,
 				2643D906289B0CD6005D8E37 /* MapButtonsView.swift in Sources */,
+				9496460528AF86CE0095FB6E /* ParkingSearchBottomSheet.swift in Sources */,
+				94A7F46128AD09D4001FD271 /* SearchSceneConfigurator.swift in Sources */,
 				26DB5304289EFB5F00CF0611 /* MenuConfigurator.swift in Sources */,
+				94A7F45E28ACFE0E001FD271 /* SearchTableViewCell.swift in Sources */,
 				26EC2716289809B300B84D2A /* MenuRouter.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
 				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
 				94D5775228A27C0D00C7F7D3 /* UsersAutoTableViewCell.swift in Sources */,
-				267D55E0289286E2007AA452 /* MapButtonsView.swift in Sources */,
+				94A7F45A28ACFCA4001FD271 /* SearchViewController.swift in Sources */,
+				9496461128AF8B9C0095FB6E /* ParkingSearchBottomSheetSceneConfigurator.swift in Sources */,
 				94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */,
 				94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */,
 				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
@@ -664,7 +854,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -725,7 +915,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -753,7 +943,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7LV5WFLC5J;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";
@@ -785,7 +975,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7LV5WFLC5J;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";

@@ -30,6 +30,7 @@ final class ParkingTableViewCell: UITableViewCell {
                   reuseIdentifier: String?) {
         super.init(style: style,
                    reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .white
         setupLayout()
     }
     
@@ -48,6 +49,7 @@ final class ParkingTableViewCell: UITableViewCell {
     private lazy var titleParkingLabel: UILabel = {
         let label = UILabel()
         label.text = "Парковка"
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textAlignment = .right
         label.numberOfLines = 1
@@ -114,6 +116,7 @@ final class ParkingTableViewCell: UITableViewCell {
     private lazy var detailTitleAdressLabel: UILabel = {
         let label = UILabel()
         label.text = "Адрес"
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.textAlignment = .right
         label.numberOfLines = 1
@@ -123,6 +126,7 @@ final class ParkingTableViewCell: UITableViewCell {
     private lazy var detailDescriptionAdressLabel: UILabel = {
         let label = UILabel()
         label.text = "none"
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -142,6 +146,7 @@ final class ParkingTableViewCell: UITableViewCell {
     private lazy var detailTitleCostLabel: UILabel = {
         let label = UILabel()
         label.text = "Цена за час"
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.textAlignment = .right
         label.numberOfLines = 0
@@ -151,6 +156,7 @@ final class ParkingTableViewCell: UITableViewCell {
     private lazy var detailDescriptionCostLabel: UILabel = {
         let label = UILabel()
         label.text = "none"
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -178,7 +184,7 @@ final class ParkingTableViewCell: UITableViewCell {
         stack.alpha = 0
         stack.layoutMargins = UIEdgeInsets(top: 5, left: 0, bottom: 15, right: 0)
         stack.isLayoutMarginsRelativeArrangement = true
-        stack.backgroundColor = .systemGray5
+        stack.backgroundColor = #colorLiteral(red: 0.8976908326, green: 0.8977413177, blue: 0.918277204, alpha: 1)
         return stack
     }()
     

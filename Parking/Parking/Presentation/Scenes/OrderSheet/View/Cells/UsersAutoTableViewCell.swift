@@ -21,6 +21,7 @@ final class UsersAutoTableViewCell: UITableViewCell {
                   reuseIdentifier: String?) {
         super.init(style: style,
                    reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .white
         setupLayout()
     }
     
@@ -34,6 +35,7 @@ final class UsersAutoTableViewCell: UITableViewCell {
     private lazy var titleAutoLabel: UILabel = {
         let label = UILabel()
         label.text = "Автомобиль"
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textAlignment = .right
         label.numberOfLines = 1

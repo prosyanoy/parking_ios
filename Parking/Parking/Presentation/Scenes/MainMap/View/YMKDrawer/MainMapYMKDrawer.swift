@@ -14,6 +14,17 @@ protocol MainMapYMKDrawerProtocol {
     func setupYMapView()
 }
 
+protocol MainMapButtonsLayerDelegateProtocol {
+    func menuButtonTapped()
+    func cashViewTapped()
+    func searchButtonTapped()
+    func zoomPlusButtonTapped()
+    func zoomMinusButtonTapped()
+    func locationButtonTapped()
+    func invalidButtonTapped()
+    func searchParkingButtonTapped()
+}
+
 
 final class MainMapYMKDrawer: NSObject,
                               YMKMapCameraListener,
@@ -22,20 +33,21 @@ final class MainMapYMKDrawer: NSObject,
                               YMKUserLocationObjectListener,
                               YMKClusterListener,
                               YMKClusterTapListener,
-                              MainMapYMKDrawerProtocol {
+                              MainMapYMKDrawerProtocol,
+                              MainMapButtonsLayerDelegateProtocol {
     
     // MARK: - Dependencies
     
     private unowned var yMapView: YMKMapView
-    private unowned var yMapDataSource: MainMapDrawerDataSource
+    private unowned var interactor: MainMapDrawerInteractorProtocol
     
     
     // MARK: - Init
     
     init(mapView: YMKMapView,
-         yMapDataSource: MainMapDrawerDataSource) {
+         interactor: MainMapDrawerInteractorProtocol) {
         self.yMapView = mapView
-        self.yMapDataSource = yMapDataSource
+        self.interactor = interactor
         super.init()
         setupObservers()
     }
@@ -49,7 +61,7 @@ final class MainMapYMKDrawer: NSObject,
     }
     
     private func setupObservers() {
-        yMapDataSource.parkings.subscribe(observer: self) { [weak self] parkings in
+        interactor.parkings.subscribe(observer: self) { [weak self] parkings in
             self?.drawParkingPlaces(parkings: parkings)
             self?.addCluster(parkings: parkings)
         }
@@ -57,7 +69,7 @@ final class MainMapYMKDrawer: NSObject,
     
     
     // MARK: - MainMapYMKDrawerProtocol
-
+    
     func setupYMapView() {
         let defaultPoint = YMKPoint(latitude: 43.590097,
                                     longitude: 39.721887)
@@ -109,7 +121,7 @@ final class MainMapYMKDrawer: NSObject,
         view.layer.shadowOffset = CGSize(width: 0, height: 5)
         view.layer.shadowRadius = 3
         view.layer.shadowOpacity = 0.30
-    
+        
         return view
     }()
     
@@ -128,7 +140,7 @@ final class MainMapYMKDrawer: NSObject,
     
     func onObjectUpdated(with view: YMKUserLocationView, event: YMKObjectEvent) {
         guard view != userLocationView,
-        let userPosition = userLocationLayer?.cameraPosition() else { return }
+              let userPosition = userLocationLayer?.cameraPosition() else { return }
         let zoomUserPosition = YMKCameraPosition(target: userPosition.target,
                                                  zoom: 16,
                                                  azimuth: 0,
@@ -161,7 +173,7 @@ final class MainMapYMKDrawer: NSObject,
     
     // YMKMapInputListener
     func onMapTap(with map: YMKMap, point: YMKPoint) {
-        yMapDataSource.onMapTap()
+        interactor.onMapTap()
     }
     
     func onMapLongTap(with map: YMKMap, point: YMKPoint) {
@@ -170,7 +182,9 @@ final class MainMapYMKDrawer: NSObject,
     
     // YMKMapObjectTapListener
     // Для быстрого поиска Парковки по входящему объекту (Polyline / Polygon)
-    private var parkingPlacesBindingTable = [YMKMapObject : Parking]()
+    private var placesParkingBindingTable = [YMKMapObject : Parking]()
+    // Для быстрого поиска Map объекта (Polyline / Polygon) по id парковки
+    private var parkingPlacesBindingTable = [Int : YMKMapObject]()
     // Для быстрого поиска Плейсмарка по id парковки
     private var parkingPlacemarksBindingTable = [Int : YMKPlacemarkMapObject]()
     // Кеш выбранного объекта
@@ -179,19 +193,12 @@ final class MainMapYMKDrawer: NSObject,
     
     func onMapObjectTap(with mapObject: YMKMapObject, point: YMKPoint) -> Bool {
         guard selectedMapObject !== mapObject,
-              let parking = parkingPlacesBindingTable[mapObject],
+              let parking = placesParkingBindingTable[mapObject],
               let placemark = parkingPlacemarksBindingTable[parking.id] else {
                   return false
               }
-        let position = YMKCameraPosition(target: placemark.geometry,
-                                         zoom: map.cameraPosition.zoom,
-                                         azimuth: 0,
-                                         tilt: 0)
-        map.move(with: position,
-                 animationType: .init(type: .smooth,
-                                      duration: 0.3),
-                 cameraCallback: nil)
         switch mapObject {
+            // POLYLINE
         case let polyline as YMKPolylineMapObject:
             setColor(polyline: polyline,
                      isSelected: .selected)
@@ -199,8 +206,14 @@ final class MainMapYMKDrawer: NSObject,
             placemark.setIconWith(drawPlacemarkImage(
                 parkingCost: parking.hourCost,
                 isSelected: .selected))
-            yMapDataSource.onMapParkingObjectTap(parking: parking,
-                                                 dismissOrderSheetCallback: { [weak self] in
+            interactor.onMapParkingObjectTap(parking: parking,
+                                             // DID LAYOUT HEIGHT CALLBACK
+                                             didLayoutHeightCallback: { [weak self] newHeight in
+                self?.animateToNewMapFrameCenter(overlappedAreaHeight: newHeight,
+                                                 targetPoint: placemark.geometry)
+            },
+                                             // DISMISS CALLBACK
+                                             dismissOrderSheetCallback: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.setColor(polyline: polyline,
                                     isSelected: .unselected)
@@ -208,7 +221,9 @@ final class MainMapYMKDrawer: NSObject,
                     parkingCost: parking.hourCost,
                     isSelected: .unselected))
                 strongSelf.selectedMapObject = nil
+                strongSelf.animateToInitialMapFrameCenter()
             })
+            // POLYGON
         case let polygon as YMKPolygonMapObject:
             setColor(polygon: polygon,
                      isSelected: .selected)
@@ -216,8 +231,14 @@ final class MainMapYMKDrawer: NSObject,
             placemark.setIconWith(drawPlacemarkImage(
                 parkingCost: parking.hourCost,
                 isSelected: .selected))
-            yMapDataSource.onMapParkingObjectTap(parking: parking,
-                                                 dismissOrderSheetCallback: { [weak self] in
+            interactor.onMapParkingObjectTap(parking: parking,
+                                             // DID LAYOUT HEIGHT CALLBACK
+                                             didLayoutHeightCallback: { [weak self] newHeight in
+                self?.animateToNewMapFrameCenter(overlappedAreaHeight: newHeight,
+                                                 targetPoint: placemark.geometry)
+            },
+                                             // DISMISS CALLBACK
+                                             dismissOrderSheetCallback: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.setColor(polygon: polygon,
                                     isSelected: .unselected)
@@ -225,13 +246,120 @@ final class MainMapYMKDrawer: NSObject,
                     parkingCost: parking.hourCost,
                     isSelected: .unselected))
                 strongSelf.selectedMapObject = nil
+                strongSelf.animateToInitialMapFrameCenter()
             })
+            
         default:
             return false
         }
         return true
     }
     
+    private func animateToNewMapFrameCenter(overlappedAreaHeight: Float, targetPoint: YMKPoint) {
+        let mapViewWidth = Float(yMapView.mapWindow.width())
+        let mapViewHeight = Float(yMapView.mapWindow.height())
+        let scale = Float(UIScreen.main.scale)
+        let scaledArea = overlappedAreaHeight * scale
+        let deltaHeight = mapViewHeight - scaledArea
+        // calculate center point
+        let focusPoint = YMKScreenPoint(x: mapViewWidth / 2,
+                                        y: deltaHeight / 2)
+        guard let initialCenter = yMapView.mapWindow.screenToWorld(with: focusPoint) else {
+            return
+        }
+        let oldPosition = YMKCameraPosition(target: initialCenter,
+                                            zoom: map.cameraPosition.zoom,
+                                            azimuth: 0,
+                                            tilt: 0)
+        let newPosition = YMKCameraPosition(target: targetPoint,
+                                            zoom: map.cameraPosition.zoom,
+                                            azimuth: 0,
+                                            tilt: 0)
+        // change focus rect (without animation)
+        let newRect = YMKScreenRect(topLeft: .init(x: 0, y: 0),
+                                    bottomRight: .init(x: mapViewWidth,
+                                                       y: deltaHeight))
+        yMapView.mapWindow.focusRect = newRect
+        // move camera to old position (without animation)
+        map.move(with: oldPosition)
+        // move camera to new position (with animation)
+        map.move(with: newPosition,
+                 animationType: .init(type: .smooth,
+                                      duration: 0.5),
+                 cameraCallback: nil)
+    }
+    
+    private func animateToNewMapFrameCenterWithoutMapTarget(overlappedAreaHeight: Float) {
+        let mapViewWidth = Float(yMapView.mapWindow.width())
+        let mapViewHeight = Float(yMapView.mapWindow.height())
+        let scale = Float(UIScreen.main.scale)
+        let scaledArea = overlappedAreaHeight * scale
+        let deltaHeight = mapViewHeight - scaledArea
+        let focusPoint = YMKScreenPoint(x: mapViewWidth / 2,
+                                        y: deltaHeight / 2)
+        guard let initialCenter = yMapView.mapWindow.screenToWorld(with: focusPoint) else {
+            return
+        }
+        let oldPosition = YMKCameraPosition(target: initialCenter,
+                                            zoom: map.cameraPosition.zoom,
+                                            azimuth: 0,
+                                            tilt: 0)
+       
+        let newFocusPoint = YMKScreenPoint(x: mapViewWidth / 2,
+                                           y: mapViewHeight / 2)
+        guard let newCenter = yMapView.mapWindow.screenToWorld(with: newFocusPoint) else { return }
+        let newPosition = YMKCameraPosition(target: newCenter,
+                                            zoom: map.cameraPosition.zoom,
+                                            azimuth: 0,
+                                            tilt: 0)
+        
+        let newRect = YMKScreenRect(topLeft: .init(x: 0, y: 0),
+                                    bottomRight: .init(x: mapViewWidth,
+                                                       y: deltaHeight))
+        yMapView.mapWindow.focusRect = newRect
+        
+        map.move(with: oldPosition)
+        map.move(with: newPosition,
+                 animationType: .init(type: .smooth,
+                                      duration: 0.5),
+                 cameraCallback: nil)
+    }
+    
+    // full screen rect
+    private func animateToInitialMapFrameCenter() {
+        let mapViewWidth = Float(yMapView.mapWindow.width())
+        let mapViewHeight = Float(yMapView.mapWindow.height())
+        // calculate center point
+        let focusPoint = YMKScreenPoint(x: mapViewWidth / 2,
+                                        y: mapViewHeight / 2)
+        guard let initialCenter = yMapView.mapWindow.screenToWorld(with: focusPoint) else {
+            return
+        }
+        let oldPosition = YMKCameraPosition(target: initialCenter,
+                                            zoom: map.cameraPosition.zoom,
+                                            azimuth: 0,
+                                            tilt: 0)
+        // update map screen rect
+        let newRect = YMKScreenRect(topLeft: .init(x: 0, y: 0),
+                                    bottomRight: .init(x: mapViewWidth,
+                                                       y: mapViewHeight))
+        yMapView.mapWindow.focusRect = newRect
+        // calculate new center point after updating map screen rect
+        guard let newCenter = yMapView.mapWindow.screenToWorld(with: focusPoint) else {
+            return
+        }
+        let newPosition = YMKCameraPosition(target: newCenter,
+                                            zoom: map.cameraPosition.zoom,
+                                            azimuth: 0,
+                                            tilt: 0)
+        // move camera to old position (without animation)
+        map.move(with: oldPosition)
+        // move camera to new position (with animation)
+        map.move(with: newPosition,
+                 animationType: .init(type: .smooth,
+                                      duration: 0.3),
+                 cameraCallback: nil)
+    }
     
     // MARK: - CLUSTER
     
@@ -310,7 +438,7 @@ final class MainMapYMKDrawer: NSObject,
                                                         isSelected: .unselected))
             parkingPlacemarksBindingTable[parking.id] = placemark
         }
-        collection.clusterPlacemarks(withClusterRadius: 70, // 50
+        collection.clusterPlacemarks(withClusterRadius: 70,
                                      minZoom: 15)
     }
     
@@ -369,7 +497,8 @@ final class MainMapYMKDrawer: NSObject,
         polygonMapObject.isVisible = false
         polygonMapObject.addTapListener(with: self)
         polygonMapObjects.append(polygonMapObject)
-        parkingPlacesBindingTable[polygonMapObject] = parking
+        placesParkingBindingTable[polygonMapObject] = parking
+        parkingPlacesBindingTable[parking.id] = polygonMapObject
     }
     
     private func drawPolyline(points: [YMKPoint], parking: Parking) {
@@ -381,7 +510,8 @@ final class MainMapYMKDrawer: NSObject,
         polylineMapObject.isVisible = false
         polylineMapObject.addTapListener(with: self)
         polylineMapObjects.append(polylineMapObject)
-        parkingPlacesBindingTable[polylineMapObject] = parking
+        placesParkingBindingTable[polylineMapObject] = parking
+        parkingPlacesBindingTable[parking.id] = polylineMapObject
     }
     
     private func setColor(polyline: YMKPolylineMapObject, isSelected: SelectionState) {
@@ -406,6 +536,123 @@ final class MainMapYMKDrawer: NSObject,
             polygon.fillColor = fillColor
             polygon.strokeColor = #colorLiteral(red: 0.03529411765, green: 0.5215686275, blue: 0.7529411765, alpha: 1)
         }
+    }
+    
+    private func currentCenterPoint() -> YMKPoint? {
+        var focusPoint = YMKScreenPoint()
+        if let focusRect = yMapView.mapWindow.focusRect {
+            focusPoint = YMKScreenPoint(x: focusRect.bottomRight.x / 2,
+                                        y: focusRect.bottomRight.y / 2)
+        } else {
+            let mapViewWidth = Float(yMapView.mapWindow.width())
+            let mapViewHeight = Float(yMapView.mapWindow.height())
+            focusPoint = YMKScreenPoint(x: mapViewWidth / 2,
+                                        y: mapViewHeight / 2)
+        }
+        let center = yMapView.mapWindow.screenToWorld(with: focusPoint)
+        return center
+    }
+    
+    
+    // MARK: - Buttons layer interface
+
+    func menuButtonTapped() {
+        interactor.menuButtonTapped()
+    }
+    
+    func cashViewTapped() {
+        interactor.paymentButtonTapped()
+    }
+    
+    func searchButtonTapped() {
+        interactor.searchButtonTapped { [weak self] selectedParking in
+            guard let placemark = self?.parkingPlacemarksBindingTable[selectedParking.id] else { return }
+            guard let mapObject = self?.parkingPlacesBindingTable[selectedParking.id] else { return }
+            let cameraPosition = YMKCameraPosition(target: placemark.geometry,
+                                                   zoom: 17,
+                                                   azimuth: 0,
+                                                   tilt: 0)
+            self?.map.move(with: cameraPosition,
+                           animationType: .init(type: .smooth,
+                                                duration: 0.5),
+                           cameraCallback: { _ in
+                let _ = self?.onMapObjectTap(with: mapObject, point: placemark.geometry)
+            })
+        }
+    }
+    
+    func zoomPlusButtonTapped() {
+        let maxZoom: Float = 19
+        let currentZoom = map.cameraPosition.zoom
+        guard let centerPoint = currentCenterPoint(),
+              currentZoom <= maxZoom else {
+                  return
+              }
+        let newZoom = currentZoom + 1
+        let cameraPosition = YMKCameraPosition(target: centerPoint,
+                                               zoom: newZoom,
+                                               azimuth: 0,
+                                               tilt: 0)
+        map.move(with: cameraPosition,
+                 animationType: .init(type: .smooth,
+                                      duration: 0.3),
+                 cameraCallback: nil)
+    }
+    
+    func zoomMinusButtonTapped() {
+        let minZoom: Float = 2
+        let currentZoom = map.cameraPosition.zoom
+        guard let centerPoint = currentCenterPoint(),
+              currentZoom >= minZoom else {
+                  return
+              }
+        let newZoom = currentZoom - 1
+        let cameraPosition = YMKCameraPosition(target: centerPoint,
+                                               zoom: newZoom,
+                                               azimuth: 0,
+                                               tilt: 0)
+        map.move(with: cameraPosition,
+                 animationType: .init(type: .smooth,
+                                      duration: 0.3),
+                 cameraCallback: nil)
+    }
+    
+    func locationButtonTapped() {
+        // TODO: - добавить всплываху, если не доступна гео локация
+        guard let userPosition = userLocationLayer?.cameraPosition() else { return }
+        let currentZoom = map.cameraPosition.zoom
+        let zoomedUserPosition = YMKCameraPosition(target: userPosition.target,
+                                                   zoom: currentZoom,
+                                                   azimuth: 0,
+                                                   tilt: 0)
+        map.move(with: zoomedUserPosition)
+    }
+    
+    func invalidButtonTapped() { }
+    
+    func searchParkingButtonTapped() {
+        interactor.searchParkingButtonTapped(
+            selectedParkingCallback: { [weak self] selectedParking in
+            guard let placemark = self?.parkingPlacemarksBindingTable[selectedParking.id] else { return }
+            guard let mapObject = self?.parkingPlacesBindingTable[selectedParking.id] else { return }
+            let cameraPosition = YMKCameraPosition(target: placemark.geometry,
+                                                   zoom: 17,
+                                                   azimuth: 0,
+                                                   tilt: 0)
+            self?.map.move(with: cameraPosition,
+                           animationType: .init(type: .smooth,
+                                                duration: 0.5),
+                           cameraCallback: { _ in
+                let _ = self?.onMapObjectTap(with: mapObject, point: placemark.geometry)
+            })
+        },
+            didLayoutHeightCallback: { [weak self] newHeight in
+                self?.animateToNewMapFrameCenterWithoutMapTarget(overlappedAreaHeight: newHeight)
+            },
+            dismissOrderSheetCallback: { [weak self] in
+                self?.animateToInitialMapFrameCenter()
+            }
+        )
     }
     
 }
