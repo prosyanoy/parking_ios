@@ -22,16 +22,15 @@ final class MainMapConfigurator: SceneConfiguratorProtocol_CN {
         let viewModel = MainMapViewModel(parkingRepository: parkingRepository,
                                          router: router)
         let fullScreenBounds = UIScreen.main.bounds
-        let mapView = YMKMapView(frame: fullScreenBounds,
-                                 vulkanPreferred: true) ?? YMKMapView()
-        let yMapDrawer = MainMapYMKDrawer(mapView: mapView,
-                                          yMapDataSource: viewModel)
-		#warning("fix")
-		let mapButtonsLayer = MapButtonsView(main: navigationContainer)
+        let yMapView = YMKMapView(frame: fullScreenBounds,
+                                  vulkanPreferred: true) ?? YMKMapView()
+        let yMapDrawer = MainMapYMKDrawer(mapView: yMapView,
+                                          interactor: viewModel)
+        let mapButtonsLayer = MapButtonsView(targetDelegate: yMapDrawer)
         let mapVC = MainMapViewController(viewModel: viewModel,
-                                          mapButtons: mapButtonsLayer,
-                                          mapView: mapView,
                                           yMapDrawer: yMapDrawer,
+                                          yMapView: yMapView,
+                                          mapButtonsView: mapButtonsLayer,
                                           nibName: nil,
                                           bundle: nil)
         navigationContainer.viewControllers = [mapVC]

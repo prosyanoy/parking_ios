@@ -9,22 +9,27 @@ import Foundation
 import MommysEye
 
 
-protocol MainMapDrawerDataSource: AnyObject {
+protocol MainMapDrawerInteractorProtocol: AnyObject {
     var parkings: Publisher<[Parking]> { get }
     func onMapTap()
     func onMapParkingObjectTap(parking: Parking,
                                didLayoutHeightCallback: @escaping (Float) -> Void,
                                dismissOrderSheetCallback: @escaping () -> Void)
+    func menuButtonTapped()
+    func paymentButtonTapped()
+    func searchButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void)
+    func searchParkingButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void,
+                                   didLayoutHeightCallback: @escaping (Float) -> Void,
+                                   dismissOrderSheetCallback: @escaping () -> Void)
 }
 
 protocol MainMapViewModelProtocol {
     func viewDidLoad()
-    func parkingButtonTapped()
 }
 
 
 final class MainMapViewModel: MainMapViewModelProtocol,
-                              MainMapDrawerDataSource {
+                              MainMapDrawerInteractorProtocol {
     
     // MARK: - Dependencies
     
@@ -46,14 +51,24 @@ final class MainMapViewModel: MainMapViewModelProtocol,
     var parkings = Publisher(value: [Parking]())
     
     
+    // MARK: - Private
+    
+    private func loadInititalState() {
+        let _ = Task {
+            do {
+                let parkings = try await parkingRepository.fetch()
+                self.parkings.value = parkings
+            } catch {
+                
+            }
+        }
+    }
+    
+    
     // MARK: - MainMapViewModelProtocol
     
     func viewDidLoad() {
         loadInititalState()
-    }
-    
-    func parkingButtonTapped() {
-        router.parkingButtonTapped()
     }
     
     
@@ -71,18 +86,26 @@ final class MainMapViewModel: MainMapViewModelProtocol,
                                      dismissOrderSheetCallback: dismissOrderSheetCallback)
     }
     
+    func menuButtonTapped() {
+        router.menuButtonTapped()
+    }
     
-    // MARK: - Private
+    func paymentButtonTapped() {
+        router.paymentButtonTapped()
+    }
     
-    private func loadInititalState() {
-        let _ = Task {
-            do {
-                let parkings = try await parkingRepository.fetch()
-                self.parkings.value = parkings
-            } catch {
-                
-            }
-        }
+    func searchButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void) {
+        router.searchButtonTapped(parkings: parkings.value,
+                                  selectedParkingCallback: selectedParkingCallback)
+    }
+    
+    func searchParkingButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void,
+                                   didLayoutHeightCallback: @escaping (Float) -> Void,
+                                   dismissOrderSheetCallback: @escaping () -> Void) {
+        router.searchParkingButtonTapped(parkings: parkings.value,
+                                         selectedParkingCallback: selectedParkingCallback,
+                                         didLayoutHeightCallback: didLayoutHeightCallback,
+                                         dismissOrderSheetCallback: dismissOrderSheetCallback)
     }
     
 }
