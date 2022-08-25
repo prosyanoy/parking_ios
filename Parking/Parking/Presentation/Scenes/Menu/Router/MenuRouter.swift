@@ -15,5 +15,6 @@ final class MenuRouter: MenuRouterProtocol {
 	func menuCellTapped(with model: MenuCell) {
 		print(model.title)
 	}
-
 }
+
+
