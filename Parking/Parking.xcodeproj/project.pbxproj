@@ -84,6 +84,12 @@
 		A4DF9AA428B43895009D6D66 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */; };
 		A4DF9AA528B4397E009D6D66 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA72C28ABDB19001EC8D4 /* CardsViewController.swift */; };
 		A4DF9AA628B43987009D6D66 /* FinesAndEvacuationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA72E28ABDB51001EC8D4 /* FinesAndEvacuationsViewController.swift */; };
+		A4EACC2228B77F3700E759D3 /* CodeEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */; };
+		A4EACC2428B91F7500E759D3 /* CodeEnterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2328B91F7500E759D3 /* CodeEnterViewModel.swift */; };
+		A4EACC2628B91F8300E759D3 /* CodeEnterConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2528B91F8300E759D3 /* CodeEnterConfigurator.swift */; };
+		A4EACC2C28B9215600E759D3 /* PhoneNumberConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2A28B91F9A00E759D3 /* PhoneNumberConfirmationViewController.swift */; };
+		A4EACC2D28B9215800E759D3 /* PhoneNumberConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2B28B91F9A00E759D3 /* PhoneNumberConfirmationViewModel.swift */; };
+		A4EACC2E28B9215C00E759D3 /* PhoneNumberConfirmationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2928B91F9A00E759D3 /* PhoneNumberConfirmationConfigurator.swift */; };
 		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +175,12 @@
 		A48BA73528ABF1E7001EC8D4 /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		A4DF9AA128B43884009D6D66 /* ChangeCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeCityViewController.swift; sourceTree = "<group>"; };
 		A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterViewController.swift; sourceTree = "<group>"; };
+		A4EACC2328B91F7500E759D3 /* CodeEnterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterViewModel.swift; sourceTree = "<group>"; };
+		A4EACC2528B91F8300E759D3 /* CodeEnterConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterConfigurator.swift; sourceTree = "<group>"; };
+		A4EACC2928B91F9A00E759D3 /* PhoneNumberConfirmationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationConfigurator.swift; sourceTree = "<group>"; };
+		A4EACC2A28B91F9A00E759D3 /* PhoneNumberConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationViewController.swift; sourceTree = "<group>"; };
+		A4EACC2B28B91F9A00E759D3 /* PhoneNumberConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationViewModel.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -326,6 +338,7 @@
 				9408FF3A28900717002B1C12 /* MainMap */,
 				26EC27082898038E00B84D2A /* Menu */,
 				9408FF40289007F9002B1C12 /* OrderSheet */,
+				A4EACC2828B91F9A00E759D3 /* PhoneConfirmation */,
 				94A7F45128ABE881001FD271 /* Payment */,
 				94A7F45B28ACFCA7001FD271 /* Search */,
 				9496460628AF86DE0095FB6E /* ParkingSearchSheet */,
@@ -768,6 +781,25 @@
 				A4DF9AA128B43884009D6D66 /* ChangeCityViewController.swift */,
 			);
 			path = ChangeCity;
+		A4EACC2728B91F8C00E759D3 /* CodeEnter */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */,
+				A4EACC2328B91F7500E759D3 /* CodeEnterViewModel.swift */,
+				A4EACC2528B91F8300E759D3 /* CodeEnterConfigurator.swift */,
+			path = CodeEnter;
+			);
+			sourceTree = "<group>";
+		};
+		A4EACC2828B91F9A00E759D3 /* PhoneConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC2A28B91F9A00E759D3 /* PhoneNumberConfirmationViewController.swift */,
+				A4EACC2B28B91F9A00E759D3 /* PhoneNumberConfirmationViewModel.swift */,
+				A4EACC2928B91F9A00E759D3 /* PhoneNumberConfirmationConfigurator.swift */,
+				A4EACC2728B91F8C00E759D3 /* CodeEnter */,
+			);
+			path = PhoneConfirmation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -894,6 +926,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94A7F45428ABE913001FD271 /* PaymentSceneConfigurator.swift in Sources */,
+				A4EACC2428B91F7500E759D3 /* CodeEnterViewModel.swift in Sources */,
 				94D5775028A27B2100C7F7D3 /* ResizingTableView.swift in Sources */,
 				94A7F45028ABE87A001FD271 /* PaymentViewController.swift in Sources */,
 				A4DF9AA228B43884009D6D66 /* ChangeCityViewController.swift in Sources */,
@@ -905,6 +938,7 @@
 				9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */,
 				94A7F46428AD1E4E001FD271 /* SearchViewModel.swift in Sources */,
 				26DB52FF289EEEF900CF0611 /* MenuHeaderView.swift in Sources */,
+				A4EACC2C28B9215600E759D3 /* PhoneNumberConfirmationViewController.swift in Sources */,
 				9496461628AF9E290095FB6E /* ParkingSearchBottomSheetRouter.swift in Sources */,
 				2643D907289B0CD6005D8E37 /* CashView.swift in Sources */,
 				A43F4FEA28AD4B5A006D6AFC /* SettingsViewModel.swift in Sources */,
@@ -921,6 +955,7 @@
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
 				94D5771128995F0000C7F7D3 /* TextDrawer.swift in Sources */,
 				94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */,
+				A4EACC2E28B9215C00E759D3 /* PhoneNumberConfirmationConfigurator.swift in Sources */,
 				9496460928AF89390095FB6E /* ParkingSearchTableViewCell.swift in Sources */,
 				9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */,
 				9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */,
@@ -943,6 +978,7 @@
 				26EC270E2898050100B84D2A /* MenuCellView.swift in Sources */,
 				9496460F28AF8B440095FB6E /* ParkingSearchBottomSheetPresentationViewController.swift in Sources */,
 				2643D906289B0CD6005D8E37 /* MapButtonsView.swift in Sources */,
+				A4EACC2628B91F8300E759D3 /* CodeEnterConfigurator.swift in Sources */,
 				9496460528AF86CE0095FB6E /* ParkingSearchBottomSheet.swift in Sources */,
 				94A7F46128AD09D4001FD271 /* SearchSceneConfigurator.swift in Sources */,
 				26DB5304289EFB5F00CF0611 /* MenuConfigurator.swift in Sources */,
@@ -950,8 +986,10 @@
 				26EC2716289809B300B84D2A /* MenuRouter.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
 				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
+				A4EACC2D28B9215800E759D3 /* PhoneNumberConfirmationViewModel.swift in Sources */,
 				94D5775228A27C0D00C7F7D3 /* UsersAutoTableViewCell.swift in Sources */,
 				94A7F45A28ACFCA4001FD271 /* SearchViewController.swift in Sources */,
+				A4EACC2228B77F3700E759D3 /* CodeEnterViewController.swift in Sources */,
 				9496461128AF8B9C0095FB6E /* ParkingSearchBottomSheetSceneConfigurator.swift in Sources */,
 				94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */,
 				94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */,
