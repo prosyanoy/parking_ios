@@ -70,6 +70,7 @@
 		A43F4FF128AD4E2C006D6AFC /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FF028AD4E2C006D6AFC /* SettingsTableView.swift */; };
 		A43F4FF328AD4EE5006D6AFC /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FF228AD4EE5006D6AFC /* SettingsHeaderView.swift */; };
 		A43F4FF728AD51E4006D6AFC /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FF628AD51E4006D6AFC /* SettingsConfigurator.swift */; };
+		A44EB32628BCE3BF00321021 /* CarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EB32528BCE3BF00321021 /* CarsViewController.swift */; };
 		A482DB0428AEF7A300BB95FC /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482DB0328AEF7A300BB95FC /* AboutViewModel.swift */; };
 		A482DB0628AEF7B300BB95FC /* AboutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482DB0528AEF7B300BB95FC /* AboutConfigurator.swift */; };
 		A48BA71E28ABD391001EC8D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA71D28ABD391001EC8D4 /* ProfileViewController.swift */; };
@@ -179,6 +180,7 @@
 		A43F4FF028AD4E2C006D6AFC /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		A43F4FF228AD4EE5006D6AFC /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		A43F4FF628AD51E4006D6AFC /* SettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurator.swift; sourceTree = "<group>"; };
+		A44EB32528BCE3BF00321021 /* CarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsViewController.swift; sourceTree = "<group>"; };
 		A482DAF628AEB1FA00BB95FC /* ChangeCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCityViewController.swift; sourceTree = "<group>"; };
 		A482DB0328AEF7A300BB95FC /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		A482DB0528AEF7B300BB95FC /* AboutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutConfigurator.swift; sourceTree = "<group>"; };
@@ -792,6 +794,7 @@
 				A48BA72A28ABDB01001EC8D4 /* AnalyticsViewController.swift */,
 				A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */,
 				A48BA72C28ABDB19001EC8D4 /* CardsViewController.swift */,
+				A44EB32528BCE3BF00321021 /* CarsViewController.swift */,
 				A48BA72E28ABDB51001EC8D4 /* FinesAndEvacuationsViewController.swift */,
 				A482DAF828AEC6DB00BB95FC /* Feedback */,
 				A482DB0028AECB3400BB95FC /* About */,
@@ -1055,6 +1058,7 @@
 				A43F4FEF28AD4C22006D6AFC /* SettingsHeader.swift in Sources */,
 				94D5775828A2800A00C7F7D3 /* ParkingTableViewCell.swift in Sources */,
 				E2C5837728C4F06200C07011 /* UIFont+Extensions.swift in Sources */,
+				A44EB32628BCE3BF00321021 /* CarsViewController.swift in Sources */,
 				94D5771328995F0000C7F7D3 /* ImageScaler.swift in Sources */,
 				26DB5301289EF1F200CF0611 /* MenuHeader.swift in Sources */,
 				9496460C28AF8AEF0095FB6E /* ParkingSearchBottomSheetTransitionDelegate.swift in Sources */,

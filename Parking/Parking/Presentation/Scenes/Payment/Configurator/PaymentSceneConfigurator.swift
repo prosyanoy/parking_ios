@@ -20,6 +20,7 @@ final class PaymentSceneConfigurator: SceneConfiguratorProtocol_CN {
         navigationBarAppearance.titleTextAttributes = [.foregroundColor : UIColor.black]
         navigationContainer.navigationBar.scrollEdgeAppearance = navigationBarAppearance
         navigationContainer.navigationBar.standardAppearance = navigationBarAppearance
+        
         return navigationContainer
     }
 }
