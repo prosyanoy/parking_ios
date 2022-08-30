@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 final class CashView: UIControl {
+    
 	private let cashLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.contentMode = .center
 		label.textAlignment = .center
-		label.text = "0 Р"
 		return label
 	}()
 
@@ -36,6 +36,7 @@ final class CashView: UIControl {
 		super.init(frame: .zero)
 		setupLayout()
 		setupUI()
+        setupObservers()
 	}
 
 	required init?(coder: NSCoder) {
@@ -47,6 +48,12 @@ final class CashView: UIControl {
 			backgroundColor = isHighlighted ? .lightGray : .white
 		}
 	}
+    
+    private func setupObservers() {
+        user.subscribe(observer: self) { [weak self] user in
+            self?.cashLabel.text = "\(user.walletBalance)\u{2006}₽"
+        }
+    }
 
 	private func setupLayout() {
 		addSubview(cashLabel)
