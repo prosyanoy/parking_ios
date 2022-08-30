@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class PaymentMethodView: UIControl {
     
     // MARK: - Init
@@ -26,8 +27,8 @@ final class PaymentMethodView: UIControl {
     
     private func setupUI() {
         backgroundColor = .white
-        layer.borderColor = UIColor.blue.cgColor
-        layer.borderWidth = 2
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1
         layer.cornerRadius = 10
     }
     
@@ -40,7 +41,6 @@ final class PaymentMethodView: UIControl {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Банковская карта"
         label.font = .systemFont(ofSize: 16, weight: .bold)
         label.textColor = .black
         label.numberOfLines = 1
@@ -52,7 +52,6 @@ final class PaymentMethodView: UIControl {
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Без привзяки. Комиссия: 0,7-1,0%, минимум 5\u{2006}₽"
         label.font = .systemFont(ofSize: 13, weight: .thin)
         label.textColor = .black.withAlphaComponent(0.9)
         label.numberOfLines = 2
@@ -100,10 +99,18 @@ final class PaymentMethodView: UIControl {
         
         verticalStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         verticalStack.leadingAnchor.constraint(equalTo: leadingIconImage.trailingAnchor, constant: 5).isActive = true
-        verticalStack.trailingAnchor.constraint(equalTo: trailingIconImage.leadingAnchor, constant: -20).isActive = true
+        verticalStack.trailingAnchor.constraint(lessThanOrEqualTo: trailingIconImage.leadingAnchor, constant: -20).isActive = true
         
         trailingIconImage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         trailingIconImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
+    }
+    
+    
+    // MARK: - Interface
+    
+    func setContent(title: String, description: String, icon: UIImage?) {
+        titleLabel.text = title
+        descriptionLabel.text = description
     }
     
 }

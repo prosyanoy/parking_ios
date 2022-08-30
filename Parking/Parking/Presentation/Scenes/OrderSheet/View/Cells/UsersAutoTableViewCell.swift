@@ -23,10 +23,20 @@ final class UsersAutoTableViewCell: UITableViewCell {
                    reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .white
         setupLayout()
+        setupObservers()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Input data flow
+
+    private func setupObservers() {
+        user.subscribe(observer: self) { [weak self] user in
+            self?.descriptionAutoButton.setTitle(user.licencePlate, for: .normal)
+        }
     }
     
     
@@ -44,7 +54,7 @@ final class UsersAutoTableViewCell: UITableViewCell {
     
     private lazy var descriptionAutoButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("А 777 АА 777", for: .normal)
+//        button.setTitle("А 777 АА 777", for: .normal)
         button.titleLabel?.tintColor = .systemBlue
         button.titleLabel?.textAlignment = .left
         button.addTarget(self,
