@@ -84,7 +84,7 @@ final class MainMapRouter: MainMapRouterProtocol {
     
     func paymentButtonTapped() {
         dismissPresentedVCIfPossible()
-        let paymentVC = PaymentSceneConfigurator.configure()
+        let paymentVC = WalletPaymentSceneConfigurator.configure()
         navigationContainer.present(paymentVC,
                                     animated: true,
                                     completion: nil)

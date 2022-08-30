@@ -8,11 +8,18 @@
 import UIKit
 import YandexMapsMobile
 import UserNotifications
+import MommysEye
 //import CoreLocation
+
+// Пока что меняю поля из юая, в дальнейшем юзер онли гет, менять поля только через бэк
+var user = Publisher(value: User(id: UUID(uuidString: "1444fbdb-2d28-48be-86bf-141553a2719f")!,
+                                 email: "4440449@gmail.com",
+                                 walletBalance: 11,
+                                 licencePlate: "А 777 АА 777"))
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
 	private func setupMapKit() {
 		guard let path = Bundle.main.path(forResource: "Keys", ofType: "plist") else { return }
 		guard let keys = NSDictionary(contentsOfFile: path) else { return }
