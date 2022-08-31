@@ -7,7 +7,6 @@
 
 import MommysEye
 import Foundation
-import UIKit
 
 
 protocol WalletPaymentViewModelProtocol {

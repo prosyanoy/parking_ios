@@ -23,6 +23,7 @@ protocol MainMapButtonsLayerDelegateProtocol {
     func locationButtonTapped()
     func invalidButtonTapped()
     func searchParkingButtonTapped()
+    func filtersButtonTapped()
 }
 
 
@@ -653,6 +654,13 @@ final class MainMapYMKDrawer: NSObject,
                 self?.animateToInitialMapFrameCenter()
             }
         )
+    }
+    
+    func filtersButtonTapped() {
+        interactor.filtersButtonTapped(applyFiltersCallback: { [weak self] filterParameters in
+            print(filterParameters)
+            print("filterParameters.covered == \(filterParameters.covered)")
+        })
     }
     
 }
