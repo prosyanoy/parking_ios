@@ -21,6 +21,7 @@ protocol MainMapDrawerInteractorProtocol: AnyObject {
     func searchParkingButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void,
                                    didLayoutHeightCallback: @escaping (Float) -> Void,
                                    dismissOrderSheetCallback: @escaping () -> Void)
+    func filtersButtonTapped(applyFiltersCallback: @escaping (FilterParameters) -> Void)
 }
 
 protocol MainMapViewModelProtocol {
@@ -106,6 +107,10 @@ final class MainMapViewModel: MainMapViewModelProtocol,
                                          selectedParkingCallback: selectedParkingCallback,
                                          didLayoutHeightCallback: didLayoutHeightCallback,
                                          dismissOrderSheetCallback: dismissOrderSheetCallback)
+    }
+    
+    func filtersButtonTapped(applyFiltersCallback: @escaping (FilterParameters) -> Void) {
+        router.filtersButtonTapped(applyFiltersCallback: applyFiltersCallback)
     }
     
 }
