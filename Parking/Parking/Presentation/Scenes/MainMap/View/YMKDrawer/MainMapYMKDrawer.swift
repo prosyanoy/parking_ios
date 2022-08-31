@@ -193,6 +193,11 @@ final class MainMapYMKDrawer: NSObject,
     
     
     func onMapObjectTap(with mapObject: YMKMapObject, point: YMKPoint) -> Bool {
+        // Дополнительный обработчик, на случай, если плейсмарк отрисуется без кластера, например - одна парковка, или парковки слишком сильно удалены друг от друга и не попадают в кластер
+        if let mapObjectPlacemark = mapObject as? YMKPlacemarkMapObject {
+            onPlacemarkTap(mapObjectPlacemark)
+        }
+        //
         guard selectedMapObject !== mapObject,
               let parking = placesParkingBindingTable[mapObject],
               let placemark = parkingPlacemarksBindingTable[parking.id] else {
@@ -437,6 +442,7 @@ final class MainMapYMKDrawer: NSObject,
                                                     image: drawPlacemarkImage(
                                                         parkingCost: parking.hourCost,
                                                         isSelected: .unselected))
+            placemark.addTapListener(with: self)
             parkingPlacemarksBindingTable[parking.id] = placemark
         }
         collection.clusterPlacemarks(withClusterRadius: 70,
@@ -457,9 +463,26 @@ final class MainMapYMKDrawer: NSObject,
                                          tilt: 0)
         map.move(with: position,
                  animationType: .init(type: .smooth,
-                                      duration: 0.5),
+                                      duration: 0.4),
                  cameraCallback: nil)
         return true
+    }
+    
+    // Если плейсмарк отрисовался без кластера, то при нажатии на плейсмарк происходит зум до момента, пока не отрисуются полилайны / полигоны, которые будут хендлить это нажатие
+    private func onPlacemarkTap(_ placemark: YMKPlacemarkMapObject) {
+        let currentZoom = map.cameraPosition.zoom
+        if currentZoom < 16 {
+            let cameraPosition = YMKCameraPosition(target: placemark.geometry,
+                                                   zoom: currentZoom + 1.08,
+                                                   azimuth: 0,
+                                                   tilt: 0)
+            map.move(with: cameraPosition,
+                     animationType: .init(type: .smooth,
+                                          duration: 0.4),
+                     cameraCallback: nil)
+        } else {
+            return
+        }
     }
     
     
@@ -634,19 +657,19 @@ final class MainMapYMKDrawer: NSObject,
     func searchParkingButtonTapped() {
         interactor.searchParkingButtonTapped(
             selectedParkingCallback: { [weak self] selectedParking in
-            guard let placemark = self?.parkingPlacemarksBindingTable[selectedParking.id] else { return }
-            guard let mapObject = self?.parkingPlacesBindingTable[selectedParking.id] else { return }
-            let cameraPosition = YMKCameraPosition(target: placemark.geometry,
-                                                   zoom: 17,
-                                                   azimuth: 0,
-                                                   tilt: 0)
-            self?.map.move(with: cameraPosition,
-                           animationType: .init(type: .smooth,
-                                                duration: 0.5),
-                           cameraCallback: { _ in
-                let _ = self?.onMapObjectTap(with: mapObject, point: placemark.geometry)
-            })
-        },
+                guard let placemark = self?.parkingPlacemarksBindingTable[selectedParking.id] else { return }
+                guard let mapObject = self?.parkingPlacesBindingTable[selectedParking.id] else { return }
+                let cameraPosition = YMKCameraPosition(target: placemark.geometry,
+                                                       zoom: 17,
+                                                       azimuth: 0,
+                                                       tilt: 0)
+                self?.map.move(with: cameraPosition,
+                               animationType: .init(type: .smooth,
+                                                    duration: 0.5),
+                               cameraCallback: { _ in
+                    let _ = self?.onMapObjectTap(with: mapObject, point: placemark.geometry)
+                })
+            },
             didLayoutHeightCallback: { [weak self] newHeight in
                 self?.animateToNewMapFrameCenterWithoutMapTarget(overlappedAreaHeight: newHeight)
             },
