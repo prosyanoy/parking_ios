@@ -80,7 +80,7 @@
 		A48BA73128ABDB65001EC8D4 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA73028ABDB65001EC8D4 /* FeedbackViewController.swift */; };
 		A48BA73328ABDB79001EC8D4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA73228ABDB79001EC8D4 /* AboutViewController.swift */; };
 		A48BA73628ABF1E7001EC8D4 /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA73528ABF1E7001EC8D4 /* SettingsCellView.swift */; };
-		A4DF9AA228B43884009D6D66 /* ChangeCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF9AA128B43884009D6D66 /* ChangeCityViewController.swift */; };
+		A4DF48C128BFAD8000A97EEC /* ChangeCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482DAF628AEB1FA00BB95FC /* ChangeCityViewController.swift */; };
 		A4DF9AA428B43895009D6D66 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */; };
 		A4DF9AA528B4397E009D6D66 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA72C28ABDB19001EC8D4 /* CardsViewController.swift */; };
 		A4DF9AA628B43987009D6D66 /* FinesAndEvacuationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA72E28ABDB51001EC8D4 /* FinesAndEvacuationsViewController.swift */; };
@@ -173,12 +173,11 @@
 		A48BA73028ABDB65001EC8D4 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		A48BA73228ABDB79001EC8D4 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A48BA73528ABF1E7001EC8D4 /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
-		A4DF9AA128B43884009D6D66 /* ChangeCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeCityViewController.swift; sourceTree = "<group>"; };
 		A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterViewController.swift; sourceTree = "<group>"; };
 		A4EACC2328B91F7500E759D3 /* CodeEnterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterViewModel.swift; sourceTree = "<group>"; };
-		A4EACC2928B91F9A00E759D3 /* PhoneNumberConfirmationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationConfigurator.swift; sourceTree = "<group>"; };
 		A4EACC2528B91F8300E759D3 /* CodeEnterConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterConfigurator.swift; sourceTree = "<group>"; };
+		A4EACC2928B91F9A00E759D3 /* PhoneNumberConfirmationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationConfigurator.swift; sourceTree = "<group>"; };
 		A4EACC2A28B91F9A00E759D3 /* PhoneNumberConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationViewController.swift; sourceTree = "<group>"; };
 		A4EACC2B28B91F9A00E759D3 /* PhoneNumberConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationViewModel.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
@@ -746,7 +745,6 @@
 				A48BA72228ABDA6C001EC8D4 /* NotificationsViewController.swift */,
 				A48BA72428ABDA8E001EC8D4 /* NewsViewController.swift */,
 				A48BA72628ABDA98001EC8D4 /* HistoryViewController.swift */,
-				A4DF9AA028B43884009D6D66 /* ChangeCity */,
 				A48BA72A28ABDB01001EC8D4 /* AnalyticsViewController.swift */,
 				A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */,
 				A48BA72C28ABDB19001EC8D4 /* CardsViewController.swift */,
@@ -775,22 +773,14 @@
 			path = ChangeCity;
 			sourceTree = "<group>";
 		};
-		A4DF9AA028B43884009D6D66 /* ChangeCity */ = {
-			isa = PBXGroup;
-			children = (
-				A4DF9AA128B43884009D6D66 /* ChangeCityViewController.swift */,
-			);
-			path = ChangeCity;
-			sourceTree = "<group>";
-		};
 		A4EACC2728B91F8C00E759D3 /* CodeEnter */ = {
 			isa = PBXGroup;
-				A4EACC2528B91F8300E759D3 /* CodeEnterConfigurator.swift */,
 			children = (
+				A4EACC2528B91F8300E759D3 /* CodeEnterConfigurator.swift */,
 				A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */,
 				A4EACC2328B91F7500E759D3 /* CodeEnterViewModel.swift */,
-			path = CodeEnter;
 			);
+			path = CodeEnter;
 			sourceTree = "<group>";
 		};
 		A4EACC2828B91F9A00E759D3 /* PhoneConfirmation */ = {
@@ -931,7 +921,6 @@
 				A4EACC2428B91F7500E759D3 /* CodeEnterViewModel.swift in Sources */,
 				94D5775028A27B2100C7F7D3 /* ResizingTableView.swift in Sources */,
 				94A7F45028ABE87A001FD271 /* PaymentViewController.swift in Sources */,
-				A4DF9AA228B43884009D6D66 /* ChangeCityViewController.swift in Sources */,
 				94A7F45728ACD13A001FD271 /* PaymentMethodView.swift in Sources */,
 				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
 				A48BA72B28ABDB01001EC8D4 /* AnalyticsViewController.swift in Sources */,
@@ -945,6 +934,7 @@
 				2643D907289B0CD6005D8E37 /* CashView.swift in Sources */,
 				A43F4FEA28AD4B5A006D6AFC /* SettingsViewModel.swift in Sources */,
 				A482DB0628AEF7B300BB95FC /* AboutConfigurator.swift in Sources */,
+				A4DF48C128BFAD8000A97EEC /* ChangeCityViewController.swift in Sources */,
 				9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */,
 				A4DF9AA528B4397E009D6D66 /* CardsViewController.swift in Sources */,
 				A482DB0428AEF7A300BB95FC /* AboutViewModel.swift in Sources */,
