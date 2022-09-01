@@ -115,10 +115,9 @@ struct ParkingNetworkEntity: Decodable,
     
     struct CoordinatesNetworkEntity: Codable,
                                      DomainConvertable {
-        // TODO: нужен дабл с сервера!!
-        let point: [String] // Double
+        let point: [Double]
         let type: String
-        let list: [[String]] // Double
+        let list: [[Double]]
         
         enum CodingKeys: CodingKey {
             case point
@@ -138,9 +137,9 @@ struct ParkingNetworkEntity: Decodable,
         init(from decoder: Decoder) throws {
             do {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
-                self.point = try container.decode([String].self, forKey: .point)
+                self.point = try container.decode([Double].self, forKey: .point)
                 self.type = try container.decode(String.self, forKey: .type)
-                self.list = try container.decode([[String]].self, forKey: .list)
+                self.list = try container.decode([[Double]].self, forKey: .list)
             } catch let error {
                 throw error
             }
@@ -151,12 +150,9 @@ struct ParkingNetworkEntity: Decodable,
             guard let type = Parking.CoordinateType(rawValue: self.type) else {
                 throw ParkingNetworkEntityError.parseToDomain("invalid Coordinate type --> \(self.type)")
             }
-            // TODO: нужен дабл с сервера!!
-            let doublePoint = self.point.compactMap { Double($0) }
-            let doubleList = self.list.compactMap { $0.compactMap { Double($0) } }
-            return .init(point: doublePoint,
+            return .init(point: self.point,
                          type: type,
-                         form: doubleList)
+                         form: self.list)
         }
     }
     
