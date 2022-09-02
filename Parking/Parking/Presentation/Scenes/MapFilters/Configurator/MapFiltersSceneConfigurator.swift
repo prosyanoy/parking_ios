@@ -10,7 +10,8 @@ import UIKit
 
 final class MapFiltersSceneConfigurator: SceneConfiguratorProtocol_CN {
     
-    static func configure(applyFiltersCallback: @escaping (FilterParameters) -> Void) -> UIViewController {
+    static func configure(filterParameters: FilterParameters,
+                          applyFiltersCallback: @escaping (FilterParameters) -> Void) -> UIViewController {
         let navigationContainer = UINavigationController()
 
         let navigationBarAppearance = UINavigationBarAppearance()
@@ -23,6 +24,7 @@ final class MapFiltersSceneConfigurator: SceneConfiguratorProtocol_CN {
         
         let router = MapFiltersRouter(navigationContainer: navigationContainer)
         let viewModel = MapFiltersViewModel(router: router,
+                                            filterParameters: filterParameters,
                                             applyFiltersCallback: applyFiltersCallback)
         let mapFiltersVC = MapFiltersViewController(viewModel: viewModel)
         navigationContainer.viewControllers = [mapFiltersVC]

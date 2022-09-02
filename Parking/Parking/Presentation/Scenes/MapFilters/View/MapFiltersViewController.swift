@@ -14,7 +14,6 @@ final class MapFiltersViewController: UIViewController,
     
     // MARK: - Dependencies
 
-    // result = struct FilterParameters
     private let viewModel: MapFiltersViewModelProtocol
     
     
@@ -76,6 +75,7 @@ final class MapFiltersViewController: UIViewController,
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
+        table.register(MapFiltersTableViewHeader.self, forHeaderFooterViewReuseIdentifier: MapFiltersTableViewHeader.identifier)
         table.register(PriceMapFilterTableViewCell.self,
                        forCellReuseIdentifier: PriceMapFilterTableViewCell.identifier)
         table.register(ServicesMapFilterTableViewCell.self,
@@ -117,20 +117,31 @@ final class MapFiltersViewController: UIViewController,
     // MARK: - Table View
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
-            
         case 0:
-            return "Тип парковки"
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MapFiltersTableViewHeader.identifier) as? MapFiltersTableViewHeader else {
+                fatalError()
+            }
+            header.setContent(title: "Тип парковки")
+            return header
         case 1:
-            return "Цена"
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MapFiltersTableViewHeader.identifier) as? MapFiltersTableViewHeader else {
+                fatalError()
+            }
+            header.setContent(title: "Дополнительно")
+            return header
         case 2:
-            return "Дополнительно"
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MapFiltersTableViewHeader.identifier) as? MapFiltersTableViewHeader else {
+                fatalError()
+            }
+            header.setContent(title: "Стоимость")
+            return header
         default:
-            return "Unknown"
+            fatalError()
         }
     }
     
@@ -147,9 +158,21 @@ final class MapFiltersViewController: UIViewController,
             cell.selectionStyle = .none
             cell.setupDependencies(viewModel: viewModel)
             let isCovered = viewModel.filterParameters.covered
-            cell.setContent(isCovered: isCovered)
+            let isFree = viewModel.filterParameters.free
+            cell.setContent(isCovered: isCovered, isFree: isFree)
             return cell
         case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ServicesMapFilterTableViewCell.identifier, for: indexPath) as? ServicesMapFilterTableViewCell else {
+                fatalError()
+            }
+            cell.selectionStyle = .none
+            cell.setupDependencies(viewModel: viewModel)
+            cell.setContent(secureValue: viewModel.filterParameters.secure,
+                            aroundTheClockValue: viewModel.filterParameters.arountTheClock,
+                            evChargingValue: viewModel.filterParameters.evCharging,
+                            disabledValue: viewModel.filterParameters.disabledPersons)
+            return cell
+        case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PriceMapFilterTableViewCell.identifier, for: indexPath) as? PriceMapFilterTableViewCell else {
                 fatalError()
             }
@@ -158,17 +181,6 @@ final class MapFiltersViewController: UIViewController,
             let price = viewModel.filterParameters.price
             cell.setContent(priceValue: price)
             return cell
-        case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ServicesMapFilterTableViewCell.identifier, for: indexPath) as? ServicesMapFilterTableViewCell else {
-            fatalError()
-        }
-        cell.selectionStyle = .none
-            cell.setupDependencies(viewModel: viewModel)
-            cell.setContent(secureValue: viewModel.filterParameters.secure,
-                            aroundTheClockValue: viewModel.filterParameters.arountTheClock,
-                            evChargingValue: viewModel.filterParameters.evCharging,
-                            disabledValue: viewModel.filterParameters.disabledPersons)
-        return cell
         default:
             fatalError()
         }

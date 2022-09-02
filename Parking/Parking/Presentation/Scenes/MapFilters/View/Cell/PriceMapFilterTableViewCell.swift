@@ -58,7 +58,6 @@ final class PriceMapFilterTableViewCell: UITableViewCell {
     private lazy var priceSliderLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: contentView.center.y * 0.2,
                                           width: 70, height: 30))
-//        label.font = .systemFont(ofSize: 32, weight: .regular)
         label.textColor = .black
         label.numberOfLines = 1
         label.textAlignment = .center
@@ -93,8 +92,6 @@ final class PriceMapFilterTableViewCell: UITableViewCell {
                                               trackRect: trackRect,
                                               value: priceSlider.value)
         priceSliderLabel.center.x = thumbRect.maxX
-        print("priceSliderLabel.center.x == \(priceSliderLabel.center.x)")
-        print("thumbRect.maxX == \(thumbRect.maxX)")
     }
     
     private func setupLayout() {

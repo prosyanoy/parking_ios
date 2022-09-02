@@ -22,7 +22,8 @@ protocol MainMapRouterProtocol {
                                    selectedParkingCallback: @escaping(Parking) -> Void,
                                    didLayoutHeightCallback: @escaping (Float) -> Void,
                                    dismissOrderSheetCallback: @escaping () -> Void)
-    func filtersButtonTapped(applyFiltersCallback: @escaping (FilterParameters) -> Void)
+    func filtersButtonTapped(filterParameters: FilterParameters,
+                             applyFiltersCallback: @escaping (FilterParameters) -> Void)
 }
 
 
@@ -125,9 +126,12 @@ final class MainMapRouter: MainMapRouterProtocol {
                                     completion: nil)
     }
     
-    func filtersButtonTapped(applyFiltersCallback: @escaping (FilterParameters) -> Void) {
+    func filtersButtonTapped(filterParameters: FilterParameters,
+                             applyFiltersCallback: @escaping (FilterParameters) -> Void) {
         dismissPresentedVCIfPossible()
-        let mapFiltersVC = MapFiltersSceneConfigurator.configure(applyFiltersCallback: applyFiltersCallback)
+        let mapFiltersVC = MapFiltersSceneConfigurator.configure(
+            filterParameters: filterParameters,
+            applyFiltersCallback: applyFiltersCallback)
         navigationContainer.present(mapFiltersVC,
                                     animated: true,
                                     completion: nil)
