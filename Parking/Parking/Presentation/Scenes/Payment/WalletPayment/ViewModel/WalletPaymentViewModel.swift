@@ -94,9 +94,10 @@ final class WalletPaymentViewModel: WalletPaymentViewModelProtocol {
                                         orderId: orderID,
                                         customerKey: userData.id.uuidString,
                                         email: userData.email,
-                                        transactionCallback: { paidAmoint in
+                                        transactionCallback: { [weak self] paidAmoint in
             // TODO: Менять поле баланс кошелька только через бек
             user.value.walletBalance += paidAmoint
+            self?.router.payButtonTapped()
         })
     }
     

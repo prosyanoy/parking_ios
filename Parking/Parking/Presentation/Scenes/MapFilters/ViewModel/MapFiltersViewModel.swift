@@ -15,6 +15,7 @@ protocol MapFiltersViewModelProtocol {
 
 protocol TypeMapFilterTableViewCellViewModelProtocol: AnyObject {
     func coveredCheckBoxButtonTapped(isSelected: Bool)
+    func freeCheckBoxButtonTapped(isFree: Bool)
 }
 
 protocol PriceMapFilterTableViewCellViewModelProtocol: AnyObject {
@@ -22,10 +23,10 @@ protocol PriceMapFilterTableViewCellViewModelProtocol: AnyObject {
 }
 
 protocol ServicesMapFilterTableViewCellViewModelProtocol: AnyObject {
-    func secureSwitchValueDidChange(isOn: Bool)
-    func aroundTheClockSwitchValueDidChange(isOn: Bool)
-    func eVChargingSwitchValueDidChange(isOn: Bool)
-    func disabledSwitchValueDidChange(isOn: Bool)
+    func secureButtonTapped(isSelected: Bool)
+    func aroundTheClockButtonTapped(isSelected: Bool)
+    func evChargingButtonTapped(isSelected: Bool)
+    func disabledPersonsButtonTapped(isSelected: Bool)
 }
 
 
@@ -43,20 +44,17 @@ final class MapFiltersViewModel: MapFiltersViewModelProtocol,
     // MARK: - Init
     
     init(router: MapFiltersRouterProtocol,
+         filterParameters: FilterParameters,
          applyFiltersCallback: @escaping (FilterParameters) -> Void) {
         self.router = router
+        self.filterParameters = filterParameters
         self.applyFiltersCallback = applyFiltersCallback
     }
     
     
     // MARK: - State
     
-    var filterParameters = FilterParameters(price: 150,
-                                            covered: false,
-                                            secure: false,
-                                            arountTheClock: false,
-                                            evCharging: false,
-                                            disabledPersons: false)
+    var filterParameters: FilterParameters
     
     
     // MARK: - MapFiltersViewModelProtocol
@@ -73,6 +71,10 @@ final class MapFiltersViewModel: MapFiltersViewModelProtocol,
         filterParameters.covered = isSelected
     }
     
+    func freeCheckBoxButtonTapped(isFree: Bool) {
+        filterParameters.free = isFree
+    }
+    
     
     // MARK: - PriceMapFilterTableViewCellViewModelProtocol
     
@@ -83,20 +85,17 @@ final class MapFiltersViewModel: MapFiltersViewModelProtocol,
     
     // MARK: - ServicesMapFilterTableViewCellViewModelProtocol
     
-    func secureSwitchValueDidChange(isOn: Bool) {
-        filterParameters.secure = isOn
+    func secureButtonTapped(isSelected: Bool) {
+        filterParameters.secure = isSelected
     }
-    
-    func aroundTheClockSwitchValueDidChange(isOn: Bool) {
-        filterParameters.arountTheClock = isOn
+    func aroundTheClockButtonTapped(isSelected: Bool) {
+        filterParameters.arountTheClock = isSelected
     }
-    
-    func eVChargingSwitchValueDidChange(isOn: Bool) {
-        filterParameters.evCharging = isOn
+    func evChargingButtonTapped(isSelected: Bool) {
+        filterParameters.evCharging = isSelected
     }
-    
-    func disabledSwitchValueDidChange(isOn: Bool) {
-        filterParameters.disabledPersons = isOn
+    func disabledPersonsButtonTapped(isSelected: Bool) {
+        filterParameters.disabledPersons = isSelected
     }
     
 }

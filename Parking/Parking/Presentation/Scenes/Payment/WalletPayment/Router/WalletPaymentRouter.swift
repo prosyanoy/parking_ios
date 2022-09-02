@@ -11,6 +11,7 @@ import UIKit
 protocol WalletPaymentRouterProtocol {
     func paymentMethodViewTapped(paymentMethods: [PaymentMethod],
                                  selectedMethodCallback: @escaping (PaymentMethod) -> Void)
+    func payButtonTapped()
 }
 
 
@@ -41,6 +42,12 @@ final class WalletPaymentRouter: WalletPaymentRouterProtocol {
         )
         navigationContainer.pushViewController(paymentChoiceVC,
                                                animated: true)
+    }
+    
+    func payButtonTapped() {
+        guard let navigationContainer = navigationContainer else { return }
+        navigationContainer.presentingViewController?.dismiss(animated: true,
+                                                              completion: nil)
     }
     
 }

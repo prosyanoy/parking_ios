@@ -44,6 +44,42 @@ final class TypeMapFilterTableViewCell: UITableViewCell {
     
     // MARK: - UI
     
+    private lazy var freeCheckBoxLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Бесплатная"
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.textAlignment = .left
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private lazy var freeCheckBoxButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "square"), for: .normal)
+        button.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
+        button.imageView?.layer.transform = CATransform3DMakeScale(1.3, 1.3, 0)
+        button.imageView?.tintColor = .black.withAlphaComponent(0.3)
+        button.addTarget(self, action: #selector(freeCheckBoxButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func freeCheckBoxButtonTapped() {
+        let value = !freeCheckBoxButton.isSelected
+        viewModel?.freeCheckBoxButtonTapped(isFree: value)
+        updateFreeCheckBoxButton(isFree: value)
+    }
+    
+    private lazy var freeHorizontalStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [freeCheckBoxLabel,
+                                                   freeCheckBoxButton])
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.distribution = .equalSpacing
+        return stack
+    }()
+    
+    
     private lazy var coveredCheckBoxLabel: UILabel = {
         let label = UILabel()
         label.text = "Крытая"
@@ -75,12 +111,13 @@ final class TypeMapFilterTableViewCell: UITableViewCell {
                                                    coveredCheckBoxButton])
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.distribution = .fill
+        stack.distribution = .equalSpacing
         return stack
     }()
     
     private lazy var totalVerticalStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [coveredHorizontalStack])
+        let stack = UIStackView(arrangedSubviews: [freeHorizontalStack,
+                                                   coveredHorizontalStack])
         stack.axis = .vertical
         stack.spacing = 5
         stack.alignment = .fill
@@ -98,12 +135,21 @@ final class TypeMapFilterTableViewCell: UITableViewCell {
         }
     }
     
+    private func updateFreeCheckBoxButton(isFree: Bool) {
+        freeCheckBoxButton.isSelected = isFree
+        if isFree {
+            freeCheckBoxButton.imageView?.tintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
+        } else {
+            freeCheckBoxButton.imageView?.tintColor = .black.withAlphaComponent(0.3)
+        }
+    }
+    
     // MARK: - Layout
     
     private func setupLayout() {
         contentView.addSubview(totalVerticalStack)
         
-        totalVerticalStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+        totalVerticalStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
         totalVerticalStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
         totalVerticalStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
         totalVerticalStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
@@ -112,8 +158,9 @@ final class TypeMapFilterTableViewCell: UITableViewCell {
     
     // MARK: - Interface
     
-    func setContent(isCovered: Bool) {
+    func setContent(isCovered: Bool, isFree: Bool) {
         updateCoveredCheckBoxButton(isCovered: isCovered)
+        updateFreeCheckBoxButton(isFree: isFree)
     }
     
 }

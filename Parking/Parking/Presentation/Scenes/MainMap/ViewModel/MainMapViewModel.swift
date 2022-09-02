@@ -21,7 +21,7 @@ protocol MainMapDrawerInteractorProtocol: AnyObject {
     func searchParkingButtonTapped(selectedParkingCallback: @escaping(Parking) -> Void,
                                    didLayoutHeightCallback: @escaping (Float) -> Void,
                                    dismissOrderSheetCallback: @escaping () -> Void)
-    func filtersButtonTapped(applyFiltersCallback: @escaping (FilterParameters) -> Void)
+    func filtersButtonTapped()
 }
 
 protocol MainMapViewModelProtocol {
@@ -52,18 +52,17 @@ final class MainMapViewModel: MainMapViewModelProtocol,
     var parkings = Publisher(value: [Parking]())
     
     
-    // MARK: - Private
+    // MARK: - Private state
     
-    private func loadInititalState() {
-        let _ = Task {
-            do {
-                let parkings = try await parkingRepository.fetch()
-                self.parkings.value = parkings
-            } catch {
-                
-            }
-        }
-    }
+    private var parkingsDataSource = [Parking]()
+    // default value - filters are disabled
+    private var filterParameters = FilterParameters(price: 0,
+                                                    free: false,
+                                                    covered: false,
+                                                    secure: false,
+                                                    arountTheClock: false,
+                                                    evCharging: false,
+                                                    disabledPersons: false)
     
     
     // MARK: - MainMapViewModelProtocol
@@ -109,8 +108,76 @@ final class MainMapViewModel: MainMapViewModelProtocol,
                                          dismissOrderSheetCallback: dismissOrderSheetCallback)
     }
     
-    func filtersButtonTapped(applyFiltersCallback: @escaping (FilterParameters) -> Void) {
-        router.filtersButtonTapped(applyFiltersCallback: applyFiltersCallback)
+    func filtersButtonTapped() {
+        router.filtersButtonTapped(filterParameters: filterParameters) { [weak self] filterParameters in
+            self?.filterParameters = filterParameters
+            self?.filterParkings(with: filterParameters)
+        }
+    }
+    
+    
+    // MARK: - Private
+    
+    private func loadInititalState() {
+        let _ = Task {
+            do {
+                let parkings = try await parkingRepository.fetch()
+                self.parkingsDataSource = parkings
+                self.parkings.value = parkings
+            } catch {
+                
+            }
+        }
+    }
+    
+    // Исключаю нерелевантные парковки
+    private func filterParkings(with filterParameters: FilterParameters) {
+        var filteredParkings = parkingsDataSource
+        
+        // TODO: можно покрасивше?
+        if filterParameters.free {
+            for i in (0..<filteredParkings.count).reversed() {
+                if filteredParkings[i].hourCost != 0 {
+                    filteredParkings.remove(at: i)
+                }
+            }
+        }
+        if filterParameters.covered {
+            for i in (0..<filteredParkings.count).reversed() {
+                if !filteredParkings[i].covered {
+                    filteredParkings.remove(at: i)
+                }
+            }
+        }
+        if filterParameters.secure {
+            for i in (0..<filteredParkings.count).reversed() {
+                if !filteredParkings[i].covered {
+                    filteredParkings.remove(at: i)
+                }
+            }
+        }
+        if filterParameters.arountTheClock {
+            for i in (0..<filteredParkings.count).reversed() {
+                if !filteredParkings[i].aroundTheClock {
+                    filteredParkings.remove(at: i)
+                }
+            }
+        }
+        if filterParameters.evCharging {
+            for i in (0..<filteredParkings.count).reversed() {
+                if !filteredParkings[i].ev {
+                    filteredParkings.remove(at: i)
+                }
+            }
+        }
+        if filterParameters.disabledPersons {
+            for i in (0..<filteredParkings.count).reversed() {
+                if !filteredParkings[i].disabled {
+                    filteredParkings.remove(at: i)
+                }
+            }
+        }
+        parkings.value = filteredParkings
     }
     
 }

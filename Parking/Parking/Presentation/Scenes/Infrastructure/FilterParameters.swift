@@ -8,6 +8,7 @@
 
 struct FilterParameters {
     var price: Int
+    var free: Bool
     var covered: Bool
     var secure: Bool
     var arountTheClock: Bool
