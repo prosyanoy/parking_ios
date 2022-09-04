@@ -21,7 +21,7 @@ final class MenuCellView: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 17)
+        label.font = .overpassMedium17
         label.textColor = .black
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
