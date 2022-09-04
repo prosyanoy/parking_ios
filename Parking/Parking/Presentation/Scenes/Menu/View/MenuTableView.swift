@@ -29,8 +29,7 @@ final class MenuTableView: UITableView {
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = true
         isScrollEnabled = true
-        separatorStyle = .singleLine
-        separatorInset = UIEdgeInsets(top: 0, left: 48, bottom: 0, right: 0)
+        separatorStyle = .none
         rowHeight = Constants.rowsHeight
         
         register(MenuCellView.self, forCellReuseIdentifier: MenuCellView.reuseIdentifier)
