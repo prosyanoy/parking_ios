@@ -48,5 +48,6 @@ extension MenuHeaderView {
 	func configure(with menuViewModel: MenuViewModelProtocol, for section: Int) {
 		let header = menuViewModel.getHeaderViewModel(for: section)
 		titleLabel.text = header.title
+        
 	}
 }

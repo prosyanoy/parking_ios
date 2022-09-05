@@ -40,6 +40,13 @@ final class MenuCellView: UITableViewCell {
         return label
     }()
     
+    private let separatorView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .separator
+        return view
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
@@ -66,6 +73,7 @@ final class MenuCellView: UITableViewCell {
         addSubview(icon)
         addSubview(titleLabel)
         addSubview(rightLabel)
+        addSubview(separatorView)
         
         NSLayoutConstraint.activate([
             icon.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -78,6 +86,11 @@ final class MenuCellView: UITableViewCell {
             
             rightLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -56),
             rightLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            separatorView.topAnchor.constraint(equalTo: topAnchor),
+            separatorView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -8),
+            separatorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
 }
@@ -88,6 +101,11 @@ extension MenuCellView {
         icon.image = UIImage(named: cell.iconName)?.withTintColor(UIColor(red: 191/255, green: 61/255, blue: 163/255, alpha: 1))
         titleLabel.text = cell.title
         rightLabel.text = cell.rightText
+        if indexPath.row != 0 {
+            separatorView.isHidden = false
+        } else {
+            separatorView.isHidden = true
+        }
     }
 }
 
