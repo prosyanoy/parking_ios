@@ -47,9 +47,11 @@ final class ServicesMapFilterTableViewCell: UITableViewCell {
     // SECURE
     private lazy var secureButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "checkmark.shield"), for: .normal)
-        button.setImage(UIImage(systemName: "checkmark.shield.fill"), for: .selected)
-        button.imageView?.layer.transform = CATransform3DMakeScale(2.2, 2, 0)
+//        button.setImage(UIImage(systemName: "checkmark.shield"), for: .normal)
+//        button.setImage(UIImage(systemName: "checkmark.shield.fill"), for: .selected)
+        button.setImage(UIImage(named: "Secure"), for: .normal)
+        button.setImage(UIImage(named: "SecureQ"), for: .selected)
+        button.imageView?.layer.transform = CATransform3DMakeScale(2.1, 2, 0) // 2.2 2
         button.imageView?.tintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
         button.addTarget(self, action: #selector(secureButtonTapped), for: .touchUpInside)
         return button
@@ -88,9 +90,11 @@ final class ServicesMapFilterTableViewCell: UITableViewCell {
     // AROUND THE CLOCK
     private lazy var aroundTheClockButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "24.square"), for: .normal)
-        button.setImage(UIImage(systemName: "24.square.fill"), for: .selected)
-        button.imageView?.layer.transform = CATransform3DMakeScale(2.2, 2.1, 0)
+//        button.setImage(UIImage(systemName: "24.square"), for: .normal)
+//        button.setImage(UIImage(systemName: "24.square.fill"), for: .selected)
+        button.setImage(UIImage(named: "247"), for: .normal)
+        button.setImage(UIImage(named: "247Q"), for: .selected)
+        button.imageView?.layer.transform = CATransform3DMakeScale(2.1, 2, 0) //2.2 2.1
         button.imageView?.tintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
         button.addTarget(self, action: #selector(aroundTheClockButtonTapped), for: .touchUpInside)
         return button
@@ -129,10 +133,12 @@ final class ServicesMapFilterTableViewCell: UITableViewCell {
     // EV CHARGING
     private lazy var evChargingButton: UIButton = {
         let button = UIButton()
-        // TODO: Системная картинка доступна с iOS 15+
-        button.setImage(UIImage(systemName: "bolt.batteryblock"), for: .normal)
-        button.setImage(UIImage(systemName: "bolt.batteryblock.fill"), for: .selected)
-        button.imageView?.layer.transform = CATransform3DMakeScale(2, 2, 0)
+//        Системная картинка доступна с iOS 15+
+//        button.setImage(UIImage(systemName: "bolt.batteryblock"), for: .normal)
+//        button.setImage(UIImage(systemName: "bolt.batteryblock.fill"), for: .selected)
+        button.setImage(UIImage(named: "Charg"), for: .normal)
+        button.setImage(UIImage(named: "ChargQ"), for: .selected)
+        button.imageView?.layer.transform = CATransform3DMakeScale(2.1, 2, 0) // 2 2
         button.imageView?.tintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
         button.addTarget(self, action: #selector(evChargingButtonTapped), for: .touchUpInside)
         return button
@@ -171,9 +177,11 @@ final class ServicesMapFilterTableViewCell: UITableViewCell {
     // DISABLED PERSONS
     private lazy var disabledPersonsButton: UIButton = {
         let button = UIButton()
-        // TODO: Системная картинка доступна с iOS 15+
-        button.setImage(UIImage(systemName: "figure.roll"), for: .normal)
-        button.imageView?.layer.transform = CATransform3DMakeScale(2, 2, 0)
+//        Системная картинка доступна с iOS 15+
+//        button.setImage(UIImage(systemName: "figure.roll"), for: .normal)
+        button.setImage(UIImage(named: "Disab"), for: .normal)
+        button.setImage(UIImage(named: "DisabQ"), for: .selected)
+        button.imageView?.layer.transform = CATransform3DMakeScale(2.1, 2, 0)
         button.imageView?.layer.cornerRadius = 2
         button.imageView?.tintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
         button.addTarget(self, action: #selector(disabledPersonsButtonTapped), for: .touchUpInside)
@@ -187,15 +195,7 @@ final class ServicesMapFilterTableViewCell: UITableViewCell {
     }
     
     private func updateDisabledPersonsButton(isSelected: Bool) {
-        // TODO: нет системной иконки для инвалида .fill; Сделать свои иконки fill и не fill!
         disabledPersonsButton.isSelected = isSelected
-        if isSelected {
-            disabledPersonsButton.imageView?.tintColor = .white
-            disabledPersonsButton.imageView?.backgroundColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
-        } else {
-            disabledPersonsButton.imageView?.tintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
-            disabledPersonsButton.imageView?.backgroundColor = .white
-        }
     }
     
     private lazy var disabledPersonsTitle: UILabel = {
@@ -258,191 +258,3 @@ final class ServicesMapFilterTableViewCell: UITableViewCell {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// MARK: - ОСТАВИТЬ РЕАЛИЗАЦИЮ СВИЧЕЙ
-
-//// MARK: - UI
-//
-//// Secure
-//private lazy var titleSecureSwitchLabel: UILabel = {
-//    let label = UILabel()
-//    label.text = "Безопасная"
-//    label.textColor = .black
-//    label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-//    label.textAlignment = .left
-//    label.numberOfLines = 1
-//    return label
-//}()
-//
-//private lazy var secureSwitch: UISwitch = {
-//    let uiSwitch = UISwitch()
-//    uiSwitch.onTintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
-//    uiSwitch.addTarget(self,
-//                       action: #selector(secureSwitchValueDidChange),
-//                       for: .valueChanged)
-//    return uiSwitch
-//}()
-//
-//@objc private func secureSwitchValueDidChange() {
-//    viewModel?.secureSwitchValueDidChange(isOn: secureSwitch.isOn)
-//}
-//
-//private lazy var secureHorizontalStack: UIStackView = {
-//    let stack = UIStackView(arrangedSubviews: [titleSecureSwitchLabel,
-//                                               secureSwitch])
-//    stack.axis = .horizontal
-//    stack.alignment = .fill
-//    stack.distribution = .fill
-//    return stack
-//}()
-//
-//// 24/7
-//private lazy var titleAroundTheClockSwitchLabel: UILabel = {
-//    let label = UILabel()
-//    label.text = "Круглосуточная"
-//    label.textColor = .black
-//    label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-//    label.textAlignment = .left
-//    label.numberOfLines = 1
-//    return label
-//}()
-//
-//private lazy var aroundTheClockSwitch: UISwitch = {
-//    let uiSwitch = UISwitch()
-//    uiSwitch.onTintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
-//    uiSwitch.translatesAutoresizingMaskIntoConstraints = false
-//    uiSwitch.addTarget(self,
-//                       action: #selector(aroundTheClockSwitchValueDidChange),
-//                       for: .valueChanged)
-//    return uiSwitch
-//}()
-//
-//@objc private func aroundTheClockSwitchValueDidChange() {
-//    viewModel?.aroundTheClockSwitchValueDidChange(isOn: aroundTheClockSwitch.isOn)
-//}
-//
-//private lazy var aroundTheClockHorizontalStack: UIStackView = {
-//    let stack = UIStackView(arrangedSubviews: [titleAroundTheClockSwitchLabel,
-//                                               aroundTheClockSwitch])
-//    stack.axis = .horizontal
-//    stack.alignment = .fill
-//    stack.distribution = .fill
-//    return stack
-//}()
-//
-//// EV Charging
-//private lazy var titleEvChargingSwitchLabel: UILabel = {
-//    let label = UILabel()
-//    label.text = "С подзарядкой"
-//    label.textColor = .black
-//    label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-//    label.textAlignment = .left
-//    label.numberOfLines = 1
-//    return label
-//}()
-//
-//private lazy var eVChargingSwitch: UISwitch = {
-//    let uiSwitch = UISwitch()
-//    uiSwitch.onTintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
-//    uiSwitch.translatesAutoresizingMaskIntoConstraints = false
-//    uiSwitch.addTarget(self,
-//                       action: #selector(eVChargingSwitchValueDidChange),
-//                       for: .valueChanged)
-//    return uiSwitch
-//}()
-//
-//@objc private func eVChargingSwitchValueDidChange() {
-//    viewModel?.eVChargingSwitchValueDidChange(isOn: eVChargingSwitch.isOn)
-//}
-//
-//private lazy var eVChargingHorizontalStack: UIStackView = {
-//    let stack = UIStackView(arrangedSubviews: [titleEvChargingSwitchLabel,
-//                                               eVChargingSwitch])
-//    stack.axis = .horizontal
-//    stack.alignment = .fill
-//    stack.distribution = .fill
-//    return stack
-//}()
-//
-//// Disabled persons
-//private lazy var disabledSwitchLabel: UILabel = {
-//    let label = UILabel()
-//    label.text = "Наличие мест для инвалидов"
-//    label.textColor = .black
-//    label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-//    label.textAlignment = .left
-//    label.numberOfLines = 1
-//    return label
-//}()
-//
-//private lazy var disabledSwitch: UISwitch = {
-//    let uiSwitch = UISwitch()
-//    uiSwitch.onTintColor = #colorLiteral(red: 0.6046196818, green: 0.4869016409, blue: 0.8574097753, alpha: 1)
-//    uiSwitch.translatesAutoresizingMaskIntoConstraints = false
-//    uiSwitch.addTarget(self,
-//                       action: #selector(disabledSwitchValueDidChange),
-//                       for: .valueChanged)
-//    return uiSwitch
-//}()
-//
-//@objc private func disabledSwitchValueDidChange() {
-//    viewModel?.disabledSwitchValueDidChange(isOn: disabledSwitch.isOn)
-//}
-//
-//private lazy var disabledHorizontalStack: UIStackView = {
-//    let stack = UIStackView(arrangedSubviews: [disabledSwitchLabel,
-//                                               disabledSwitch])
-//    stack.axis = .horizontal
-//    stack.alignment = .fill
-//    stack.distribution = .fill
-//    return stack
-//}()
-//
-//private lazy var totalVerticalStack: UIStackView = {
-//    let stack = UIStackView(arrangedSubviews: [secureHorizontalStack,
-//                                               aroundTheClockHorizontalStack,
-//                                               eVChargingHorizontalStack,
-//                                               disabledHorizontalStack])
-//    stack.axis = .vertical
-//    stack.spacing = 5
-//    stack.alignment = .fill
-//    stack.distribution = .fillEqually
-//    stack.translatesAutoresizingMaskIntoConstraints = false
-//    return stack
-//}()
-//
-//
-//// MARK: - Layout
-//
-//private func setupLayout() {
-//    contentView.addSubview(totalVerticalStack)
-//
-//    totalVerticalStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-//    totalVerticalStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
-//    totalVerticalStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
-//    totalVerticalStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
-//}
-//
-//// MARK: - Interface
-//
-//func setContent(secureValue: Bool,
-//                aroundTheClockValue: Bool,
-//                evChargingValue: Bool,
-//                disabledValue: Bool) {
-//        self.secureSwitch.setOn(secureValue, animated: false)
-//        self.aroundTheClockSwitch.setOn(aroundTheClockValue, animated: false)
-//        self.eVChargingSwitch.setOn(evChargingValue, animated: false)
-//        self.disabledSwitch.setOn(disabledValue, animated: false)
-//}
