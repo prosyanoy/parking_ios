@@ -110,8 +110,8 @@ extension MenuViewController: UITableViewDelegate {
         case 1:
             switch indexPath.row {
             case 0:
-                if let paymentNC = PaymentSceneConfigurator.configure() as? UINavigationController {
-                    if let paymentVC = paymentNC.viewControllers.first as? PaymentViewController {
+                if let paymentNC = WalletPaymentSceneConfigurator.configure() as? UINavigationController {
+                    if let paymentVC = paymentNC.viewControllers.first as? WalletPaymentViewController {
                         paymentVC.isPushed = true
                         vc = paymentVC
                     }

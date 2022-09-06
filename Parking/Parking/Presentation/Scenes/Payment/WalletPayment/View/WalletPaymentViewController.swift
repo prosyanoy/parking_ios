@@ -31,6 +31,16 @@ final class WalletPaymentViewController: UIViewController,
     }
     
     
+    // MARK: - State
+
+    // Ребята, тру разработчики говорят не сетить поля из вне на прямую, типо плохая практика (сложный дебаг, неожиданное поведение, возрастает сложность кода), такие вещи надо делать через интерфейс (функцию) с принимающим параметром. А все поля желательно держать приватными. И я бы вообще сделал вызов функции, которая занимается настройкой навигейшн бара ответственностью вызывающего объекта, т.к. именно он вкурсе пушим мы сцену или презентим
+    var isPushed = false {
+        didSet {
+            setupNavigationBar()
+        }
+    }
+    
+    
     // MARK: - Input data flow
     
     private func setupObservers() {
@@ -83,12 +93,14 @@ final class WalletPaymentViewController: UIViewController,
     
     private func setupNavigationBar() {
         navigationItem.title = "Пополнить счет"
-        navigationItem.setLeftBarButton(
-            UIBarButtonItem(title: "Отмена",
-                            style: .plain,
-                            target: self,
-                            action: #selector(cancelButtonTapped)),
-            animated: false)
+        if !isPushed {
+            navigationItem.setLeftBarButton(
+                UIBarButtonItem(title: "Отмена",
+                                style: .plain,
+                                target: self,
+                                action: #selector(cancelButtonTapped)),
+                animated: false)
+        }
     }
     
     @objc private func cancelButtonTapped() {
