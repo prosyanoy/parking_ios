@@ -11,6 +11,12 @@ import UIKit
 final class PaymentViewController: UIViewController,
                                    UITextFieldDelegate {
     
+    var isPushed = false {
+        didSet {
+            setupNavigationBar()
+        }
+    }
+    
     // MARK: - View's lifecycle
     
     override func viewDidLoad() {
@@ -25,13 +31,14 @@ final class PaymentViewController: UIViewController,
     
     private func setupNavigationBar() {
         navigationItem.title = "Пополнить счет"
+        if !isPushed {
         navigationItem.setLeftBarButton(
             UIBarButtonItem(title: "Отмена",
                             style: .plain,
                             target: self,
                             action: #selector(cancelButtonTapped)),
             animated: false)
-        
+        }
     }
     
     @objc private func cancelButtonTapped() {

@@ -110,7 +110,12 @@ extension MenuViewController: UITableViewDelegate {
         case 1:
             switch indexPath.row {
             case 0:
-                vc = PaymentViewController()
+                if let paymentNC = PaymentSceneConfigurator.configure() as? UINavigationController {
+                    if let paymentVC = paymentNC.viewControllers.first as? PaymentViewController {
+                        paymentVC.isPushed = true
+                        vc = paymentVC
+                    }
+                }
             case 1:
                 vc = AnalyticsViewController()
             case 2:
@@ -121,10 +126,12 @@ extension MenuViewController: UITableViewDelegate {
         case 2:
             switch indexPath.row {
             case 0:
-                vc = FinesAndEvacuationsViewController()
+                vc = CarsViewController()
             case 1:
-                vc = FeedbackViewController()
+                vc = FinesAndEvacuationsViewController()
             case 2:
+                vc = FeedbackViewController()
+            case 3:
                 vc = AboutConfigurator.configure()
             default:
                 print("default")
