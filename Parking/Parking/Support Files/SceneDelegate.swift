@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootVC = MainMapConfigurator.configure()
         
         window = UIWindow(windowScene: scene)
+        window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
         window?.rootViewController = rootVC
         rootVC.present(authVC, animated: false)
