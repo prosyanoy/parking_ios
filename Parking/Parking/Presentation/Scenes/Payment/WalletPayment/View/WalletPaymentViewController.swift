@@ -1,5 +1,5 @@
 //
-//  PaymentViewController.swift
+//  WalletPaymentViewController.swift
 //  Parking
 //
 //  Created by Maxim Terpugov on 16.08.2022.
@@ -8,36 +8,98 @@
 import UIKit
 
 
-final class PaymentViewController: UIViewController,
-                                   UITextFieldDelegate {
+final class WalletPaymentViewController: UIViewController,
+                                         UITextFieldDelegate {
     
+    // MARK: - Dependencies
+    
+    private let viewModel: WalletPaymentViewModelProtocol
+    
+    
+    // MARK: - Init
+    
+    init(viewModel: WalletPaymentViewModelProtocol,
+         nibName nibNameOrNil: String? = nil,
+         bundle nibBundleOrNil: Bundle? = nil) {
+        self.viewModel = viewModel
+        super.init(nibName: nibNameOrNil,
+                   bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - State
+
+    // Ребята, тру разработчики говорят не сетить поля из вне на прямую, типо плохая практика (сложный дебаг, неожиданное поведение, возрастает сложность кода), такие вещи надо делать через интерфейс (функцию) с принимающим параметром. А все поля желательно держать приватными. И я бы вообще сделал вызов функции, которая занимается настройкой навигейшн бара ответственностью вызывающего объекта, т.к. именно он вкурсе пушим мы сцену или презентим
     var isPushed = false {
         didSet {
             setupNavigationBar()
         }
     }
     
+    
+    // MARK: - Input data flow
+    
+    private func setupObservers() {
+        viewModel.selectedPaymentMethod.subscribe(observer: self) { [weak self] paymentMethod in
+            self?.paymentMethodView.setContent(title: paymentMethod.title,
+                                               description: paymentMethod.description,
+                                               icon: nil)
+        }
+        viewModel.isLoading.subscribe(observer: self) { [weak self] isLoading in
+            switch isLoading {
+            case true:
+                self?.activity.startAnimating()
+                self?.payButton.isEnabled = false
+            case false:
+                self?.activity.stopAnimating()
+                self?.payButton.isEnabled = true
+            }
+        }
+    }
+    
+    private lazy var minimumAmount: Int = {
+        let amount = self.viewModel.minimumPaymentAmount
+        return amount
+    }()
+    
+    
     // MARK: - View's lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        setupInitialUI()
         setupNavigationBar()
         setupLayout()
+        setupObservers()
+        viewModel.viewDidLoad()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        activity.center = CGPoint(x: paymentMethodView.frame.width / 2,
+                                  y: paymentMethodView.frame.height / 2)
     }
     
     
     // MARK: - UI
     
+    private func setupInitialUI() {
+        view.backgroundColor = .white
+    }
+    
     private func setupNavigationBar() {
         navigationItem.title = "Пополнить счет"
         if !isPushed {
-        navigationItem.setLeftBarButton(
-            UIBarButtonItem(title: "Отмена",
-                            style: .plain,
-                            target: self,
-                            action: #selector(cancelButtonTapped)),
-            animated: false)
+            navigationItem.setLeftBarButton(
+                UIBarButtonItem(title: "Отмена",
+                                style: .plain,
+                                target: self,
+                                action: #selector(cancelButtonTapped)),
+                animated: false)
         }
     }
     
@@ -48,8 +110,8 @@ final class PaymentViewController: UIViewController,
     
     private lazy var paymentAmountTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "50"
-        textField.text = "50"
+        textField.placeholder = String(minimumAmount)
+        textField.text = String(minimumAmount)
         textField.textColor = .black
         textField.font = .systemFont(ofSize: 32, weight: .regular)
         textField.borderStyle = .none
@@ -96,7 +158,7 @@ final class PaymentViewController: UIViewController,
     
     private lazy var bottomPlaceholder: UILabel = {
         let label = UILabel()
-        label.text = "Баланс после пополнения 50\u{2006}₽"
+        label.text = "Баланс после пополнения \(minimumAmount)\u{2006}₽"
         label.font = .systemFont(ofSize: 15, weight: .regular)
         label.textColor = .black.withAlphaComponent(0.7)
         label.numberOfLines = 2
@@ -121,14 +183,14 @@ final class PaymentViewController: UIViewController,
         view.addTarget(self,
                        action: #selector(paymentMethodViewTapped),
                        for: .touchUpInside)
+        view.layer.borderColor = #colorLiteral(red: 0, green: 0.7409000993, blue: 0.9917448163, alpha: 1).cgColor
+        view.layer.borderWidth = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     @objc private func paymentMethodViewTapped() {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .white
-        navigationController?.pushViewController(vc, animated: true)
+        viewModel.paymentMethodViewTapped()
     }
     
     private lazy var warningLabel: UILabel = {
@@ -148,7 +210,7 @@ final class PaymentViewController: UIViewController,
         toolbar.barTintColor = #colorLiteral(red: 0.8182896972, green: 0.8312941194, blue: 0.8559113741, alpha: 1)
         toolbar.isTranslucent = false
         toolbar.sizeToFit()
-
+        
         let button50 = UIButton(type: .system)
         button50.frame = CGRect(x: 0, y: 0, width: 50, height: 15)
         button50.setTitle("50", for: .normal)
@@ -209,41 +271,76 @@ final class PaymentViewController: UIViewController,
         
         return toolbar
     }()
-
+    
     @objc private func doneButtonTapped() {
         guard let text = paymentAmountTextField.text else { return }
         let intText = Int(text)
-        if text.isEmpty || (intText != nil && intText! <= 50) {
-            paymentAmountTextField.text = "50"
-            handlePaymentAmountBottomPlaceholder("50")
+        if text.isEmpty || (intText != nil && intText! <= minimumAmount) {
+            let strMinimumAmount = String(minimumAmount)
+            paymentAmountTextField.text = strMinimumAmount
+            handlePaymentAmountBottomPlaceholder(strMinimumAmount)
+            viewModel.newPaymentAmountSelected(minimumAmount)
+        } else if intText != nil && intText! > minimumAmount {
+            viewModel.newPaymentAmountSelected(intText!)
         }
         paymentAmountTextField.resignFirstResponder()
     }
     
     @objc private func fiftyButtonTapped() {
         paymentAmountTextField.text = "50"
+        viewModel.newPaymentAmountSelected(50)
         handlePaymentAmountBottomPlaceholder("50")
     }
     
     @objc private func hundredButtonTapped() {
         paymentAmountTextField.text = "100"
+        viewModel.newPaymentAmountSelected(100)
         handlePaymentAmountBottomPlaceholder("100")
     }
     
     @objc private func threeHundredButtonTapped() {
         paymentAmountTextField.text = "300"
+        viewModel.newPaymentAmountSelected(300)
         handlePaymentAmountBottomPlaceholder("300")
     }
     
     @objc private func fiveHundredButtonTapped() {
         paymentAmountTextField.text = "500"
+        viewModel.newPaymentAmountSelected(500)
         handlePaymentAmountBottomPlaceholder("500")
     }
     
     @objc private func thousandButtonTapped() {
         paymentAmountTextField.text = "1000"
+        viewModel.newPaymentAmountSelected(1000)
         handlePaymentAmountBottomPlaceholder("1000")
     }
+    
+    private lazy var payButton: UIButton = {
+        let button = ScaleButton(type: .system)
+        button.setTitle("Оплатить",
+                        for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16,
+                                                    weight: .semibold)
+        button.tintColor = .white
+        button.backgroundColor = #colorLiteral(red: 0, green: 0.7409000993, blue: 0.9917448163, alpha: 1)
+        button.layer.cornerRadius = 25
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(payButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func payButtonTapped() {
+        viewModel.payButtonTapped()
+    }
+    
+    private lazy var activity: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.hidesWhenStopped = true
+        indicator.style = .medium
+        indicator.color = .systemGray
+        return indicator
+    }()
     
     
     // MARK: - Layout
@@ -255,6 +352,8 @@ final class PaymentViewController: UIViewController,
         view.addSubview(paymentMethodPlaceholderLabel)
         view.addSubview(paymentMethodView)
         view.addSubview(warningLabel)
+        view.addSubview(payButton)
+        paymentMethodView.addSubview(activity)
         
         horizontalStack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         horizontalStack.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 40).isActive = true
@@ -284,6 +383,11 @@ final class PaymentViewController: UIViewController,
         warningLabel.topAnchor.constraint(equalTo: paymentMethodView.bottomAnchor, constant: 15).isActive = true
         warningLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         warningLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        
+        payButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        payButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        payButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        payButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
     }
     
     
@@ -314,18 +418,18 @@ final class PaymentViewController: UIViewController,
     }
     
     private func handlePaymentAmountBottomPlaceholder(_ text: String) {
-        if let sum = Int(text) {
-            if sum >= 50 {
+        if let amount = Int(text) {
+            if amount >= minimumAmount {
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .decimal
                 formatter.groupingSeparator = " "
-                let formattedSum = formatter.string(for: sum) ?? String(sum)
-                bottomPlaceholder.text = "Баланс после пополнения \(formattedSum)\u{2006}₽"
+                let formattedAmount = formatter.string(for: amount) ?? String(amount)
+                bottomPlaceholder.text = "Баланс после пополнения \(formattedAmount)\u{2006}₽"
             } else {
-                bottomPlaceholder.text = "Минимальная сумма: 50\u{2006}₽"
+                bottomPlaceholder.text = "Минимальная сумма: \(minimumAmount)\u{2006}₽"
             }
         } else if text.isEmpty {
-            bottomPlaceholder.text = "Минимальная сумма: 50\u{2006}₽"
+            bottomPlaceholder.text = "Минимальная сумма: \(minimumAmount)\u{2006}₽"
         }
     }
     

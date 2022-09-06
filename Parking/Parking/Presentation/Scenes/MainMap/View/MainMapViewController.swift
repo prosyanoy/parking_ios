@@ -47,6 +47,7 @@ final class MainMapViewController: UIViewController {
         yMapDrawer.setupYMapView()
         setupObservers()
         viewModel.viewDidLoad()
+        user.notify()
     }
 
 	override func viewDidLayoutSubviews() {

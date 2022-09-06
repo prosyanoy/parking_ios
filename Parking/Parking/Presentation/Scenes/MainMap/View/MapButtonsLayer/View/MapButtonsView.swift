@@ -195,6 +195,26 @@ final class MapButtonsView: UIView {
     @objc private func searchParkingButtonTapped() {
         targetDelegate.searchParkingButtonTapped()
     }
+    
+    private lazy var filtersButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
+//        button.imageView?.contentMode = .scaleAspectFit
+        button.tintColor = .black
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 20
+        button.layer.shadowRadius = 5
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(filtersButtonTapped(_:)), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func filtersButtonTapped(_ sender: UIButton) {
+        targetDelegate.filtersButtonTapped()
+    }
 
 
 	override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
@@ -228,6 +248,7 @@ final class MapButtonsView: UIView {
 		addSubview(invalidButton)
 		addSubview(infoButton)
         addSubview(searchParkingButton)
+        addSubview(filtersButton)
 
 		NSLayoutConstraint.activate([
 			menuButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -271,7 +292,12 @@ final class MapButtonsView: UIView {
             searchParkingButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             searchParkingButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -5),
             searchParkingButton.widthAnchor.constraint(equalToConstant: 70),
-            searchParkingButton.heightAnchor.constraint(equalToConstant: 70)
+            searchParkingButton.heightAnchor.constraint(equalToConstant: 70),
+            
+            filtersButton.topAnchor.constraint(equalTo: searchButton.bottomAnchor, constant: 5),
+            filtersButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            filtersButton.widthAnchor.constraint(equalToConstant: 40),
+            filtersButton.heightAnchor.constraint(equalToConstant: 40)
 		])
 	}
 

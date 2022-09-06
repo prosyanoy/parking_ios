@@ -52,6 +52,7 @@ final class OrderSheetViewController: UIViewController,
         view.backgroundColor = .white
         view.layer.cornerRadius = 14
         setupLayout()
+        user.notify()
     }
     
     override func viewDidLayoutSubviews() {
@@ -101,6 +102,8 @@ final class OrderSheetViewController: UIViewController,
     }()
     
     @objc private func payButtonTapped() {
+        let vc = ParkingPaymentSceneConfigurator.configure(paidParking: parking)
+        present(vc, animated: true, completion: nil)
     }
     
     

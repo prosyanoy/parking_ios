@@ -23,6 +23,7 @@ protocol MainMapButtonsLayerDelegateProtocol {
     func locationButtonTapped()
     func invalidButtonTapped()
     func searchParkingButtonTapped()
+    func filtersButtonTapped()
 }
 
 
@@ -62,9 +63,31 @@ final class MainMapYMKDrawer: NSObject,
     
     private func setupObservers() {
         interactor.parkings.subscribe(observer: self) { [weak self] parkings in
+            self?.removeAllMapObjects()
             self?.drawParkingPlaces(parkings: parkings)
             self?.addCluster(parkings: parkings)
         }
+    }
+    
+    private func removeAllMapObjects() {
+        // TODO: потестить как будет работать с большим количеством объектов на устройстве
+        // Опционально оптимизировать в дальнейшем
+        // Добавить активити индикатор во время отрисовки объектов?
+        // Обновление карты только в мейн потоке
+        polygonMapObjects.forEach { polygon in
+            map.mapObjects.remove(with: polygon)
+        }
+        polygonMapObjects.removeAll()
+        
+        polylineMapObjects.forEach { polyline in
+            map.mapObjects.remove(with: polyline)
+        }
+        polylineMapObjects.removeAll()
+        
+        clusterizedPlacemarkCollection.forEach { collection in
+            map.mapObjects.remove(with: collection)
+        }
+        clusterizedPlacemarkCollection.removeAll()
     }
     
     
@@ -152,19 +175,21 @@ final class MainMapYMKDrawer: NSObject,
     // MARK: - CAMERA POSITION
     
     func onCameraPositionChanged(with map: YMKMap, cameraPosition: YMKCameraPosition, cameraUpdateReason: YMKCameraUpdateReason, finished: Bool) {
-        if cameraPosition.zoom >= 16 {
-            polygonMapObjects.forEach { polygone in
-                polygone.isVisible = true
-            }
-            polylineMapObjects.forEach { polyline in
-                polyline.isVisible = true
-            }
-        } else {
-            polygonMapObjects.forEach { polygone in
-                polygone.isVisible = false
-            }
-            polylineMapObjects.forEach { polyline in
-                polyline.isVisible = false
+        if finished {
+            if cameraPosition.zoom >= 16 {
+                polygonMapObjects.forEach { polygone in
+                    polygone.isVisible = true
+                }
+                polylineMapObjects.forEach { polyline in
+                    polyline.isVisible = true
+                }
+            } else {
+                polygonMapObjects.forEach { polygone in
+                    polygone.isVisible = false
+                }
+                polylineMapObjects.forEach { polyline in
+                    polyline.isVisible = false
+                }
             }
         }
     }
@@ -192,6 +217,11 @@ final class MainMapYMKDrawer: NSObject,
     
     
     func onMapObjectTap(with mapObject: YMKMapObject, point: YMKPoint) -> Bool {
+        // Дополнительный обработчик, на случай, если плейсмарк отрисуется без кластера, например - одна парковка, или парковки слишком сильно удалены друг от друга и не попадают в кластер
+        if let mapObjectPlacemark = mapObject as? YMKPlacemarkMapObject {
+            onPlacemarkTap(mapObjectPlacemark)
+        }
+        //
         guard selectedMapObject !== mapObject,
               let parking = placesParkingBindingTable[mapObject],
               let placemark = parkingPlacemarksBindingTable[parking.id] else {
@@ -426,6 +456,8 @@ final class MainMapYMKDrawer: NSObject,
         return scaledImage
     }()
     
+    private var clusterizedPlacemarkCollection = [YMKClusterizedPlacemarkCollection]()
+    
     private func addCluster(parkings: [Parking]) {
         let collection = map.mapObjects.addClusterizedPlacemarkCollection(with: self)
         for parking in parkings {
@@ -436,10 +468,12 @@ final class MainMapYMKDrawer: NSObject,
                                                     image: drawPlacemarkImage(
                                                         parkingCost: parking.hourCost,
                                                         isSelected: .unselected))
+            placemark.addTapListener(with: self)
             parkingPlacemarksBindingTable[parking.id] = placemark
         }
         collection.clusterPlacemarks(withClusterRadius: 70,
                                      minZoom: 15)
+        clusterizedPlacemarkCollection.append(collection)
     }
     
     func onClusterAdded(with cluster: YMKCluster) {
@@ -456,9 +490,27 @@ final class MainMapYMKDrawer: NSObject,
                                          tilt: 0)
         map.move(with: position,
                  animationType: .init(type: .smooth,
-                                      duration: 0.5),
+                                      duration: 0.4),
                  cameraCallback: nil)
         return true
+    }
+    
+    // Если плейсмарк отрисовался без кластера, то при нажатии на плейсмарк происходит зум до момента, пока не отрисуются полилайны / полигоны, которые будут хендлить это нажатие
+    private func onPlacemarkTap(_ placemark: YMKPlacemarkMapObject) {
+        let currentZoom = map.cameraPosition.zoom
+        if currentZoom < 16 {
+            let cameraPosition = YMKCameraPosition(
+                target: placemark.geometry,
+                zoom: currentZoom + 1.08,
+                azimuth: 0,
+                tilt: 0)
+            map.move(with: cameraPosition,
+                     animationType: .init(type: .smooth,
+                                          duration: 0.4),
+                     cameraCallback: nil)
+        } else {
+            return
+        }
     }
     
     
@@ -494,7 +546,9 @@ final class MainMapYMKDrawer: NSObject,
         polygonMapObject.strokeWidth = 3.0
         setColor(polygon: polygonMapObject,
                  isSelected: .unselected)
-        polygonMapObject.isVisible = false
+        if map.cameraPosition.zoom < 16 {
+            polygonMapObject.isVisible = false
+        }
         polygonMapObject.addTapListener(with: self)
         polygonMapObjects.append(polygonMapObject)
         placesParkingBindingTable[polygonMapObject] = parking
@@ -507,7 +561,9 @@ final class MainMapYMKDrawer: NSObject,
         polylineMapObject.strokeWidth = 3.0
         setColor(polyline: polylineMapObject,
                  isSelected: .unselected)
-        polylineMapObject.isVisible = false
+        if map.cameraPosition.zoom < 16 {
+            polylineMapObject.isVisible = false
+        }
         polylineMapObject.addTapListener(with: self)
         polylineMapObjects.append(polylineMapObject)
         placesParkingBindingTable[polylineMapObject] = parking
@@ -633,19 +689,19 @@ final class MainMapYMKDrawer: NSObject,
     func searchParkingButtonTapped() {
         interactor.searchParkingButtonTapped(
             selectedParkingCallback: { [weak self] selectedParking in
-            guard let placemark = self?.parkingPlacemarksBindingTable[selectedParking.id] else { return }
-            guard let mapObject = self?.parkingPlacesBindingTable[selectedParking.id] else { return }
-            let cameraPosition = YMKCameraPosition(target: placemark.geometry,
-                                                   zoom: 17,
-                                                   azimuth: 0,
-                                                   tilt: 0)
-            self?.map.move(with: cameraPosition,
-                           animationType: .init(type: .smooth,
-                                                duration: 0.5),
-                           cameraCallback: { _ in
-                let _ = self?.onMapObjectTap(with: mapObject, point: placemark.geometry)
-            })
-        },
+                guard let placemark = self?.parkingPlacemarksBindingTable[selectedParking.id] else { return }
+                guard let mapObject = self?.parkingPlacesBindingTable[selectedParking.id] else { return }
+                let cameraPosition = YMKCameraPosition(target: placemark.geometry,
+                                                       zoom: 17,
+                                                       azimuth: 0,
+                                                       tilt: 0)
+                self?.map.move(with: cameraPosition,
+                               animationType: .init(type: .smooth,
+                                                    duration: 0.5),
+                               cameraCallback: { _ in
+                    let _ = self?.onMapObjectTap(with: mapObject, point: placemark.geometry)
+                })
+            },
             didLayoutHeightCallback: { [weak self] newHeight in
                 self?.animateToNewMapFrameCenterWithoutMapTarget(overlappedAreaHeight: newHeight)
             },
@@ -653,6 +709,10 @@ final class MainMapYMKDrawer: NSObject,
                 self?.animateToInitialMapFrameCenter()
             }
         )
+    }
+    
+    func filtersButtonTapped() {
+        interactor.filtersButtonTapped()
     }
     
 }

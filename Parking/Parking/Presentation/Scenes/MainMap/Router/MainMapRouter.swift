@@ -22,6 +22,8 @@ protocol MainMapRouterProtocol {
                                    selectedParkingCallback: @escaping(Parking) -> Void,
                                    didLayoutHeightCallback: @escaping (Float) -> Void,
                                    dismissOrderSheetCallback: @escaping () -> Void)
+    func filtersButtonTapped(filterParameters: FilterParameters,
+                             applyFiltersCallback: @escaping (FilterParameters) -> Void)
 }
 
 
@@ -84,7 +86,7 @@ final class MainMapRouter: MainMapRouterProtocol {
     
     func paymentButtonTapped() {
         dismissPresentedVCIfPossible()
-        let paymentVC = PaymentSceneConfigurator.configure()
+        let paymentVC = WalletPaymentSceneConfigurator.configure()
         navigationContainer.present(paymentVC,
                                     animated: true,
                                     completion: nil)
@@ -120,6 +122,17 @@ final class MainMapRouter: MainMapRouterProtocol {
             dismissOrderSheetCallback: dismissOrderSheetCallback
         )
         navigationContainer.present(searchParkingBottomSheetVC,
+                                    animated: true,
+                                    completion: nil)
+    }
+    
+    func filtersButtonTapped(filterParameters: FilterParameters,
+                             applyFiltersCallback: @escaping (FilterParameters) -> Void) {
+        dismissPresentedVCIfPossible()
+        let mapFiltersVC = MapFiltersSceneConfigurator.configure(
+            filterParameters: filterParameters,
+            applyFiltersCallback: applyFiltersCallback)
+        navigationContainer.present(mapFiltersVC,
                                     animated: true,
                                     completion: nil)
     }
