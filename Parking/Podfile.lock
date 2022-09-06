@@ -1,6 +1,6 @@
 PODS:
-  - TinkoffASDKCore (2.9.1)
-  - TinkoffASDKUI (2.9.1):
+  - TinkoffASDKCore (2.10.1)
+  - TinkoffASDKUI (2.10.1):
     - TinkoffASDKCore
   - YandexMapsMobile (4.1.0-full)
 
@@ -16,8 +16,8 @@ SPEC REPOS:
     - YandexMapsMobile
 
 SPEC CHECKSUMS:
-  TinkoffASDKCore: fa58d1d5763182d49babbd9435f97741327f4b44
-  TinkoffASDKUI: 345596463c52bc4c477993ea55a5af840f33bd51
+  TinkoffASDKCore: 57a34387bc0e047b4e190abdfc731aa05f96ac64
+  TinkoffASDKUI: 92aa236619417d0c9aff2ad171cb0ea2b184c5e0
   YandexMapsMobile: c145ffd0dbdbb8079fca1eb6706cf9e751b07809
 
 PODFILE CHECKSUM: 672403962b02867878e6705c0f57981d19a6bd9f
