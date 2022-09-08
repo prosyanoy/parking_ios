@@ -93,8 +93,7 @@ extension MenuViewController: UITableViewDelegate {
         case 0:
             switch indexPath.row {
             case 0:
-                vc = UIViewController()
-//                vc = ProfileViewController()
+                vc = ProfileConfigurator.configure()
             case 1:
                 vc = ChangeCityViewController()
             case 2:

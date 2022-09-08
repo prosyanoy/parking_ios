@@ -119,7 +119,14 @@
 		A48BA73128ABDB65001EC8D4 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA73028ABDB65001EC8D4 /* FeedbackViewController.swift */; };
 		A48BA73328ABDB79001EC8D4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA73228ABDB79001EC8D4 /* AboutViewController.swift */; };
 		A48BA73628ABF1E7001EC8D4 /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA73528ABF1E7001EC8D4 /* SettingsCellView.swift */; };
+		A48E115428D12F3B00F78B36 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E115328D12F3B00F78B36 /* UserDefaultsManager.swift */; };
+		A48E115728D132AA00F78B36 /* ProfileNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E115628D132AA00F78B36 /* ProfileNetworkManager.swift */; };
+		A4C4880828CBE75700F5BA5D /* EnterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4880728CBE75700F5BA5D /* EnterEmailViewController.swift */; };
+		A4C4880A28CBEB0F00F5BA5D /* EnterEmailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4880928CBEB0F00F5BA5D /* EnterEmailCellView.swift */; };
 		A4C7A39828C778F000DDA91D /* OwnersPhoneNumberConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7A39728C778EF00DDA91D /* OwnersPhoneNumberConfirmationViewModel.swift */; };
+		A4D9E58D28C8C4AB00D743D7 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9E58C28C8C4AB00D743D7 /* ProfileInfo.swift */; };
+		A4D9E58F28C8D49300D743D7 /* ProfileEmailPhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9E58E28C8D49300D743D7 /* ProfileEmailPhoneCell.swift */; };
+		A4D9E59128C8D4A400D743D7 /* ProfileDeleteLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9E59028C8D4A400D743D7 /* ProfileDeleteLogoutCell.swift */; };
 		A4DF48C128BFAD8000A97EEC /* ChangeCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482DAF628AEB1FA00BB95FC /* ChangeCityViewController.swift */; };
 		A4DF9AA428B43895009D6D66 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */; };
 		A4DF9AA528B4397E009D6D66 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA72C28ABDB19001EC8D4 /* CardsViewController.swift */; };
@@ -142,7 +149,7 @@
 		A4EACC4528B9724800E759D3 /* OwnersExitConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC4428B9724800E759D3 /* OwnersExitConfigurator.swift */; };
 		A4EDFD1528C13E980082D171 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EDFD1428C13E980082D171 /* ContentViewController.swift */; };
 		A4EFE4D628C7A877004D590D /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFE4D528C7A877004D590D /* ProfileTableView.swift */; };
-		A4EFE4D828C7A889004D590D /* ProfileCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFE4D728C7A889004D590D /* ProfileCellView.swift */; };
+		A4EFE4D828C7A889004D590D /* ProfileNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFE4D728C7A889004D590D /* ProfileNameCell.swift */; };
 		A4EFE4DB28C7A89F004D590D /* ProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFE4DA28C7A89F004D590D /* ProfileConfigurator.swift */; };
 		A4EFE4DE28C7A8C2004D590D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFE4DD28C7A8C2004D590D /* ProfileViewModel.swift */; };
 		A4EFE4E028C7A9E6004D590D /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFE4DF28C7A9E6004D590D /* ProfileHeaderView.swift */; };
@@ -290,7 +297,14 @@
 		A48BA73028ABDB65001EC8D4 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		A48BA73228ABDB79001EC8D4 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A48BA73528ABF1E7001EC8D4 /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
+		A48E115328D12F3B00F78B36 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		A48E115628D132AA00F78B36 /* ProfileNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkManager.swift; sourceTree = "<group>"; };
+		A4C4880728CBE75700F5BA5D /* EnterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailViewController.swift; sourceTree = "<group>"; };
+		A4C4880928CBEB0F00F5BA5D /* EnterEmailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailCellView.swift; sourceTree = "<group>"; };
 		A4C7A39728C778EF00DDA91D /* OwnersPhoneNumberConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersPhoneNumberConfirmationViewModel.swift; sourceTree = "<group>"; };
+		A4D9E58C28C8C4AB00D743D7 /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
+		A4D9E58E28C8D49300D743D7 /* ProfileEmailPhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEmailPhoneCell.swift; sourceTree = "<group>"; };
+		A4D9E59028C8D4A400D743D7 /* ProfileDeleteLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDeleteLogoutCell.swift; sourceTree = "<group>"; };
 		A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterViewController.swift; sourceTree = "<group>"; };
 		A4EACC2328B91F7500E759D3 /* CodeEnterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterViewModel.swift; sourceTree = "<group>"; };
@@ -309,11 +323,11 @@
 		A4EACC4228B96FF000E759D3 /* OwnersExitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersExitViewModel.swift; sourceTree = "<group>"; };
 		A4EACC4428B9724800E759D3 /* OwnersExitConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersExitConfigurator.swift; sourceTree = "<group>"; };
 		A4EDFD1428C13E980082D171 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		A4EFE4DF28C7A9E6004D590D /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		A4EFE4DD28C7A8C2004D590D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		A4EFE4DA28C7A89F004D590D /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
-		A4EFE4D728C7A889004D590D /* ProfileCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellView.swift; sourceTree = "<group>"; };
 		A4EFE4D528C7A877004D590D /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
+		A4EFE4D728C7A889004D590D /* ProfileNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameCell.swift; sourceTree = "<group>"; };
+		A4EFE4DA28C7A89F004D590D /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
+		A4EFE4DD28C7A8C2004D590D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A4EFE4DF28C7A9E6004D590D /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		A7D2E08C28CF979B00276D7F /* OptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCell.swift; sourceTree = "<group>"; };
 		E2C5835028C4EE1200C07011 /* Overpass-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Overpass-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -439,7 +453,7 @@
 				26EC2709289803AC00B84D2A /* View */,
 				26EC270A289803B200B84D2A /* ViewModel */,
 				26EC27122898097A00B84D2A /* Router */,
-				A48BA71F28ABDA40001EC8D4 /* ViewControllers */,
+				A48BA71F28ABDA40001EC8D4 /* MenuScreens */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -467,6 +481,7 @@
 		26EC27112898086000B84D2A /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				A4D9E58B28C8C48800D743D7 /* Profile */,
 				A43F4FEB28AD4BDD006D6AFC /* Settings */,
 				26EC270F2898077D00B84D2A /* MenuCell.swift */,
 				26DB5300289EF1F200CF0611 /* MenuHeader.swift */,
@@ -1001,6 +1016,7 @@
 		94D2154E288F285E00DFE786 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A48E115228D12F1F00F78B36 /* UserDefaultsManager */,
 				A4EACC3A28B95EE000E759D3 /* Owners */,
 				26EC27112898086000B84D2A /* Menu */,
 				94D2154F288F285E00DFE786 /* Parking */,
@@ -1160,6 +1176,26 @@
 			path = OwnersEntryScreen;
 			sourceTree = "<group>";
 		};
+		A40D370928CE9A5F0068D398 /* EnterEmailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A4C4880728CBE75700F5BA5D /* EnterEmailViewController.swift */,
+				A4C4880928CBEB0F00F5BA5D /* EnterEmailCellView.swift */,
+			);
+			path = EnterEmailScreen;
+			sourceTree = "<group>";
+		};
+		A40D370A28CE9A770068D398 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A48E115528D1328E00F78B36 /* ProfileNewtworkManager */,
+				A4EFE4D928C7A893004D590D /* Configurator */,
+				A4EFE4D428C7A869004D590D /* View */,
+				A4EFE4DC28C7A8A4004D590D /* ViewModel */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
 		A43F4FEB28AD4BDD006D6AFC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1215,7 +1251,7 @@
 			path = About;
 			sourceTree = "<group>";
 		};
-		A48BA71F28ABDA40001EC8D4 /* ViewControllers */ = {
+		A48BA71F28ABDA40001EC8D4 /* MenuScreens */ = {
 			isa = PBXGroup;
 			children = (
 				A4EFE4D328C7A85C004D590D /* Profile */,
@@ -1232,7 +1268,7 @@
 				A482DAF828AEC6DB00BB95FC /* Feedback */,
 				A482DB0028AECB3400BB95FC /* About */,
 			);
-			path = ViewControllers;
+			path = MenuScreens;
 			sourceTree = "<group>";
 		};
 		A48BA73428ABEE24001EC8D4 /* Settings */ = {
@@ -1243,6 +1279,22 @@
 				A43F4FF428AD4F63006D6AFC /* ViewModel */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		A48E115228D12F1F00F78B36 /* UserDefaultsManager */ = {
+			isa = PBXGroup;
+			children = (
+				A48E115328D12F3B00F78B36 /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaultsManager;
+			sourceTree = "<group>";
+		};
+		A48E115528D1328E00F78B36 /* ProfileNewtworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				A48E115628D132AA00F78B36 /* ProfileNetworkManager.swift */,
+			);
+			path = ProfileNewtworkManager;
 			sourceTree = "<group>";
 		};
 		A4A8234F28BCDBF600D3256D /* View */ = {
@@ -1354,6 +1406,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		A4D9E58B28C8C48800D743D7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A4D9E58C28C8C4AB00D743D7 /* ProfileInfo.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		A4EACC2728B91F8C00E759D3 /* CodeEnterScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1374,41 +1434,6 @@
 			path = PhoneConfirmation;
 			sourceTree = "<group>";
 		};
-		A4EFE4D328C7A85C004D590D /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				A4EFE4D928C7A893004D590D /* Configurator */,
-				A4EFE4D428C7A869004D590D /* View */,
-				A4EFE4DC28C7A8A4004D590D /* ViewModel */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		A4EFE4D428C7A869004D590D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A48BA71D28ABD391001EC8D4 /* ProfileViewController.swift */,
-				A4EFE4D528C7A877004D590D /* ProfileTableView.swift */,
-				A4EFE4D728C7A889004D590D /* ProfileCellView.swift */,
-				A4EFE4DF28C7A9E6004D590D /* ProfileHeaderView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		A4EFE4D928C7A893004D590D /* Configurator */ = {
-			isa = PBXGroup;
-			children = (
-				A4EFE4DA28C7A89F004D590D /* ProfileConfigurator.swift */,
-			);
-			path = Configurator;
-			sourceTree = "<group>";
-		};
-		A4EFE4DC28C7A8A4004D590D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				A4EFE4DD28C7A8C2004D590D /* ProfileViewModel.swift */,
-			);
-			path = ViewModel;
 		A4EACC2F28B9525F00E759D3 /* OwnersScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1447,6 +1472,44 @@
 				A4EDFD1428C13E980082D171 /* ContentViewController.swift */,
 			);
 			path = ContentViewController;
+			sourceTree = "<group>";
+		};
+		A4EFE4D328C7A85C004D590D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A40D370A28CE9A770068D398 /* ProfileScreen */,
+				A40D370928CE9A5F0068D398 /* EnterEmailScreen */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A4EFE4D428C7A869004D590D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A48BA71D28ABD391001EC8D4 /* ProfileViewController.swift */,
+				A4EFE4D528C7A877004D590D /* ProfileTableView.swift */,
+				A4EFE4D728C7A889004D590D /* ProfileNameCell.swift */,
+				A4D9E58E28C8D49300D743D7 /* ProfileEmailPhoneCell.swift */,
+				A4D9E59028C8D4A400D743D7 /* ProfileDeleteLogoutCell.swift */,
+				A4EFE4DF28C7A9E6004D590D /* ProfileHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A4EFE4D928C7A893004D590D /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				A4EFE4DA28C7A89F004D590D /* ProfileConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		A4EFE4DC28C7A8A4004D590D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A4EFE4DD28C7A8C2004D590D /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E2C5834F28C4EDAE00C07011 /* Fonts */ = {
@@ -1670,8 +1733,9 @@
 				A4EACC3328B9548E00E759D3 /* OwnersOnParkingViewController.swift in Sources */,
 				A40BC42328BBFA6C000E5F6C /* OwnersOnParkingViewModel.swift in Sources */,
 				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
-				A4EFE4D828C7A889004D590D /* ProfileCellView.swift in Sources */,
+				A4EFE4D828C7A889004D590D /* ProfileNameCell.swift in Sources */,
 				A48BA72B28ABDB01001EC8D4 /* AnalyticsViewController.swift in Sources */,
+				A4D9E58F28C8D49300D743D7 /* ProfileEmailPhoneCell.swift in Sources */,
 				A48BA73628ABF1E7001EC8D4 /* SettingsCellView.swift in Sources */,
 				A43F4FF128AD4E2C006D6AFC /* SettingsTableView.swift in Sources */,
 				9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */,
@@ -1708,9 +1772,11 @@
 				9496464B28B8EA690095FB6E /* ParkingPaymentSceneConfigurator.swift in Sources */,
 				9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */,
 				A4EACC3128B9531500E759D3 /* OwnersTabBarController.swift in Sources */,
+				A48E115728D132AA00F78B36 /* ProfileNetworkManager.swift in Sources */,
 				9496462828B666090095FB6E /* PaymentChoiceTableViewCell.swift in Sources */,
 				9496463D28B69F9C0095FB6E /* PaymentMethodRepository.swift in Sources */,
 				947CE2E628BE3CB800894AA7 /* MapFiltersRouter.swift in Sources */,
+				A48E115428D12F3B00F78B36 /* UserDefaultsManager.swift in Sources */,
 				9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */,
 				9496463428B67F9C0095FB6E /* PaymentProvider.swift in Sources */,
 				A4C7A39828C778F000DDA91D /* OwnersPhoneNumberConfirmationViewModel.swift in Sources */,
@@ -1732,6 +1798,7 @@
 				26EC270C2898040E00B84D2A /* MenuTableView.swift in Sources */,
 				9496466128BE2D610095FB6E /* TypeMapFilterTableViewCell.swift in Sources */,
 				9496465828BDEAE20095FB6E /* PriceMapFilterTableViewCell.swift in Sources */,
+				A4D9E58D28C8C4AB00D743D7 /* ProfileInfo.swift in Sources */,
 				A43F4FF728AD51E4006D6AFC /* SettingsConfigurator.swift in Sources */,
 				A40BC42628BC097C000E5F6C /* OwnersEntryTableView.swift in Sources */,
 				26EC27142898099C00B84D2A /* MenuViewModel.swift in Sources */,
@@ -1753,12 +1820,14 @@
 				9496460F28AF8B440095FB6E /* ParkingSearchBottomSheetPresentationViewController.swift in Sources */,
 				2643D906289B0CD6005D8E37 /* MapButtonsView.swift in Sources */,
 				A4EACC2628B91F8300E759D3 /* CodeEnterConfigurator.swift in Sources */,
+				A4D9E59128C8D4A400D743D7 /* ProfileDeleteLogoutCell.swift in Sources */,
 				9496460528AF86CE0095FB6E /* ParkingSearchBottomSheet.swift in Sources */,
 				947CE2E428BE3BD300894AA7 /* FilterParameters.swift in Sources */,
 				9496463A28B69BAE0095FB6E /* PaymentChoiceRouter.swift in Sources */,
 				94A7F46128AD09D4001FD271 /* SearchSceneConfigurator.swift in Sources */,
 				26DB5304289EFB5F00CF0611 /* MenuConfigurator.swift in Sources */,
 				94A7F45E28ACFE0E001FD271 /* SearchTableViewCell.swift in Sources */,
+				A4C4880828CBE75700F5BA5D /* EnterEmailViewController.swift in Sources */,
 				26EC2716289809B300B84D2A /* MenuRouter.swift in Sources */,
 				A46BC46E28C009E700E66366 /* OwnersPhoneNumberCOnfirmationConfigurator.swift in Sources */,
 				A40BC41428BBF75B000E5F6C /* OnParkingDetailsCell.swift in Sources */,
@@ -1768,6 +1837,7 @@
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
 				A40BC42828BC0988000E5F6C /* OwnersEntryCellView.swift in Sources */,
 				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
+				A4C4880A28CBEB0F00F5BA5D /* EnterEmailCellView.swift in Sources */,
 				A4EACC2D28B9215800E759D3 /* UserPhoneNumberConfirmationViewModel.swift in Sources */,
 				94D5775228A27C0D00C7F7D3 /* UsersAutoTableViewCell.swift in Sources */,
 				9496462428B52D220095FB6E /* WalletPaymentRouter.swift in Sources */,

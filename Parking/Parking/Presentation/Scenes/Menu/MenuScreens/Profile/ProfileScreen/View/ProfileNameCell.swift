@@ -8,13 +8,16 @@
 import Foundation
 import UIKit
 
-final class ProfileCellView: UITableViewCell {
+final class ProfileNameCell: UITableViewCell {
     static var reuseIdentifier: String { "\(Self.self)" }
     
-    private let profileTextField: UITextField = {
+    let profileTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.textAlignment = .left
+        textField.font = .overpassMedium17
+        textField.isUserInteractionEnabled = true
+        textField.returnKeyType = .done
         return textField
     }()
     
@@ -23,7 +26,7 @@ final class ProfileCellView: UITableViewCell {
         setupLayout()
         configureUI()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,13 +37,22 @@ final class ProfileCellView: UITableViewCell {
     
     private func setupLayout() {
         addSubview(profileTextField)
-
+        
         NSLayoutConstraint.activate([
-
-            profileTextField.leadingAnchor.constraint(equalTo: leadingAnchor),
-            profileTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
-            profileTextField.trailingAnchor.constraint(equalTo: trailingAnchor)
+            
+            profileTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            profileTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
+            profileTextField.topAnchor.constraint(equalTo: topAnchor),
+            profileTextField.bottomAnchor.constraint(equalTo: bottomAnchor)
             
         ])
+    }
+}
+
+extension ProfileNameCell {
+    func configure(with profileViewModel: ProfileViewModelProtocol, for indexPath: IndexPath) {
+        let cellInfo = profileViewModel.getCellViewModel(for: indexPath)
+        profileTextField.text = cellInfo
+        profileTextField.placeholder = "Необязательно"
     }
 }

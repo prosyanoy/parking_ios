@@ -11,8 +11,7 @@ import UIKit
 final class ProfileConfigurator: SceneConfiguratorProtocol_CN {
     static func configure() -> UIViewController {
         let viewModel = ProfileViewModel()
-        let profileTableView = ProfileTableView()
-        let profileVC = ProfileViewController(viewModel: viewModel, tableView: profileTableView)
+        let profileVC = ProfileViewController(viewModel: viewModel)
         return profileVC
     }
 }

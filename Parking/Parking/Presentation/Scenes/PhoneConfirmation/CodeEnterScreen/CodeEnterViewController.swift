@@ -93,12 +93,12 @@ final class CodeEnterViewController: UIViewController, UITextFieldDelegate {
     
     @objc func checkConfirmationCode(_ sender: UIButton) {
         if let inputCode = codeTextField.text {
+            print(inputCode)
         let value = viewModel.checkConfirmationCode(inputCode: inputCode)
             if value {
-                let defaults = UserDefaults.standard
-                defaults.set(viewModel.inputNumber, forKey: "Phone")
-                let phone = defaults.string(forKey: "Phone") ?? ""
-                print(phone)
+                UserDefaultsDataManager.userPhoneNumber = viewModel.inputNumber
+                UserDefaultsDataManager.userIsRegistered = true
+                self.view.window?.rootViewController?.dismiss(animated: true)
             }
         }
     }
