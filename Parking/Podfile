@@ -6,6 +6,7 @@ target 'Parking' do
   use_frameworks!
 
   pod 'YandexMapsMobile', '4.1.0-full'
+  pod 'Cosmos'
   pod 'TinkoffASDKCore'
   pod 'TinkoffASDKUI'
 

@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol PhoneNumberConfirmationViewModelProtocol {
+protocol UserPhoneNumberConfirmationViewModelProtocol {
     func confirmationBySMSRequest(inputNumber: String?, completion: @escaping (String, String) -> Void)
     func confirmationByCallRequest(inputNumber: String?, completion: @escaping (String) -> Void)
     func checkResponseSMSid(stringData: String)
 }
 
-final class PhoneNumberConfirmationViewModel: PhoneNumberConfirmationViewModelProtocol {
+final class UserPhoneNumberConfirmationViewModel: UserPhoneNumberConfirmationViewModelProtocol {
     
     func checkResponseSMSid(stringData: String) {
         // Проверка приходящего smsID с сервера
