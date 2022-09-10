@@ -10,6 +10,7 @@ import UIKit
 class OwnersPhoneNumberConfirmationViewController: UIViewController {
     
     private let viewModel: OwnersPhoneNumberConfirmationViewModelProtocol
+    weak var delegate: PageViewControllerDelegate?
     
     init(viewModel: OwnersPhoneNumberConfirmationViewModelProtocol, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.viewModel = viewModel
@@ -216,7 +217,7 @@ class OwnersPhoneNumberConfirmationViewController: UIViewController {
     }
     
     @objc func skipAuthAction(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        delegate?.goToLastPage(sender)
     }
     
     @objc func getToUsersScreen(_ sender: UIButton) {
