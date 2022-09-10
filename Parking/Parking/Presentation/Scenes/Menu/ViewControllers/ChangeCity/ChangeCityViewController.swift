@@ -14,5 +14,4 @@ final class ChangeCityViewController: UIViewController {
         view.backgroundColor = .white
         title = "Изменить город"
     }
-    
 }

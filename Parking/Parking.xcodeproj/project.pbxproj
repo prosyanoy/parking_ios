@@ -90,6 +90,16 @@
 		94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775928A2802E00C7F7D3 /* TimeTableViewCell.swift */; };
 		94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */; };
 		94F86A0C28A52FC600857209 /* TouchForwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F86A0B28A52FC600857209 /* TouchForwardView.swift */; };
+		A40BC41428BBF75B000E5F6C /* OnParkingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC41328BBF75B000E5F6C /* OnParkingDetailsCell.swift */; };
+		A40BC41A28BBFA0C000E5F6C /* OwnersOnParkingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC41928BBFA0C000E5F6C /* OwnersOnParkingTableView.swift */; };
+		A40BC41C28BBFA1A000E5F6C /* OwnersOnParkingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC41B28BBFA1A000E5F6C /* OwnersOnParkingCellView.swift */; };
+		A40BC42028BBFA3C000E5F6C /* OwnersOnParkingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC41F28BBFA3C000E5F6C /* OwnersOnParkingConfigurator.swift */; };
+		A40BC42328BBFA6C000E5F6C /* OwnersOnParkingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC42228BBFA6C000E5F6C /* OwnersOnParkingViewModel.swift */; };
+		A40BC42628BC097C000E5F6C /* OwnersEntryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC42528BC097C000E5F6C /* OwnersEntryTableView.swift */; };
+		A40BC42828BC0988000E5F6C /* OwnersEntryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC42728BC0988000E5F6C /* OwnersEntryCellView.swift */; };
+		A40BC42A28BC099B000E5F6C /* OwnersEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC42928BC099B000E5F6C /* OwnersEntryViewModel.swift */; };
+		A40BC42C28BC09AA000E5F6C /* OwnersEntryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC42B28BC09AA000E5F6C /* OwnersEntryConfigurator.swift */; };
+		A40BC42E28BC0BBD000E5F6C /* EntryParkingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC42D28BC0BBD000E5F6C /* EntryParkingDetailsCell.swift */; };
 		A43F4FEA28AD4B5A006D6AFC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FE928AD4B5A006D6AFC /* SettingsViewModel.swift */; };
 		A43F4FED28AD4BF2006D6AFC /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FEC28AD4BF2006D6AFC /* SettingsCell.swift */; };
 		A43F4FEF28AD4C22006D6AFC /* SettingsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FEE28AD4C22006D6AFC /* SettingsHeader.swift */; };
@@ -97,6 +107,8 @@
 		A43F4FF328AD4EE5006D6AFC /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FF228AD4EE5006D6AFC /* SettingsHeaderView.swift */; };
 		A43F4FF728AD51E4006D6AFC /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FF628AD51E4006D6AFC /* SettingsConfigurator.swift */; };
 		A44EB32628BCE3BF00321021 /* CarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EB32528BCE3BF00321021 /* CarsViewController.swift */; };
+		A46BC46C28BFEEB300E66366 /* OwnersPhoneNumberConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BC46B28BFEEB300E66366 /* OwnersPhoneNumberConfirmationViewController.swift */; };
+		A46BC46E28C009E700E66366 /* OwnersPhoneNumberCOnfirmationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BC46D28C009E700E66366 /* OwnersPhoneNumberCOnfirmationConfigurator.swift */; };
 		A482DB0428AEF7A300BB95FC /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482DB0328AEF7A300BB95FC /* AboutViewModel.swift */; };
 		A482DB0628AEF7B300BB95FC /* AboutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482DB0528AEF7B300BB95FC /* AboutConfigurator.swift */; };
 		A48BA71E28ABD391001EC8D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA71D28ABD391001EC8D4 /* ProfileViewController.swift */; };
@@ -107,6 +119,7 @@
 		A48BA73128ABDB65001EC8D4 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA73028ABDB65001EC8D4 /* FeedbackViewController.swift */; };
 		A48BA73328ABDB79001EC8D4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA73228ABDB79001EC8D4 /* AboutViewController.swift */; };
 		A48BA73628ABF1E7001EC8D4 /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA73528ABF1E7001EC8D4 /* SettingsCellView.swift */; };
+		A4C7A39828C778F000DDA91D /* OwnersPhoneNumberConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7A39728C778EF00DDA91D /* OwnersPhoneNumberConfirmationViewModel.swift */; };
 		A4DF48C128BFAD8000A97EEC /* ChangeCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482DAF628AEB1FA00BB95FC /* ChangeCityViewController.swift */; };
 		A4DF9AA428B43895009D6D66 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */; };
 		A4DF9AA528B4397E009D6D66 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA72C28ABDB19001EC8D4 /* CardsViewController.swift */; };
@@ -114,9 +127,20 @@
 		A4EACC2228B77F3700E759D3 /* CodeEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */; };
 		A4EACC2428B91F7500E759D3 /* CodeEnterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2328B91F7500E759D3 /* CodeEnterViewModel.swift */; };
 		A4EACC2628B91F8300E759D3 /* CodeEnterConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2528B91F8300E759D3 /* CodeEnterConfigurator.swift */; };
-		A4EACC2C28B9215600E759D3 /* PhoneNumberConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2A28B91F9A00E759D3 /* PhoneNumberConfirmationViewController.swift */; };
-		A4EACC2D28B9215800E759D3 /* PhoneNumberConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2B28B91F9A00E759D3 /* PhoneNumberConfirmationViewModel.swift */; };
-		A4EACC2E28B9215C00E759D3 /* PhoneNumberConfirmationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2928B91F9A00E759D3 /* PhoneNumberConfirmationConfigurator.swift */; };
+		A4EACC2C28B9215600E759D3 /* UserPhoneNumberConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2A28B91F9A00E759D3 /* UserPhoneNumberConfirmationViewController.swift */; };
+		A4EACC2D28B9215800E759D3 /* UserPhoneNumberConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2B28B91F9A00E759D3 /* UserPhoneNumberConfirmationViewModel.swift */; };
+		A4EACC2E28B9215C00E759D3 /* UserPhoneNumberConfirmationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2928B91F9A00E759D3 /* UserPhoneNumberConfirmationConfigurator.swift */; };
+		A4EACC3128B9531500E759D3 /* OwnersTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC3028B9531500E759D3 /* OwnersTabBarController.swift */; };
+		A4EACC3328B9548E00E759D3 /* OwnersOnParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC3228B9548E00E759D3 /* OwnersOnParkingViewController.swift */; };
+		A4EACC3528B954A800E759D3 /* OwnersNavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC3428B954A800E759D3 /* OwnersNavigationBarController.swift */; };
+		A4EACC3728B954E900E759D3 /* OwnersEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC3628B954E900E759D3 /* OwnersEntryViewController.swift */; };
+		A4EACC3928B9550200E759D3 /* OwnersExitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC3828B9550200E759D3 /* OwnersExitViewController.swift */; };
+		A4EACC3C28B95F1B00E759D3 /* ExitParkingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC3B28B95F1B00E759D3 /* ExitParkingDetailsCell.swift */; };
+		A4EACC3F28B9615200E759D3 /* OwnersExitTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC3E28B9615200E759D3 /* OwnersExitTableView.swift */; };
+		A4EACC4128B9616400E759D3 /* OwnersExitCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC4028B9616400E759D3 /* OwnersExitCellView.swift */; };
+		A4EACC4328B96FF000E759D3 /* OwnersExitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC4228B96FF000E759D3 /* OwnersExitViewModel.swift */; };
+		A4EACC4528B9724800E759D3 /* OwnersExitConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC4428B9724800E759D3 /* OwnersExitConfigurator.swift */; };
+		A4EDFD1528C13E980082D171 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EDFD1428C13E980082D171 /* ContentViewController.swift */; };
 		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 		E2C5836228C4EE1300C07011 /* Overpass-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2C5835028C4EE1200C07011 /* Overpass-ExtraLightItalic.ttf */; };
 		E2C5836328C4EE1300C07011 /* Overpass-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2C5835128C4EE1200C07011 /* Overpass-ExtraLight.ttf */; };
@@ -227,6 +251,16 @@
 		94D5775928A2802E00C7F7D3 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
 		94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelContentSizedButton.swift; sourceTree = "<group>"; };
 		94F86A0B28A52FC600857209 /* TouchForwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchForwardView.swift; sourceTree = "<group>"; };
+		A40BC41328BBF75B000E5F6C /* OnParkingDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnParkingDetailsCell.swift; sourceTree = "<group>"; };
+		A40BC41928BBFA0C000E5F6C /* OwnersOnParkingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersOnParkingTableView.swift; sourceTree = "<group>"; };
+		A40BC41B28BBFA1A000E5F6C /* OwnersOnParkingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersOnParkingCellView.swift; sourceTree = "<group>"; };
+		A40BC41F28BBFA3C000E5F6C /* OwnersOnParkingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersOnParkingConfigurator.swift; sourceTree = "<group>"; };
+		A40BC42228BBFA6C000E5F6C /* OwnersOnParkingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersOnParkingViewModel.swift; sourceTree = "<group>"; };
+		A40BC42528BC097C000E5F6C /* OwnersEntryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersEntryTableView.swift; sourceTree = "<group>"; };
+		A40BC42728BC0988000E5F6C /* OwnersEntryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersEntryCellView.swift; sourceTree = "<group>"; };
+		A40BC42928BC099B000E5F6C /* OwnersEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersEntryViewModel.swift; sourceTree = "<group>"; };
+		A40BC42B28BC09AA000E5F6C /* OwnersEntryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersEntryConfigurator.swift; sourceTree = "<group>"; };
+		A40BC42D28BC0BBD000E5F6C /* EntryParkingDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryParkingDetailsCell.swift; sourceTree = "<group>"; };
 		A43F4FE928AD4B5A006D6AFC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A43F4FEC28AD4BF2006D6AFC /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		A43F4FEE28AD4C22006D6AFC /* SettingsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeader.swift; sourceTree = "<group>"; };
@@ -234,6 +268,8 @@
 		A43F4FF228AD4EE5006D6AFC /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		A43F4FF628AD51E4006D6AFC /* SettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurator.swift; sourceTree = "<group>"; };
 		A44EB32528BCE3BF00321021 /* CarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsViewController.swift; sourceTree = "<group>"; };
+		A46BC46B28BFEEB300E66366 /* OwnersPhoneNumberConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersPhoneNumberConfirmationViewController.swift; sourceTree = "<group>"; };
+		A46BC46D28C009E700E66366 /* OwnersPhoneNumberCOnfirmationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersPhoneNumberCOnfirmationConfigurator.swift; sourceTree = "<group>"; };
 		A482DAF628AEB1FA00BB95FC /* ChangeCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCityViewController.swift; sourceTree = "<group>"; };
 		A482DB0328AEF7A300BB95FC /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		A482DB0528AEF7B300BB95FC /* AboutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutConfigurator.swift; sourceTree = "<group>"; };
@@ -248,13 +284,25 @@
 		A48BA73028ABDB65001EC8D4 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		A48BA73228ABDB79001EC8D4 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A48BA73528ABF1E7001EC8D4 /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
+		A4C7A39728C778EF00DDA91D /* OwnersPhoneNumberConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersPhoneNumberConfirmationViewModel.swift; sourceTree = "<group>"; };
 		A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterViewController.swift; sourceTree = "<group>"; };
 		A4EACC2328B91F7500E759D3 /* CodeEnterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterViewModel.swift; sourceTree = "<group>"; };
 		A4EACC2528B91F8300E759D3 /* CodeEnterConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterConfigurator.swift; sourceTree = "<group>"; };
-		A4EACC2928B91F9A00E759D3 /* PhoneNumberConfirmationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationConfigurator.swift; sourceTree = "<group>"; };
-		A4EACC2A28B91F9A00E759D3 /* PhoneNumberConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationViewController.swift; sourceTree = "<group>"; };
-		A4EACC2B28B91F9A00E759D3 /* PhoneNumberConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberConfirmationViewModel.swift; sourceTree = "<group>"; };
+		A4EACC2928B91F9A00E759D3 /* UserPhoneNumberConfirmationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhoneNumberConfirmationConfigurator.swift; sourceTree = "<group>"; };
+		A4EACC2A28B91F9A00E759D3 /* UserPhoneNumberConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhoneNumberConfirmationViewController.swift; sourceTree = "<group>"; };
+		A4EACC2B28B91F9A00E759D3 /* UserPhoneNumberConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhoneNumberConfirmationViewModel.swift; sourceTree = "<group>"; };
+		A4EACC3028B9531500E759D3 /* OwnersTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersTabBarController.swift; sourceTree = "<group>"; };
+		A4EACC3228B9548E00E759D3 /* OwnersOnParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersOnParkingViewController.swift; sourceTree = "<group>"; };
+		A4EACC3428B954A800E759D3 /* OwnersNavigationBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersNavigationBarController.swift; sourceTree = "<group>"; };
+		A4EACC3628B954E900E759D3 /* OwnersEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersEntryViewController.swift; sourceTree = "<group>"; };
+		A4EACC3828B9550200E759D3 /* OwnersExitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersExitViewController.swift; sourceTree = "<group>"; };
+		A4EACC3B28B95F1B00E759D3 /* ExitParkingDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitParkingDetailsCell.swift; sourceTree = "<group>"; };
+		A4EACC3E28B9615200E759D3 /* OwnersExitTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersExitTableView.swift; sourceTree = "<group>"; };
+		A4EACC4028B9616400E759D3 /* OwnersExitCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersExitCellView.swift; sourceTree = "<group>"; };
+		A4EACC4228B96FF000E759D3 /* OwnersExitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersExitViewModel.swift; sourceTree = "<group>"; };
+		A4EACC4428B9724800E759D3 /* OwnersExitConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersExitConfigurator.swift; sourceTree = "<group>"; };
+		A4EDFD1428C13E980082D171 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		E2C5835028C4EE1200C07011 /* Overpass-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Overpass-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		E2C5835128C4EE1200C07011 /* Overpass-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Overpass-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -310,6 +358,7 @@
 				263836B7288C1EDB00EA4353 /* Products */,
 				0E6DE7E6314E1890555D5490 /* Frameworks */,
 				70132BFEC5A13D73BE9433FB /* Pods */,
+				A4C7A3A028C77AFA00DDA91D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -433,11 +482,14 @@
 		9408FF39289006FB002B1C12 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A4EDFD1328C13E7C0082D171 /* ContentViewController */,
 				9408FF3A28900717002B1C12 /* MainMap */,
 				26EC27082898038E00B84D2A /* Menu */,
 				9408FF40289007F9002B1C12 /* OrderSheet */,
 				9496463F28B770490095FB6E /* Payment */,
 				A4EACC2828B91F9A00E759D3 /* PhoneConfirmation */,
+				A4EACC2F28B9525F00E759D3 /* OwnersScreen */,
+				94A7F45128ABE881001FD271 /* WalletPayment */,
 				94A7F45B28ACFCA7001FD271 /* Search */,
 				9496460628AF86DE0095FB6E /* ParkingSearchSheet */,
 				9496465528BDE8360095FB6E /* MapFilters */,
@@ -724,7 +776,6 @@
 		9496463F28B770490095FB6E /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				94A7F45128ABE881001FD271 /* WalletPayment */,
 				9496464828B8EA430095FB6E /* ParkingPayment */,
 				9496461E28B529900095FB6E /* PaymentChoice */,
 				9496463828B684360095FB6E /* PaymentProvider */,
@@ -855,7 +906,8 @@
 				9496462228B52D120095FB6E /* ViewModel */,
 				9496462528B52D260095FB6E /* Router */,
 			);
-			path = WalletPayment;
+			name = WalletPayment;
+			path = Payment/WalletPayment;
 			sourceTree = "<group>";
 		};
 		94A7F45228ABE896001FD271 /* View */ = {
@@ -937,6 +989,7 @@
 		94D2154E288F285E00DFE786 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A4EACC3A28B95EE000E759D3 /* Owners */,
 				26EC27112898086000B84D2A /* Menu */,
 				94D2154F288F285E00DFE786 /* Parking */,
 				9496462F28B66FDF0095FB6E /* PaymentMethod */,
@@ -1023,6 +1076,78 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A40BC41528BBF79D000E5F6C /* OwnersOnParkingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A40BC41D28BBFA22000E5F6C /* View */,
+				A40BC41E28BBFA2F000E5F6C /* ViewModel */,
+				A40BC42128BBFA54000E5F6C /* Configurator */,
+			);
+			path = OwnersOnParkingScreen;
+			sourceTree = "<group>";
+		};
+		A40BC41628BBF7BD000E5F6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC3828B9550200E759D3 /* OwnersExitViewController.swift */,
+				A4EACC3E28B9615200E759D3 /* OwnersExitTableView.swift */,
+				A4EACC4028B9616400E759D3 /* OwnersExitCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A40BC41728BBF7EC000E5F6C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC4228B96FF000E759D3 /* OwnersExitViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A40BC41828BBF7F5000E5F6C /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC4428B9724800E759D3 /* OwnersExitConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		A40BC41D28BBFA22000E5F6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC3228B9548E00E759D3 /* OwnersOnParkingViewController.swift */,
+				A40BC41928BBFA0C000E5F6C /* OwnersOnParkingTableView.swift */,
+				A40BC41B28BBFA1A000E5F6C /* OwnersOnParkingCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A40BC41E28BBFA2F000E5F6C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A40BC42228BBFA6C000E5F6C /* OwnersOnParkingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A40BC42128BBFA54000E5F6C /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				A40BC41F28BBFA3C000E5F6C /* OwnersOnParkingConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		A40BC42428BC0958000E5F6C /* OwnersEntryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A4A8234F28BCDBF600D3256D /* View */,
+				A4A8235028BCDBFE00D3256D /* ViewModel */,
+				A4A8235128BCDC0500D3256D /* Configurator */,
+			);
+			path = OwnersEntryScreen;
+			sourceTree = "<group>";
+		};
 		A43F4FEB28AD4BDD006D6AFC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1089,8 +1214,8 @@
 				A48BA72A28ABDB01001EC8D4 /* AnalyticsViewController.swift */,
 				A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */,
 				A48BA72C28ABDB19001EC8D4 /* CardsViewController.swift */,
-				A44EB32528BCE3BF00321021 /* CarsViewController.swift */,
 				A48BA72E28ABDB51001EC8D4 /* FinesAndEvacuationsViewController.swift */,
+				A44EB32528BCE3BF00321021 /* CarsViewController.swift */,
 				A482DAF828AEC6DB00BB95FC /* Feedback */,
 				A482DB0028AECB3400BB95FC /* About */,
 			);
@@ -1107,6 +1232,32 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		A4A8234F28BCDBF600D3256D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC3628B954E900E759D3 /* OwnersEntryViewController.swift */,
+				A40BC42528BC097C000E5F6C /* OwnersEntryTableView.swift */,
+				A40BC42728BC0988000E5F6C /* OwnersEntryCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A4A8235028BCDBFE00D3256D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A40BC42928BC099B000E5F6C /* OwnersEntryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A4A8235128BCDC0500D3256D /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				A40BC42B28BC09AA000E5F6C /* OwnersEntryConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 		A4B1EED528AFEFBF00764A6C /* ChangeCity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1115,25 +1266,139 @@
 			path = ChangeCity;
 			sourceTree = "<group>";
 		};
-		A4EACC2728B91F8C00E759D3 /* CodeEnter */ = {
+		A4C7A39328C7762900DDA91D /* UserPhoneConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				A4C7A39C28C779E000DDA91D /* View */,
+				A4C7A39D28C779E600DDA91D /* Configurator */,
+				A4C7A39E28C779EC00DDA91D /* ViewModel */,
+			);
+			path = UserPhoneConfirmation;
+			sourceTree = "<group>";
+		};
+		A4C7A39628C7764F00DDA91D /* OwnerPhoneConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				A4C7A39928C779BB00DDA91D /* View */,
+				A4C7A39A28C779C200DDA91D /* Configurator */,
+				A4C7A39B28C779C900DDA91D /* ViewModel */,
+			);
+			path = OwnerPhoneConfirmation;
+			sourceTree = "<group>";
+		};
+		A4C7A39928C779BB00DDA91D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A46BC46B28BFEEB300E66366 /* OwnersPhoneNumberConfirmationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A4C7A39A28C779C200DDA91D /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				A46BC46D28C009E700E66366 /* OwnersPhoneNumberCOnfirmationConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		A4C7A39B28C779C900DDA91D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A4C7A39728C778EF00DDA91D /* OwnersPhoneNumberConfirmationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A4C7A39C28C779E000DDA91D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC2A28B91F9A00E759D3 /* UserPhoneNumberConfirmationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A4C7A39D28C779E600DDA91D /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC2928B91F9A00E759D3 /* UserPhoneNumberConfirmationConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		A4C7A39E28C779EC00DDA91D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC2B28B91F9A00E759D3 /* UserPhoneNumberConfirmationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A4C7A3A028C77AFA00DDA91D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		A4EACC2728B91F8C00E759D3 /* CodeEnterScreen */ = {
 			isa = PBXGroup;
 			children = (
 				A4EACC2528B91F8300E759D3 /* CodeEnterConfigurator.swift */,
 				A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */,
 				A4EACC2328B91F7500E759D3 /* CodeEnterViewModel.swift */,
 			);
-			path = CodeEnter;
+			path = CodeEnterScreen;
 			sourceTree = "<group>";
 		};
 		A4EACC2828B91F9A00E759D3 /* PhoneConfirmation */ = {
 			isa = PBXGroup;
 			children = (
-				A4EACC2A28B91F9A00E759D3 /* PhoneNumberConfirmationViewController.swift */,
-				A4EACC2B28B91F9A00E759D3 /* PhoneNumberConfirmationViewModel.swift */,
-				A4EACC2928B91F9A00E759D3 /* PhoneNumberConfirmationConfigurator.swift */,
-				A4EACC2728B91F8C00E759D3 /* CodeEnter */,
+				A4C7A39328C7762900DDA91D /* UserPhoneConfirmation */,
+				A4C7A39628C7764F00DDA91D /* OwnerPhoneConfirmation */,
+				A4EACC2728B91F8C00E759D3 /* CodeEnterScreen */,
 			);
 			path = PhoneConfirmation;
+			sourceTree = "<group>";
+		};
+		A4EACC2F28B9525F00E759D3 /* OwnersScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC3028B9531500E759D3 /* OwnersTabBarController.swift */,
+				A4EACC3428B954A800E759D3 /* OwnersNavigationBarController.swift */,
+				A40BC42428BC0958000E5F6C /* OwnersEntryScreen */,
+				A40BC41528BBF79D000E5F6C /* OwnersOnParkingScreen */,
+				A4EACC3D28B9601B00E759D3 /* OwnersExitScreen */,
+			);
+			path = OwnersScreen;
+			sourceTree = "<group>";
+		};
+		A4EACC3A28B95EE000E759D3 /* Owners */ = {
+			isa = PBXGroup;
+			children = (
+				A4EACC3B28B95F1B00E759D3 /* ExitParkingDetailsCell.swift */,
+				A40BC41328BBF75B000E5F6C /* OnParkingDetailsCell.swift */,
+				A40BC42D28BC0BBD000E5F6C /* EntryParkingDetailsCell.swift */,
+			);
+			path = Owners;
+			sourceTree = "<group>";
+		};
+		A4EACC3D28B9601B00E759D3 /* OwnersExitScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A40BC41628BBF7BD000E5F6C /* View */,
+				A40BC41728BBF7EC000E5F6C /* ViewModel */,
+				A40BC41828BBF7F5000E5F6C /* Configurator */,
+			);
+			path = OwnersExitScreen;
+			sourceTree = "<group>";
+		};
+		A4EDFD1328C13E7C0082D171 /* ContentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A4EDFD1428C13E980082D171 /* ContentViewController.swift */,
+			);
+			path = ContentViewController;
 			sourceTree = "<group>";
 		};
 		E2C5834F28C4EDAE00C07011 /* Fonts */ = {
@@ -1164,7 +1429,6 @@
 		E2C5837428C4F03800C07011 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E2C5837B28C4F8FD00C07011 /* Localizations */,
 				E2C5837528C4F04500C07011 /* Extensions */,
 				E2C5834F28C4EDAE00C07011 /* Fonts */,
 			);
@@ -1177,13 +1441,6 @@
 				E2C5837628C4F06200C07011 /* UIFont+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E2C5837B28C4F8FD00C07011 /* Localizations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Localizations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1355,7 +1612,12 @@
 				9496465B28BE06590095FB6E /* MapFiltersSceneConfigurator.swift in Sources */,
 				9496462E28B66F610095FB6E /* PaymentMethod.swift in Sources */,
 				9496464128B7B5410095FB6E /* User.swift in Sources */,
+				A40BC41A28BBFA0C000E5F6C /* OwnersOnParkingTableView.swift in Sources */,
+				A4EACC3C28B95F1B00E759D3 /* ExitParkingDetailsCell.swift in Sources */,
 				94A7F45728ACD13A001FD271 /* PaymentMethodView.swift in Sources */,
+				A4EACC3528B954A800E759D3 /* OwnersNavigationBarController.swift in Sources */,
+				A4EACC3328B9548E00E759D3 /* OwnersOnParkingViewController.swift in Sources */,
+				A40BC42328BBFA6C000E5F6C /* OwnersOnParkingViewModel.swift in Sources */,
 				94D2155B288F285E00DFE786 /* Parking.swift in Sources */,
 				A48BA72B28ABDB01001EC8D4 /* AnalyticsViewController.swift in Sources */,
 				A48BA73628ABF1E7001EC8D4 /* SettingsCellView.swift in Sources */,
@@ -1364,12 +1626,13 @@
 				94A7F46428AD1E4E001FD271 /* SearchViewModel.swift in Sources */,
 				947CE2ED28C233C300894AA7 /* MapFiltersTableViewHeader.swift in Sources */,
 				26DB52FF289EEEF900CF0611 /* MenuHeaderView.swift in Sources */,
-				A4EACC2C28B9215600E759D3 /* PhoneNumberConfirmationViewController.swift in Sources */,
+				A4EACC2C28B9215600E759D3 /* UserPhoneNumberConfirmationViewController.swift in Sources */,
 				9496461628AF9E290095FB6E /* ParkingSearchBottomSheetRouter.swift in Sources */,
 				2643D907289B0CD6005D8E37 /* CashView.swift in Sources */,
 				A43F4FEA28AD4B5A006D6AFC /* SettingsViewModel.swift in Sources */,
 				A482DB0628AEF7B300BB95FC /* AboutConfigurator.swift in Sources */,
 				A4DF48C128BFAD8000A97EEC /* ChangeCityViewController.swift in Sources */,
+				A40BC42A28BC099B000E5F6C /* OwnersEntryViewModel.swift in Sources */,
 				9408FF4628900855002B1C12 /* OrderSheetPresentationViewController.swift in Sources */,
 				A4DF9AA528B4397E009D6D66 /* CardsViewController.swift in Sources */,
 				A482DB0428AEF7A300BB95FC /* AboutViewModel.swift in Sources */,
@@ -1381,22 +1644,28 @@
 				9496462128B52D0E0095FB6E /* WalletPaymentViewModel.swift in Sources */,
 				26DB5301289EF1F200CF0611 /* MenuHeader.swift in Sources */,
 				9496460C28AF8AEF0095FB6E /* ParkingSearchBottomSheetTransitionDelegate.swift in Sources */,
+				A4EACC4128B9616400E759D3 /* OwnersExitCellView.swift in Sources */,
 				9496461428AF9DE80095FB6E /* ParkingSearchBottomSheetViewModel.swift in Sources */,
+				A4EACC4528B9724800E759D3 /* OwnersExitConfigurator.swift in Sources */,
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
 				94D5771128995F0000C7F7D3 /* TextDrawer.swift in Sources */,
 				94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */,
 				9496464E28B8F48B0095FB6E /* ParkingPaymentViewModel.swift in Sources */,
-				A4EACC2E28B9215C00E759D3 /* PhoneNumberConfirmationConfigurator.swift in Sources */,
+				A4EACC2E28B9215C00E759D3 /* UserPhoneNumberConfirmationConfigurator.swift in Sources */,
 				9496460928AF89390095FB6E /* ParkingSearchTableViewCell.swift in Sources */,
 				9496464B28B8EA690095FB6E /* ParkingPaymentSceneConfigurator.swift in Sources */,
 				9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */,
+				A4EACC3128B9531500E759D3 /* OwnersTabBarController.swift in Sources */,
 				9496462828B666090095FB6E /* PaymentChoiceTableViewCell.swift in Sources */,
 				9496463D28B69F9C0095FB6E /* PaymentMethodRepository.swift in Sources */,
 				947CE2E628BE3CB800894AA7 /* MapFiltersRouter.swift in Sources */,
 				9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */,
 				9496463428B67F9C0095FB6E /* PaymentProvider.swift in Sources */,
+				A4C7A39828C778F000DDA91D /* OwnersPhoneNumberConfirmationViewModel.swift in Sources */,
 				263836BC288C1EDB00EA4353 /* SceneDelegate.swift in Sources */,
+				A40BC41C28BBFA1A000E5F6C /* OwnersOnParkingCellView.swift in Sources */,
 				94F86A0C28A52FC600857209 /* TouchForwardView.swift in Sources */,
+				A4EACC3728B954E900E759D3 /* OwnersEntryViewController.swift in Sources */,
 				94D2155D288F285E00DFE786 /* ParkingNetworkEntity.swift in Sources */,
 				9496465128B8F57F0095FB6E /* ParkingPaymentRouter.swift in Sources */,
 				9496462B28B66E920095FB6E /* PaymentChoiceViewModel.swift in Sources */,
@@ -1404,16 +1673,21 @@
 				9496463628B684260095FB6E /* PaymentChoiceSceneConfigurator.swift in Sources */,
 				9496466328BE3A4F0095FB6E /* MapFiltersViewModel.swift in Sources */,
 				9496464728B8EA400095FB6E /* ParkingPaymentViewController.swift in Sources */,
+				A40BC42028BBFA3C000E5F6C /* OwnersOnParkingConfigurator.swift in Sources */,
+				A4EACC4328B96FF000E759D3 /* OwnersExitViewModel.swift in Sources */,
+				A4EACC3F28B9615200E759D3 /* OwnersExitTableView.swift in Sources */,
 				26EC270C2898040E00B84D2A /* MenuTableView.swift in Sources */,
 				9496466128BE2D610095FB6E /* TypeMapFilterTableViewCell.swift in Sources */,
 				9496465828BDEAE20095FB6E /* PriceMapFilterTableViewCell.swift in Sources */,
 				A43F4FF728AD51E4006D6AFC /* SettingsConfigurator.swift in Sources */,
+				A40BC42628BC097C000E5F6C /* OwnersEntryTableView.swift in Sources */,
 				26EC27142898099C00B84D2A /* MenuViewModel.swift in Sources */,
 				9408FF5028906B1A002B1C12 /* MainMapConfigurator.swift in Sources */,
 				A48BA72728ABDA98001EC8D4 /* HistoryViewController.swift in Sources */,
 				94D5771228995F0000C7F7D3 /* SelectionState.swift in Sources */,
 				9496463128B66FF70095FB6E /* PaymentMethodGateway.swift in Sources */,
 				26DB5306289FFFA600CF0611 /* MenuNavigationController.swift in Sources */,
+				A4EACC3928B9550200E759D3 /* OwnersExitViewController.swift in Sources */,
 				A48BA72128ABDA56001EC8D4 /* SettingsViewController.swift in Sources */,
 				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
 				9496465E28BE1EA00095FB6E /* ServicesMapFilterTableViewCell.swift in Sources */,
@@ -1433,9 +1707,15 @@
 				26DB5304289EFB5F00CF0611 /* MenuConfigurator.swift in Sources */,
 				94A7F45E28ACFE0E001FD271 /* SearchTableViewCell.swift in Sources */,
 				26EC2716289809B300B84D2A /* MenuRouter.swift in Sources */,
+				A46BC46E28C009E700E66366 /* OwnersPhoneNumberCOnfirmationConfigurator.swift in Sources */,
+				A40BC41428BBF75B000E5F6C /* OnParkingDetailsCell.swift in Sources */,
+				A40BC42C28BC09AA000E5F6C /* OwnersEntryConfigurator.swift in Sources */,
+				A40BC42E28BC0BBD000E5F6C /* EntryParkingDetailsCell.swift in Sources */,
+				A4EDFD1528C13E980082D171 /* ContentViewController.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
+				A40BC42828BC0988000E5F6C /* OwnersEntryCellView.swift in Sources */,
 				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
-				A4EACC2D28B9215800E759D3 /* PhoneNumberConfirmationViewModel.swift in Sources */,
+				A4EACC2D28B9215800E759D3 /* UserPhoneNumberConfirmationViewModel.swift in Sources */,
 				94D5775228A27C0D00C7F7D3 /* UsersAutoTableViewCell.swift in Sources */,
 				9496462428B52D220095FB6E /* WalletPaymentRouter.swift in Sources */,
 				94A7F45A28ACFCA4001FD271 /* SearchViewController.swift in Sources */,
@@ -1453,6 +1733,7 @@
 				A48BA72528ABDA8E001EC8D4 /* NewsViewController.swift in Sources */,
 				94D5770D28995E6400C7F7D3 /* MainMapYMKDrawer.swift in Sources */,
 				9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */,
+				A46BC46C28BFEEB300E66366 /* OwnersPhoneNumberConfirmationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

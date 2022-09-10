@@ -1,17 +1,17 @@
 //
-//  PhoneNumberConfirmation.swift
+//  OwnersPhoneNumberConfirmation.swift
 //  Parking
 //
-//  Created by Анатолий Силиверстов on 22.08.2022.
+//  Created by Анатолий Силиверстов on 31.08.2022.
 //
 
 import UIKit
 
-class PhoneNumberConfirmationViewController: UIViewController {
+class OwnersPhoneNumberConfirmationViewController: UIViewController {
     
-    private let viewModel: PhoneNumberConfirmationViewModelProtocol
+    private let viewModel: OwnersPhoneNumberConfirmationViewModelProtocol
     
-    init(viewModel: PhoneNumberConfirmationViewModelProtocol, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    init(viewModel: OwnersPhoneNumberConfirmationViewModelProtocol, nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -23,9 +23,12 @@ class PhoneNumberConfirmationViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Подтверждение номера телефона"
+        label.text = "Подтверждение номера телефона для владельца парковки"
         label.tintColor = .black
-        label.font = .systemFont(ofSize: 24)
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = .overpassBold17
         return label
     }()
     
@@ -35,7 +38,6 @@ class PhoneNumberConfirmationViewController: UIViewController {
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.layer.cornerRadius = 20
-        segmentedControl.tintColor = .systemBlue
         return segmentedControl
     }()
     
@@ -47,6 +49,7 @@ class PhoneNumberConfirmationViewController: UIViewController {
         label.textColor = .lightGray
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
         return label
     }()
     
@@ -56,12 +59,12 @@ class PhoneNumberConfirmationViewController: UIViewController {
         let leftLabel = UILabel()
         leftLabel.text = "+7 "
         leftLabel.textColor = .black
-        leftLabel.font = .systemFont(ofSize: 20)
+        leftLabel.font = .overpassMedium17
         textfield.leftView = leftLabel
         textfield.leftViewMode = .always
         textfield.keyboardType = .decimalPad
         textfield.placeholder = "(123) 456-7890"
-        textfield.font = .systemFont(ofSize: 20)
+        textfield.font = .overpassMedium17
         if let text = textfield.text {
             textfield.text = text.applyPatternOnNumbers(pattern: "(###) ###-####", replacementCharacter: "#")
         }
@@ -104,6 +107,15 @@ class PhoneNumberConfirmationViewController: UIViewController {
         return button
     }()
     
+    private let authForOwners: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Войти как автовладелец", for: .normal)
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 14)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -121,23 +133,24 @@ class PhoneNumberConfirmationViewController: UIViewController {
         view.addSubview(nextButton)
         view.addSubview(warningLabel)
         view.addSubview(skipAuthButton)
+        view.addSubview(authForOwners)
         
         NSLayoutConstraint.activate([
             
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
             confirmationMethodSwitcher.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            confirmationMethodSwitcher.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            confirmationMethodSwitcher.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
             confirmationMethodSwitcher.widthAnchor.constraint(equalToConstant: 200),
             
-            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             descriptionLabel.topAnchor.constraint(equalTo: confirmationMethodSwitcher.bottomAnchor, constant: 16),
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
             phoneNumberTextfield.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             phoneNumberTextfield.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30),
-            phoneNumberTextfield.widthAnchor.constraint(equalToConstant: 200),
             
             textfieldBottomLine.centerXAnchor.constraint(equalTo: phoneNumberTextfield.centerXAnchor),
             textfieldBottomLine.topAnchor.constraint(equalTo: phoneNumberTextfield.bottomAnchor),
@@ -145,15 +158,20 @@ class PhoneNumberConfirmationViewController: UIViewController {
             textfieldBottomLine.heightAnchor.constraint(equalToConstant: 2),
             
             warningLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            warningLabel.topAnchor.constraint(equalTo: phoneNumberTextfield.bottomAnchor, constant: 60),
+            warningLabel.topAnchor.constraint(equalTo: phoneNumberTextfield.bottomAnchor, constant: 16),
             
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nextButton.topAnchor.constraint(equalTo: phoneNumberTextfield.bottomAnchor, constant: 100),
+            nextButton.topAnchor.constraint(equalTo: phoneNumberTextfield.bottomAnchor, constant: 40),
             nextButton.widthAnchor.constraint(equalToConstant: 100),
             nextButton.heightAnchor.constraint(equalToConstant: 40),
             
-            skipAuthButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            skipAuthButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
+            skipAuthButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            skipAuthButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            skipAuthButton.topAnchor.constraint(equalTo: nextButton.bottomAnchor, constant: 30),
+            
+            authForOwners.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            authForOwners.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            authForOwners.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             
         ])
     }
@@ -162,6 +180,7 @@ class PhoneNumberConfirmationViewController: UIViewController {
         confirmationMethodSwitcher.addTarget(self, action: #selector(confirmationMethodSwitch(_:)), for: .valueChanged)
         nextButton.addTarget(self, action: #selector(sendConfirmationCode(_:)), for: .touchUpInside)
         skipAuthButton.addTarget(self, action: #selector(skipAuthAction(_:)), for: .touchUpInside)
+        authForOwners.addTarget(self, action: #selector(getToUsersScreen(_:)), for: .touchUpInside)
     }
     
     @objc func confirmationMethodSwitch(_ sender: UISegmentedControl) {
@@ -179,10 +198,10 @@ class PhoneNumberConfirmationViewController: UIViewController {
         guard let inputNumber = phoneNumberTextfield.text else {return}
         let digitsCount = inputNumber.compactMap{ $0.wholeNumberValue }
         guard digitsCount.count == 10 else { return warningLabel.text = "Номер слишком короткий"}
-        let switchTitle = confirmationMethodSwitcher.titleForSegment(at: confirmationMethodSwitcher.selectedSegmentIndex)
+        let switchIndex = confirmationMethodSwitcher.selectedSegmentIndex
         var smsId = ""
         var code = ""
-        if switchTitle == "Звонок" {
+        if switchIndex == 0 {
             viewModel.confirmationByCallRequest(inputNumber: inputNumber) { stringData in
                 smsId = stringData
                 print(stringData)
@@ -195,16 +214,24 @@ class PhoneNumberConfirmationViewController: UIViewController {
             }
         }
         viewModel.checkResponseSMSid(stringData: smsId)
-        self.navigationController?.pushViewController(CodeEnterConfigurator.configureWith(phoneNumber: inputNumber, confirmationCode: code), animated: true)
+        present(CodeEnterConfigurator.configureWith(phoneNumber: inputNumber, confirmationCode: code), animated: true)
     }
     
     @objc func skipAuthAction(_ sender: UIButton) {
-        
         self.dismiss(animated: true)
+    }
+    
+    @objc func getToUsersScreen(_ sender: UIButton) {
+        if let container = presentingViewController as? ContentViewController {
+            let mainMapVC = MainMapConfigurator.configure()
+            let userAuthVC = UserPhoneNumberConfirmationConfigurator.configure()
+            container.removeChildren()
+            container.addAndPresent(mainMapVC, presentedController: userAuthVC)
+        }
     }
 }
 
-extension PhoneNumberConfirmationViewController: UITextFieldDelegate {
+extension OwnersPhoneNumberConfirmationViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var fullString = textField.text ?? ""
         fullString.append(string)
@@ -244,19 +271,5 @@ extension PhoneNumberConfirmationViewController: UITextFieldDelegate {
         }
         
         return number
-    }
-}
-
-extension String {
-    func applyPatternOnNumbers(pattern: String, replacementCharacter: Character) -> String {
-        var pureNumber = self.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
-        for index in 0 ..< pattern.count {
-            guard index < pureNumber.count else { return pureNumber }
-            let stringIndex = String.Index(utf16Offset: index, in: pattern)
-            let patternCharacter = pattern[stringIndex]
-            guard patternCharacter != replacementCharacter else { continue }
-            pureNumber.insert(patternCharacter, at: stringIndex)
-        }
-        return pureNumber
     }
 }

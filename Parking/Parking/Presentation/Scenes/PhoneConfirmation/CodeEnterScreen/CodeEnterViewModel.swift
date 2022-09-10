@@ -11,7 +11,7 @@ protocol CodeEnterViewModelProtocol {
     var confirmationCode: String {get}
     var inputNumber: String {get}
     
-    func checkConfirmationCode(confirmationCode: String, inputCode: String)
+    func checkConfirmationCode(inputCode: String) -> Bool
 }
 
 final class CodeEnterViewModel: CodeEnterViewModelProtocol {
@@ -24,7 +24,8 @@ final class CodeEnterViewModel: CodeEnterViewModelProtocol {
         self.inputNumber = inputNumber
     }
     
-    func checkConfirmationCode(confirmationCode: String, inputCode: String) {
+    func checkConfirmationCode(inputCode: String) -> Bool {
         
+        confirmationCode == inputCode
     }
 }

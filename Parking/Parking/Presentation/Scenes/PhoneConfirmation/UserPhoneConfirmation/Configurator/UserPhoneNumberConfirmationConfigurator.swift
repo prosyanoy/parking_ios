@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-final class PhoneNumberConfirmationConfigurator: SceneConfiguratorProtocol_CN {
+final class UserPhoneNumberConfirmationConfigurator: SceneConfiguratorProtocol_CN {
     
     static func configure() -> UIViewController {
-        let viewModel = PhoneNumberConfirmationViewModel()
-        let vc = PhoneNumberConfirmationViewController(viewModel: viewModel,
+        let viewModel = UserPhoneNumberConfirmationViewModel()
+        let vc = UserPhoneNumberConfirmationViewController(viewModel: viewModel,
                                                        nibName: nil,
                                                        bundle: nil)
         return vc
