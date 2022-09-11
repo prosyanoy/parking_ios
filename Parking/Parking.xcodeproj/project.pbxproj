@@ -64,6 +64,8 @@
 		94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775928A2802E00C7F7D3 /* TimeTableViewCell.swift */; };
 		94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */; };
 		94F86A0C28A52FC600857209 /* TouchForwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F86A0B28A52FC600857209 /* TouchForwardView.swift */; };
+		A79540F828C8AA7A00BB3A65 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79540F728C8AA7A00BB3A65 /* FeedbackViewController.swift */; };
+		A79540FA28CA541500BB3A65 /* OptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79540F928CA541500BB3A65 /* OptionsTableViewCell.swift */; };
 		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +130,8 @@
 		94D5775B28A2D9E000C7F7D3 /* LabelContentSizedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelContentSizedButton.swift; sourceTree = "<group>"; };
 		94F86A0B28A52FC600857209 /* TouchForwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchForwardView.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
+		A79540F728C8AA7A00BB3A65 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		A79540F928CA541500BB3A65 /* OptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,7 @@
 		26EC2709289803AC00B84D2A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A79540F628C8AA6100BB3A65 /* Feedback */,
 				26DB5305289FFFA600CF0611 /* MenuNavigationController.swift */,
 				26EC271728980F4700B84D2A /* MenuViewController.swift */,
 				26EC270B2898040E00B84D2A /* MenuTableView.swift */,
@@ -626,6 +631,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A79540F628C8AA6100BB3A65 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				A79540F728C8AA7A00BB3A65 /* FeedbackViewController.swift */,
+				A79540F928CA541500BB3A65 /* OptionsTableViewCell.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -797,7 +811,9 @@
 				94A7F45A28ACFCA4001FD271 /* SearchViewController.swift in Sources */,
 				9496461128AF8B9C0095FB6E /* ParkingSearchBottomSheetSceneConfigurator.swift in Sources */,
 				94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */,
+				A79540F828C8AA7A00BB3A65 /* FeedbackViewController.swift in Sources */,
 				94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */,
+				A79540FA28CA541500BB3A65 /* OptionsTableViewCell.swift in Sources */,
 				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
 				94D5770D28995E6400C7F7D3 /* MainMapYMKDrawer.swift in Sources */,
 				9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */,
@@ -942,11 +958,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7LV5WFLC5J;
+				DEVELOPMENT_TEAM = NULFF73AXP;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для определения ближайшей парковки необходим доступ к службам геолокации";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -974,11 +990,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7LV5WFLC5J;
+				DEVELOPMENT_TEAM = NULFF73AXP;
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для определения ближайшей парковки необходим доступ к службам геолокации";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
