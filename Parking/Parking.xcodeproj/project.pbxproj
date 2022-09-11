@@ -435,6 +435,7 @@
 		26EC2709289803AC00B84D2A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A79540F628C8AA6100BB3A65 /* Feedback */,
 				26DB5305289FFFA600CF0611 /* MenuNavigationController.swift */,
 				26EC271728980F4700B84D2A /* MenuViewController.swift */,
 				26EC270B2898040E00B84D2A /* MenuTableView.swift */,
@@ -1722,6 +1723,7 @@
 				A4EACC2228B77F3700E759D3 /* CodeEnterViewController.swift in Sources */,
 				9496461128AF8B9C0095FB6E /* ParkingSearchBottomSheetSceneConfigurator.swift in Sources */,
 				94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */,
+				A79540F828C8AA7A00BB3A65 /* FeedbackViewController.swift in Sources */,
 				94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */,
 				A43F4FF328AD4EE5006D6AFC /* SettingsHeaderView.swift in Sources */,
 				A4DF9AA428B43895009D6D66 /* NotificationsViewController.swift in Sources */,
@@ -1892,7 +1894,7 @@
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для определения ближайшей парковки необходим доступ к службам геолокации";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1924,7 +1926,7 @@
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для определения ближайшей парковки необходим доступ к службам геолокации";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
