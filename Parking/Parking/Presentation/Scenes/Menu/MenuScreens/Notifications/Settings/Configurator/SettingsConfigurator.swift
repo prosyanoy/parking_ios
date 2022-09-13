@@ -11,8 +11,7 @@ final class SettingsConfigurator: SceneConfiguratorProtocol_CN {
 
     static func configure() -> UIViewController {
         let viewModel = SettingsViewModel()
-        let settingsTableView = SettingsTableView()
-        let settingsVC = SettingsViewController(viewModel: viewModel, settingsTableView: settingsTableView)
+        let settingsVC = SettingsViewController(viewModel: viewModel)
         return settingsVC
     }
 }

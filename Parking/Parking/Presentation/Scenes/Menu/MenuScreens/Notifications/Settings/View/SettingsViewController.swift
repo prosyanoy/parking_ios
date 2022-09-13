@@ -10,14 +10,13 @@ import UIKit
 final class SettingsViewController: UIViewController {
     
     private let viewModel: SettingsViewModelProtocol
-    private let settingsTableView: SettingsTableView
+    private let settingsTableView = SettingsTableView()
     
-    init(viewModel: SettingsViewModelProtocol, settingsTableView: SettingsTableView) {
+    init(viewModel: SettingsViewModelProtocol) {
         self.viewModel = viewModel
-        self.settingsTableView = settingsTableView
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -36,7 +35,7 @@ final class SettingsViewController: UIViewController {
     
     private func setupLayout() {
         view.addSubview(settingsTableView)
-
+        
         NSLayoutConstraint.activate([
             settingsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             settingsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -46,50 +45,39 @@ final class SettingsViewController: UIViewController {
     }
     
     @objc func switchChanged(_ sender: UISwitch!) {
-
         switch sender.tag {
         case 0:
-            print(sender.isOn ? "Ячейка \(sender.tag + 1) ВКЛ" : "Ячейка \(sender.tag + 1) ВЫКЛ")
+            UserDefaultsDataManager.notify10MinutesBeforeBooking = sender.isOn
         case 1:
-            print(sender.isOn ? "Ячейка \(sender.tag + 1) ВКЛ" : "Ячейка \(sender.tag + 1) ВЫКЛ")
+            UserDefaultsDataManager.notifyBookingStarts = sender.isOn
         case 2:
-            print(sender.isOn ? "Ячейка \(sender.tag + 1) ВКЛ" : "Ячейка \(sender.tag + 1) ВЫКЛ")
+            UserDefaultsDataManager.notify10minutesEndingBooking = sender.isOn
         case 3:
-            print(sender.isOn ? "Ячейка \(sender.tag + 1) ВКЛ" : "Ячейка \(sender.tag + 1) ВЫКЛ")
+            UserDefaultsDataManager.notifyAtTheEndOfParking = sender.isOn
         case 4:
-            print(sender.isOn ? "Ячейка \(sender.tag + 1) ВКЛ" : "Ячейка \(sender.tag + 1) ВЫКЛ")
-        case 5:
-            print(sender.isOn ? "Ячейка \(sender.tag + 1) ВКЛ" : "Ячейка \(sender.tag + 1) ВЫКЛ")
+            UserDefaultsDataManager.notifyAwayFromTheParking = sender.isOn
         default:
             print("default")
         }
     }
 }
 
-extension SettingsViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.getNumberOfSections()
-    }
+extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.getNumberOfRowsInSection(section: section)
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsHeaderView.reuseIdentifier) as? SettingsHeaderView
-        header?.configure(with: viewModel, for: section)
-        return header ?? SettingsHeaderView()
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCellView.reuseIdentifier, for: indexPath) as? SettingsCellView
         cell?.configure(with: viewModel, for: indexPath)
-        cell?.switchHandler.tag = indexPath.row
         cell?.switchHandler.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+        cell?.switchHandler.tag = indexPath.row
+        if let tag = cell?.switchHandler.tag {
+            if tag >= 1 && tag <= 3 {
+                cell?.switchHandler.isOn = true
+            }
+        }
         return cell ?? SettingsCellView()
     }
-}
-
-extension SettingsViewController: UITableViewDelegate {
-    
 }

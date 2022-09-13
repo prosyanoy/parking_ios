@@ -97,12 +97,10 @@ extension MenuViewController: UITableViewDelegate {
             case 1:
                 vc = ChangeCityViewController()
             case 2:
-                vc = SettingsConfigurator.configure()
-            case 3:
                 vc = NotificationsViewController()
-            case 4:
+            case 3:
                 vc = NewsViewController()
-            case 5:
+            case 4:
                 vc = HistoryViewController()
             default:
                 print("default")
