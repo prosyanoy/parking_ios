@@ -116,7 +116,7 @@ extension FeedbackViewController: UITextViewDelegate {
     
     /// убираем placeHolder, если юзер нажал на textView
     func textViewDidBeginEditing (_ textView: UITextView) {
-        if reportTextView.textColor == UIColor.lightGray && reportTextView.isFirstResponder {
+        if reportTextView.text == "Текст обращения" && reportTextView.isFirstResponder {
             reportTextView.text = ""
             reportTextView.textColor = .black
         }
@@ -161,7 +161,10 @@ private extension FeedbackViewController {
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {
             self.transparentView.alpha = 0.5
-            self.optionsTableView.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: CGFloat(self.reportOptions.count * 50 + 20))
+            
+            let frameHeight = CGFloat(self.reportOptions.count * 50 + 20)
+            let frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: frameHeight)
+            self.optionsTableView.frame = frame
         }, completion: nil)
     }
     
