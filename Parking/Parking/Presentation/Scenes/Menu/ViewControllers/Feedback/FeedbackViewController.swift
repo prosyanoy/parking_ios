@@ -162,8 +162,10 @@ private extension FeedbackViewController {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {
             self.transparentView.alpha = 0.5
             
-            let frameHeight = CGFloat(self.reportOptions.count * 50 + 20)
-            let frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height + 5, width: frames.width, height: frameHeight)
+            let frame = CGRect(x: frames.origin.x,
+                               y: frames.origin.y + frames.height + 5,
+                               width: frames.width,
+                               height: CGFloat(self.reportOptions.count * 50 + 20))
             self.optionsTableView.frame = frame
         }, completion: nil)
     }
