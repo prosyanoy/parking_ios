@@ -141,6 +141,7 @@
 		A4EACC4328B96FF000E759D3 /* OwnersExitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC4228B96FF000E759D3 /* OwnersExitViewModel.swift */; };
 		A4EACC4528B9724800E759D3 /* OwnersExitConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC4428B9724800E759D3 /* OwnersExitConfigurator.swift */; };
 		A4EDFD1528C13E980082D171 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EDFD1428C13E980082D171 /* ContentViewController.swift */; };
+		A7D2E08D28CF979B00276D7F /* OptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D2E08C28CF979B00276D7F /* OptionsTableViewCell.swift */; };
 		C138E44B6E9EE273786589F4 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08751A43103AB027A43EBF16 /* Pods_Parking.framework */; };
 		E2C5836228C4EE1300C07011 /* Overpass-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2C5835028C4EE1200C07011 /* Overpass-ExtraLightItalic.ttf */; };
 		E2C5836328C4EE1300C07011 /* Overpass-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2C5835128C4EE1200C07011 /* Overpass-ExtraLight.ttf */; };
@@ -304,6 +305,7 @@
 		A4EACC4428B9724800E759D3 /* OwnersExitConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersExitConfigurator.swift; sourceTree = "<group>"; };
 		A4EDFD1428C13E980082D171 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		A5B1A308C243B8098EC99AE2 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
+		A7D2E08C28CF979B00276D7F /* OptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCell.swift; sourceTree = "<group>"; };
 		E2C5835028C4EE1200C07011 /* Overpass-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Overpass-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		E2C5835128C4EE1200C07011 /* Overpass-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Overpass-ExtraLight.ttf"; sourceTree = "<group>"; };
 		E2C5835228C4EE1200C07011 /* Overpass-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Overpass-Regular.ttf"; sourceTree = "<group>"; };
@@ -1188,6 +1190,7 @@
 			isa = PBXGroup;
 			children = (
 				A48BA73028ABDB65001EC8D4 /* FeedbackViewController.swift */,
+				A7D2E08C28CF979B00276D7F /* OptionsTableViewCell.swift */,
 			);
 			path = Feedback;
 			sourceTree = "<group>";
@@ -1611,6 +1614,7 @@
 				9496465428BDE8310095FB6E /* MapFiltersViewController.swift in Sources */,
 				9496465B28BE06590095FB6E /* MapFiltersSceneConfigurator.swift in Sources */,
 				9496462E28B66F610095FB6E /* PaymentMethod.swift in Sources */,
+				A7D2E08D28CF979B00276D7F /* OptionsTableViewCell.swift in Sources */,
 				9496464128B7B5410095FB6E /* User.swift in Sources */,
 				A40BC41A28BBFA0C000E5F6C /* OwnersOnParkingTableView.swift in Sources */,
 				A4EACC3C28B95F1B00E759D3 /* ExitParkingDetailsCell.swift in Sources */,
@@ -1892,7 +1896,7 @@
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для определения ближайшей парковки необходим доступ к службам геолокации";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1924,7 +1928,7 @@
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app displays parkings on map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для определения ближайшей парковки необходим доступ к службам геолокации";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
