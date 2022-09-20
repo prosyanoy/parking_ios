@@ -1,7 +1,7 @@
 PODS:
   - Cosmos (23.0.0)
-  - TinkoffASDKCore (2.10.1)
-  - TinkoffASDKUI (2.10.1):
+  - TinkoffASDKCore (2.10.2)
+  - TinkoffASDKUI (2.10.2):
     - TinkoffASDKCore
   - YandexMapsMobile (4.1.0-full)
 
@@ -20,10 +20,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
-  TinkoffASDKCore: 57a34387bc0e047b4e190abdfc731aa05f96ac64
-  TinkoffASDKUI: 92aa236619417d0c9aff2ad171cb0ea2b184c5e0
+  TinkoffASDKCore: 716361a3d7f0a2648c2dba8e9077e78b9fc2a228
+  TinkoffASDKUI: aca07916fe549eb421225e3fb9aebaf18220b636
   YandexMapsMobile: c145ffd0dbdbb8079fca1eb6706cf9e751b07809
 
 PODFILE CHECKSUM: d3aaf3a0370123d2218a7751e5250f741dc9e1dd
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

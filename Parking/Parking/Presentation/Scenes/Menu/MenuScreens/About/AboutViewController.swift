@@ -15,6 +15,7 @@ final class AboutViewController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "logo")
+        imageView.backgroundColor = .white
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()

@@ -20,6 +20,12 @@ final class ContentViewController: UIViewController {
         }
     }
     
+    func add(_ child: UIViewController) {
+        addChild(child)
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
+    
     func removeChildren() {
         if let _ = presentedViewController {
             self.presentedViewController?.dismiss(animated: false)

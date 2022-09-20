@@ -78,7 +78,7 @@ class UserPhoneNumberConfirmationViewController: UIViewController {
     private let textfieldBottomLine: UIView = {
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
-        line.backgroundColor = .red
+        line.backgroundColor = .black
         return line
     }()
     
@@ -95,7 +95,7 @@ class UserPhoneNumberConfirmationViewController: UIViewController {
     private let nextButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Next", for: .normal)
+        button.setTitle("Продолжить", for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 5
         return button
@@ -140,7 +140,7 @@ class UserPhoneNumberConfirmationViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
@@ -165,7 +165,7 @@ class UserPhoneNumberConfirmationViewController: UIViewController {
             
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             nextButton.topAnchor.constraint(equalTo: phoneNumberTextfield.bottomAnchor, constant: 40),
-            nextButton.widthAnchor.constraint(equalToConstant: 100),
+            nextButton.widthAnchor.constraint(equalToConstant: 300),
             nextButton.heightAnchor.constraint(equalToConstant: 40),
             
             skipAuthButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -202,22 +202,20 @@ class UserPhoneNumberConfirmationViewController: UIViewController {
         let digitsCount = inputNumber.compactMap{ $0.wholeNumberValue }
         guard digitsCount.count == 10 else { return warningLabel.text = "Номер слишком короткий"}
         let switchIndex = confirmationMethodSwitcher.selectedSegmentIndex
-        var smsId = ""
         var code = ""
         if switchIndex == 0 {
-            viewModel.confirmationByCallRequest(inputNumber: inputNumber) { stringData in
-                smsId = stringData
-                print(stringData)
+            viewModel.confirmationRequest(requestType: .flashCall, inputNumber: inputNumber) { stringData, stringCode in
+                code = stringCode
+                print(code)
+                self.present(CodeEnterConfigurator.configureWith(phoneNumber: inputNumber, confirmationCode: code), animated: true)
             }
         } else {
-            viewModel.confirmationBySMSRequest(inputNumber: inputNumber) { stringData, stringCode in
+            viewModel.confirmationRequest(requestType: .sms, inputNumber: inputNumber) { stringData, stringCode in
                 code = stringCode
-                print(stringCode)
-                print(stringData)
+                print(code)
                 self.present(CodeEnterConfigurator.configureWith(phoneNumber: inputNumber, confirmationCode: code), animated: true)
             }
         }
-        viewModel.checkResponseSMSid(stringData: smsId)
     }
     
     @objc func skipAuthAction(_ sender: UIButton) {

@@ -41,6 +41,7 @@ final class SettingsCellView: UITableViewCell {
     private func configureUI() {
         backgroundColor = .white
         accessoryView = switchHandler
+        
     }
     
     private func setupLayout() {
