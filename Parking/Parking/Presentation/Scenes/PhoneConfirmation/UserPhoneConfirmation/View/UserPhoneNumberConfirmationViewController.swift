@@ -9,6 +9,7 @@ import UIKit
 
 class UserPhoneNumberConfirmationViewController: UIViewController {
     
+    weak var delegate: PageViewControllerDelegate?
     private let viewModel: UserPhoneNumberConfirmationViewModelProtocol
     
     init(viewModel: UserPhoneNumberConfirmationViewModelProtocol,
@@ -219,8 +220,7 @@ class UserPhoneNumberConfirmationViewController: UIViewController {
     }
     
     @objc func skipAuthAction(_ sender: UIButton) {
-        
-        self.dismiss(animated: true)
+        delegate?.goToLastPage(sender)
     }
     
     @objc func getToOwnersScreen(_ sender: UIButton) {
@@ -290,3 +290,4 @@ extension String {
         return pureNumber
     }
 }
+

@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         
+        let onboardingVC = OnboardingConfigurator.configure()
         let userAuthVC = UserPhoneNumberConfirmationConfigurator.configure()
         let mainMapVC = MainMapConfigurator.configure()
         let rootVC = ContentViewController()
@@ -25,6 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
         window?.rootViewController = rootVC
-            rootVC.addAndPresent(mainMapVC, presentedController: userAuthVC)
+        rootVC.addAndPresent(mainMapVC, presentedController: onboardingVC)
     }
 }

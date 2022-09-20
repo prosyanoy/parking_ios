@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0404C1AB28CDFF5E0044B8C6 /* NewCarTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404C1AA28CDFF5E0044B8C6 /* NewCarTableView.swift */; };
+		0404C1B028CE06C70044B8C6 /* NewCarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404C1AF28CE06C70044B8C6 /* NewCarConfigurator.swift */; };
+		0404C1B828CE28B70044B8C6 /* CityAndPhonePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404C1B728CE28B70044B8C6 /* CityAndPhonePage.swift */; };
+		0404C1BB28CE4CF90044B8C6 /* CityAndPhoneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404C1BA28CE4CF90044B8C6 /* CityAndPhoneConfigurator.swift */; };
+		0404C1BD28CE4FAD0044B8C6 /* CodeEnterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404C1BC28CE4FAD0044B8C6 /* CodeEnterPageViewController.swift */; };
+		0404C1C028CE504C0044B8C6 /* CodeEnterPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404C1BF28CE504C0044B8C6 /* CodeEnterPageViewModel.swift */; };
+		0404C1C228CE50680044B8C6 /* CodeEnterPageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404C1C128CE50680044B8C6 /* CodeEnterPageConfiguration.swift */; };
+		041D3D0D28C2739E007D7D5E /* OnboadrdingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D3D0C28C2739E007D7D5E /* OnboadrdingViewController.swift */; };
+		041D3D0F28C2769A007D7D5E /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D3D0E28C2769A007D7D5E /* PageViewModel.swift */; };
+		041D3D1328C3F051007D7D5E /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D3D1228C3F051007D7D5E /* ModelController.swift */; };
+		04766A2828BCF34F00CDC2B6 /* SpecialNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04766A2728BCF34F00CDC2B6 /* SpecialNumberCell.swift */; };
+		047C42FB28B7D261002F251E /* StsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C42FA28B7D261002F251E /* StsCell.swift */; };
+		048F85C128B2528500766E03 /* OnboardingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F85C028B2528500766E03 /* OnboardingConfigurator.swift */; };
+		048F85C828B297C400766E03 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F85C728B297C400766E03 /* PageViewController.swift */; };
+		048F85CC28B2A2E500766E03 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F85CB28B2A2E500766E03 /* OnboardingPageViewController.swift */; };
+		048F85CE28B2A84300766E03 /* GeoOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F85CD28B2A84300766E03 /* GeoOnboardingViewController.swift */; };
+		048F85D228B2B17300766E03 /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F85D128B2B17300766E03 /* NewCarViewController.swift */; };
+		048F85E028B67AFF00766E03 /* NumberCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F85DF28B67AFF00766E03 /* NumberCarCell.swift */; };
+		048F85E428B6A18400766E03 /* TypeCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F85E328B6A18400766E03 /* TypeCarCell.swift */; };
+		04F6ABE928C90F2400F317F9 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6ABE828C90F2300F317F9 /* CircularProgressBar.swift */; };
+		04F6ABEF28C912D700F317F9 /* ForeignNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6ABEE28C912D700F317F9 /* ForeignNumberCell.swift */; };
+		04F6ABF128C9511E00F317F9 /* NewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6ABF028C9511E00F317F9 /* NewCarView.swift */; };
+		04F6ABF328C9537E00F317F9 /* NewCarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6ABF228C9537E00F317F9 /* NewCarHeaderView.swift */; };
+		04FDB88A28D92EA700D73F95 /* NameCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDB88928D92EA700D73F95 /* NameCarCell.swift */; };
 		263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263836B9288C1EDB00EA4353 /* AppDelegate.swift */; };
 		263836BC288C1EDB00EA4353 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263836BB288C1EDB00EA4353 /* SceneDelegate.swift */; };
 		263836C3288C1EDD00EA4353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263836C2288C1EDD00EA4353 /* Assets.xcassets */; };
@@ -178,6 +202,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0404C1AA28CDFF5E0044B8C6 /* NewCarTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarTableView.swift; sourceTree = "<group>"; };
+		0404C1AF28CE06C70044B8C6 /* NewCarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarConfigurator.swift; sourceTree = "<group>"; };
+		0404C1B728CE28B70044B8C6 /* CityAndPhonePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAndPhonePage.swift; sourceTree = "<group>"; };
+		0404C1BA28CE4CF90044B8C6 /* CityAndPhoneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAndPhoneConfigurator.swift; sourceTree = "<group>"; };
+		0404C1BC28CE4FAD0044B8C6 /* CodeEnterPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterPageViewController.swift; sourceTree = "<group>"; };
+		0404C1BF28CE504C0044B8C6 /* CodeEnterPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterPageViewModel.swift; sourceTree = "<group>"; };
+		0404C1C128CE50680044B8C6 /* CodeEnterPageConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEnterPageConfiguration.swift; sourceTree = "<group>"; };
+		041D3D0C28C2739E007D7D5E /* OnboadrdingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboadrdingViewController.swift; sourceTree = "<group>"; };
+		041D3D0E28C2769A007D7D5E /* PageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewModel.swift; sourceTree = "<group>"; };
+		041D3D1228C3F051007D7D5E /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		04766A2728BCF34F00CDC2B6 /* SpecialNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialNumberCell.swift; sourceTree = "<group>"; };
+		047C42FA28B7D261002F251E /* StsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StsCell.swift; sourceTree = "<group>"; };
+		048F85C028B2528500766E03 /* OnboardingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingConfigurator.swift; sourceTree = "<group>"; };
+		048F85C728B297C400766E03 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		048F85CB28B2A2E500766E03 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		048F85CD28B2A84300766E03 /* GeoOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoOnboardingViewController.swift; sourceTree = "<group>"; };
+		048F85D128B2B17300766E03 /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
+		048F85DF28B67AFF00766E03 /* NumberCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCarCell.swift; sourceTree = "<group>"; };
+		048F85E328B6A18400766E03 /* TypeCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCarCell.swift; sourceTree = "<group>"; };
+		04F6ABE828C90F2300F317F9 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		04F6ABEE28C912D700F317F9 /* ForeignNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignNumberCell.swift; sourceTree = "<group>"; };
+		04F6ABF028C9511E00F317F9 /* NewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarView.swift; sourceTree = "<group>"; };
+		04F6ABF228C9537E00F317F9 /* NewCarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarHeaderView.swift; sourceTree = "<group>"; };
+		04FDB88928D92EA700D73F95 /* NameCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCarCell.swift; sourceTree = "<group>"; };
 		08751A43103AB027A43EBF16 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		263836B6288C1EDB00EA4353 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		263836B9288C1EDB00EA4353 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -368,6 +416,124 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0404C1AC28CE06550044B8C6 /* NewCarOld */ = {
+			isa = PBXGroup;
+			children = (
+				048F85D128B2B17300766E03 /* NewCarViewController.swift */,
+			);
+			path = NewCarOld;
+			sourceTree = "<group>";
+		};
+		0404C1AD28CE06800044B8C6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04F6ABF028C9511E00F317F9 /* NewCarView.swift */,
+				0404C1AA28CDFF5E0044B8C6 /* NewCarTableView.swift */,
+				04F6ABF228C9537E00F317F9 /* NewCarHeaderView.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0404C1AE28CE06910044B8C6 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				0404C1AF28CE06C70044B8C6 /* NewCarConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		0404C1B928CE4CA70044B8C6 /* CityAndPhonePage */ = {
+			isa = PBXGroup;
+			children = (
+				0404C1BA28CE4CF90044B8C6 /* CityAndPhoneConfigurator.swift */,
+				0404C1B728CE28B70044B8C6 /* CityAndPhonePage.swift */,
+			);
+			path = CityAndPhonePage;
+			sourceTree = "<group>";
+		};
+		0404C1BE28CE4FBE0044B8C6 /* CodeEnterPage */ = {
+			isa = PBXGroup;
+			children = (
+				0404C1C128CE50680044B8C6 /* CodeEnterPageConfiguration.swift */,
+				0404C1BC28CE4FAD0044B8C6 /* CodeEnterPageViewController.swift */,
+				0404C1BF28CE504C0044B8C6 /* CodeEnterPageViewModel.swift */,
+			);
+			path = CodeEnterPage;
+			sourceTree = "<group>";
+		};
+		0444A2DD28D2658D0082D8FA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				048F85DF28B67AFF00766E03 /* NumberCarCell.swift */,
+				04F6ABEE28C912D700F317F9 /* ForeignNumberCell.swift */,
+				04FDB88928D92EA700D73F95 /* NameCarCell.swift */,
+				04766A2728BCF34F00CDC2B6 /* SpecialNumberCell.swift */,
+				048F85E328B6A18400766E03 /* TypeCarCell.swift */,
+				047C42FA28B7D261002F251E /* StsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		04701B8328B10B5600E9055F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				048F85BC28B251E300766E03 /* Configuration */,
+				048F85BD28B2520100766E03 /* View */,
+				04F6ABEB28C9117400F317F9 /* Model */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		048F85BC28B251E300766E03 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				048F85C028B2528500766E03 /* OnboardingConfigurator.swift */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		048F85BD28B2520100766E03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				041D3D0C28C2739E007D7D5E /* OnboadrdingViewController.swift */,
+				048F85C728B297C400766E03 /* PageViewController.swift */,
+				048F85CB28B2A2E500766E03 /* OnboardingPageViewController.swift */,
+				048F85CD28B2A84300766E03 /* GeoOnboardingViewController.swift */,
+				04F6ABE828C90F2300F317F9 /* CircularProgressBar.swift */,
+				0404C1B928CE4CA70044B8C6 /* CityAndPhonePage */,
+				0404C1BE28CE4FBE0044B8C6 /* CodeEnterPage */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		048F85BE28B2521B00766E03 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				041D3D1228C3F051007D7D5E /* ModelController.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04F6ABEA28C90FF100F317F9 /* AddNewCar */ = {
+			isa = PBXGroup;
+			children = (
+				0404C1AC28CE06550044B8C6 /* NewCarOld */,
+				0404C1AE28CE06910044B8C6 /* Configurator */,
+				0404C1AD28CE06800044B8C6 /* ViewController */,
+				0444A2DD28D2658D0082D8FA /* Cells */,
+				048F85BE28B2521B00766E03 /* ViewModel */,
+			);
+			path = AddNewCar;
+			sourceTree = "<group>";
+		};
+		04F6ABEB28C9117400F317F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				041D3D0E28C2769A007D7D5E /* PageViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0E6DE7E6314E1890555D5490 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +675,8 @@
 		9408FF39289006FB002B1C12 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				04701B8328B10B5600E9055F /* Onboarding */,
+				04F6ABEA28C90FF100F317F9 /* AddNewCar */,
 				A4EDFD1328C13E7C0082D171 /* ContentViewController */,
 				9408FF3A28900717002B1C12 /* MainMap */,
 				26EC27082898038E00B84D2A /* Menu */,
@@ -1719,6 +1887,8 @@
 				A4EACC2428B91F7500E759D3 /* CodeEnterViewModel.swift in Sources */,
 				A4EFE4DB28C7A89F004D590D /* ProfileConfigurator.swift in Sources */,
 				94D5775028A27B2100C7F7D3 /* ResizingTableView.swift in Sources */,
+				0404C1BD28CE4FAD0044B8C6 /* CodeEnterPageViewController.swift in Sources */,
+				0404C1AB28CDFF5E0044B8C6 /* NewCarTableView.swift in Sources */,
 				94A7F45028ABE87A001FD271 /* WalletPaymentViewController.swift in Sources */,
 				9496465428BDE8310095FB6E /* MapFiltersViewController.swift in Sources */,
 				9496465B28BE06590095FB6E /* MapFiltersSceneConfigurator.swift in Sources */,
@@ -1728,6 +1898,9 @@
 				A40BC41A28BBFA0C000E5F6C /* OwnersOnParkingTableView.swift in Sources */,
 				A4EACC3C28B95F1B00E759D3 /* ExitParkingDetailsCell.swift in Sources */,
 				94A7F45728ACD13A001FD271 /* PaymentMethodView.swift in Sources */,
+				041D3D1328C3F051007D7D5E /* ModelController.swift in Sources */,
+				04766A2828BCF34F00CDC2B6 /* SpecialNumberCell.swift in Sources */,
+				04F6ABEF28C912D700F317F9 /* ForeignNumberCell.swift in Sources */,
 				A4EFE4DE28C7A8C2004D590D /* ProfileViewModel.swift in Sources */,
 				A4EACC3528B954A800E759D3 /* OwnersNavigationBarController.swift in Sources */,
 				A4EACC3328B9548E00E759D3 /* OwnersOnParkingViewController.swift in Sources */,
@@ -1739,9 +1912,11 @@
 				A48BA73628ABF1E7001EC8D4 /* SettingsCellView.swift in Sources */,
 				A43F4FF128AD4E2C006D6AFC /* SettingsTableView.swift in Sources */,
 				9408FF4528900855002B1C12 /* OrderSheetTransitionDelegate.swift in Sources */,
+				0404C1C028CE504C0044B8C6 /* CodeEnterPageViewModel.swift in Sources */,
 				94A7F46428AD1E4E001FD271 /* SearchViewModel.swift in Sources */,
 				947CE2ED28C233C300894AA7 /* MapFiltersTableViewHeader.swift in Sources */,
 				26DB52FF289EEEF900CF0611 /* MenuHeaderView.swift in Sources */,
+				A4EACC2C28B9215600E759D3 /* UserPhoneNumberConfirmationViewController.swift in Sources */,
 				A4EACC2C28B9215600E759D3 /* UserPhoneNumberConfirmationViewController.swift in Sources */,
 				9496461628AF9E290095FB6E /* ParkingSearchBottomSheetRouter.swift in Sources */,
 				2643D907289B0CD6005D8E37 /* CashView.swift in Sources */,
@@ -1765,9 +1940,13 @@
 				A4EACC4528B9724800E759D3 /* OwnersExitConfigurator.swift in Sources */,
 				263836BA288C1EDB00EA4353 /* AppDelegate.swift in Sources */,
 				94D5771128995F0000C7F7D3 /* TextDrawer.swift in Sources */,
+				048F85E028B67AFF00766E03 /* NumberCarCell.swift in Sources */,
+				048F85C128B2528500766E03 /* OnboardingConfigurator.swift in Sources */,
+				04F6ABF128C9511E00F317F9 /* NewCarView.swift in Sources */,
 				94D2155E288F285E00DFE786 /* ParkingNetworkRepository.swift in Sources */,
 				9496464E28B8F48B0095FB6E /* ParkingPaymentViewModel.swift in Sources */,
 				A4EACC2E28B9215C00E759D3 /* UserPhoneNumberConfirmationConfigurator.swift in Sources */,
+				0404C1C228CE50680044B8C6 /* CodeEnterPageConfiguration.swift in Sources */,
 				9496460928AF89390095FB6E /* ParkingSearchTableViewCell.swift in Sources */,
 				9496464B28B8EA690095FB6E /* ParkingPaymentSceneConfigurator.swift in Sources */,
 				9408FF4A289032A9002B1C12 /* ScaleButton.swift in Sources */,
@@ -1810,14 +1989,22 @@
 				A4EACC3928B9550200E759D3 /* OwnersExitViewController.swift in Sources */,
 				A48BA72128ABDA56001EC8D4 /* SettingsViewController.swift in Sources */,
 				9408FF3F289007E1002B1C12 /* OrderSheetViewController.swift in Sources */,
-				9496465E28BE1EA00095FB6E /* ServicesMapFilterTableViewCell.swift in Sources */,
+				041D3D0F28C2769A007D7D5E /* PageViewModel.swift in Sources */,
+				048F85CC28B2A2E500766E03 /* OnboardingPageViewController.swift in Sources */,
+				048F85C828B297C400766E03 /* PageViewController.swift in Sources */,
+				048F85D228B2B17300766E03 /* NewCarViewController.swift in Sources */,
 				A43F4FED28AD4BF2006D6AFC /* SettingsCell.swift in Sources */,
+				0404C1B828CE28B70044B8C6 /* CityAndPhonePage.swift in Sources */,
 				26EC27102898077D00B84D2A /* MenuCell.swift in Sources */,
+				048F85CE28B2A84300766E03 /* GeoOnboardingViewController.swift in Sources */,
+				9496465E28BE1EA00095FB6E /* ServicesMapFilterTableViewCell.swift in Sources */,
 				9496464428B7B5550095FB6E /* UserGateway.swift in Sources */,
+				04FDB88A28D92EA700D73F95 /* NameCarCell.swift in Sources */,
 				26EC271828980F4700B84D2A /* MenuViewController.swift in Sources */,
 				26EC270E2898050100B84D2A /* MenuCellView.swift in Sources */,
 				9496461D28B529880095FB6E /* PaymentChoice.swift in Sources */,
 				9496460F28AF8B440095FB6E /* ParkingSearchBottomSheetPresentationViewController.swift in Sources */,
+				041D3D0D28C2739E007D7D5E /* OnboadrdingViewController.swift in Sources */,
 				2643D906289B0CD6005D8E37 /* MapButtonsView.swift in Sources */,
 				A4EACC2628B91F8300E759D3 /* CodeEnterConfigurator.swift in Sources */,
 				A4D9E59128C8D4A400D743D7 /* ProfileDeleteLogoutCell.swift in Sources */,
@@ -1829,11 +2016,13 @@
 				94A7F45E28ACFE0E001FD271 /* SearchTableViewCell.swift in Sources */,
 				A4C4880828CBE75700F5BA5D /* EnterEmailViewController.swift in Sources */,
 				26EC2716289809B300B84D2A /* MenuRouter.swift in Sources */,
+				047C42FB28B7D261002F251E /* StsCell.swift in Sources */,
 				A46BC46E28C009E700E66366 /* OwnersPhoneNumberCOnfirmationConfigurator.swift in Sources */,
 				A40BC41428BBF75B000E5F6C /* OnParkingDetailsCell.swift in Sources */,
 				A40BC42C28BC09AA000E5F6C /* OwnersEntryConfigurator.swift in Sources */,
 				A40BC42E28BC0BBD000E5F6C /* EntryParkingDetailsCell.swift in Sources */,
 				A4EDFD1528C13E980082D171 /* ContentViewController.swift in Sources */,
+				0404C1B028CE06C70044B8C6 /* NewCarConfigurator.swift in Sources */,
 				94D2155F288F285E00DFE786 /* ParkingRepository.swift in Sources */,
 				A40BC42828BC0988000E5F6C /* OwnersEntryCellView.swift in Sources */,
 				9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */,
@@ -1844,12 +2033,15 @@
 				94A7F45A28ACFCA4001FD271 /* SearchViewController.swift in Sources */,
 				A4EACC2228B77F3700E759D3 /* CodeEnterViewController.swift in Sources */,
 				9496461128AF8B9C0095FB6E /* ParkingSearchBottomSheetSceneConfigurator.swift in Sources */,
+				04F6ABF328C9537E00F317F9 /* NewCarHeaderView.swift in Sources */,
 				A4EFE4E028C7A9E6004D590D /* ProfileHeaderView.swift in Sources */,
 				94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */,
+				04F6ABE928C90F2400F317F9 /* CircularProgressBar.swift in Sources */,
 				94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */,
 				A43F4FF328AD4EE5006D6AFC /* SettingsHeaderView.swift in Sources */,
 				A4DF9AA428B43895009D6D66 /* NotificationsViewController.swift in Sources */,
 				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
+				048F85E428B6A18400766E03 /* TypeCarCell.swift in Sources */,
 				A4DF9AA628B43987009D6D66 /* FinesAndEvacuationsViewController.swift in Sources */,
 				A48BA73128ABDB65001EC8D4 /* FeedbackViewController.swift in Sources */,
 				A48BA71E28ABD391001EC8D4 /* ProfileViewController.swift in Sources */,
@@ -1857,6 +2049,7 @@
 				A48BA72528ABDA8E001EC8D4 /* NewsViewController.swift in Sources */,
 				94D5770D28995E6400C7F7D3 /* MainMapYMKDrawer.swift in Sources */,
 				9408FF4D28906ADF002B1C12 /* MainMapViewModel.swift in Sources */,
+				0404C1BB28CE4CF90044B8C6 /* CityAndPhoneConfigurator.swift in Sources */,
 				A46BC46C28BFEEB300E66366 /* OwnersPhoneNumberConfirmationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
