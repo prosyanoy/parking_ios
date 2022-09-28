@@ -32,7 +32,7 @@ struct Parking {
     let disabled: Bool
     // тарификация и график работы биндятся между собой по соотнощению массивов 1:1 или 2:2 или 3:3, максимум 7:7, т.е. каждому массиву с днями недели, соответствует каждый массив тарификации с тем же индексом
     // Пока так!
-    let billing: [[String : String]]
+    let billing: [[String : Int]]
     let workSchedule: [[WorkSchedule]]
     
     struct WorkSchedule {
@@ -48,7 +48,7 @@ struct Parking {
             case thursday = "4"
             case friday = "5"
             case saturday = "6"
-            case sunday = "7"
+            case sunday = "0"
         }
     }
     
