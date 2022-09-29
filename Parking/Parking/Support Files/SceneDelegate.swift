@@ -25,6 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
         window?.rootViewController = rootVC
-            rootVC.addAndPresent(mainMapVC, presentedController: userAuthVC)
+        rootVC.addAndPresent(mainMapVC, presentedController: userAuthVC)
     }
 }

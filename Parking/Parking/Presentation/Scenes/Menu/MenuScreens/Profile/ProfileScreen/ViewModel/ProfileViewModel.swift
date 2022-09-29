@@ -41,9 +41,8 @@ final class ProfileViewModel: ProfileViewModelProtocol {
             cellInfo = "Необязательно"
         }
         if indexPath.section == 3 {
-            if let phone = UserDefaults.standard.string(forKey: "Phone") {
-                cellInfo = "+7 \(phone)"
-            }
+            let phone = UserDefaultsDataManager.userPhoneNumber
+            cellInfo = "+7 \(phone)"
         }
         if indexPath.section == 5 {
             switch indexPath.row {

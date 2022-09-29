@@ -8,20 +8,19 @@
 import UIKit
 
 final class SettingsTableView: UITableView {
-
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         setupContent()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupContent() {
-        let lightGrayBackgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = lightGrayBackgroundColor
+        backgroundColor = .white
         contentInset = .zero
         allowsSelection = false
         allowsMultipleSelection = false
@@ -30,11 +29,10 @@ final class SettingsTableView: UITableView {
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = true
         isScrollEnabled = true
-        separatorStyle = .singleLine
+        separatorStyle = .none
         rowHeight = Constants.rowsHeight
-
+        
         register(SettingsCellView.self, forCellReuseIdentifier: SettingsCellView.reuseIdentifier)
-        register(SettingsHeaderView.self, forHeaderFooterViewReuseIdentifier: SettingsHeaderView.reuseIdentifier)
     }
 }
 

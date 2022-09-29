@@ -23,7 +23,6 @@ final class MenuViewModel: MenuViewModelProtocol {
             ["Основные"],
             ["User", "Личный кабинет"],
             ["MapPin", "Изменить город"],
-            ["Sliders", "Настройки"],
             ["BellSimple", "Уведомления"],
             ["GlobeHemisphereWest", "Новости"],
             ["MapTrifold", "История"]

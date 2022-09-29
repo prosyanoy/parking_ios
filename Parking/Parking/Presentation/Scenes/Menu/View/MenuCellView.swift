@@ -98,7 +98,7 @@ final class MenuCellView: UITableViewCell {
 extension MenuCellView {
     func configure(with menuViewModel: MenuViewModelProtocol, for indexPath: IndexPath) {
         let cell = menuViewModel.getCellViewModel(for: indexPath)
-        icon.image = UIImage(named: cell.iconName)?.withTintColor(UIColor(red: 191/255, green: 61/255, blue: 163/255, alpha: 1))
+        icon.image = UIImage(named: cell.iconName)?.withTintColor(UIColor(red: 143/255, green: 109/255, blue: 216/255, alpha: 1))
         titleLabel.text = cell.title
         rightLabel.text = cell.rightText
         if indexPath.row != 0 {

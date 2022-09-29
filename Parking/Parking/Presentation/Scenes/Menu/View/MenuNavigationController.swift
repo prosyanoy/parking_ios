@@ -14,6 +14,6 @@ final class MenuNavigationController: UINavigationController {
 	}
 
 	private func configureUI() {
-        
+        navigationBar.tintColor = UIColor(red: 143/255, green: 109/255, blue: 216/255, alpha: 1)
 	}
 }

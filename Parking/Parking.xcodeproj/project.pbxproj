@@ -101,11 +101,11 @@
 		A40BC42A28BC099B000E5F6C /* OwnersEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC42928BC099B000E5F6C /* OwnersEntryViewModel.swift */; };
 		A40BC42C28BC09AA000E5F6C /* OwnersEntryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC42B28BC09AA000E5F6C /* OwnersEntryConfigurator.swift */; };
 		A40BC42E28BC0BBD000E5F6C /* EntryParkingDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BC42D28BC0BBD000E5F6C /* EntryParkingDetailsCell.swift */; };
+		A425DC4228DE44890029E4AA /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */; };
 		A43F4FEA28AD4B5A006D6AFC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FE928AD4B5A006D6AFC /* SettingsViewModel.swift */; };
 		A43F4FED28AD4BF2006D6AFC /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FEC28AD4BF2006D6AFC /* SettingsCell.swift */; };
 		A43F4FEF28AD4C22006D6AFC /* SettingsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FEE28AD4C22006D6AFC /* SettingsHeader.swift */; };
 		A43F4FF128AD4E2C006D6AFC /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FF028AD4E2C006D6AFC /* SettingsTableView.swift */; };
-		A43F4FF328AD4EE5006D6AFC /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FF228AD4EE5006D6AFC /* SettingsHeaderView.swift */; };
 		A43F4FF728AD51E4006D6AFC /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F4FF628AD51E4006D6AFC /* SettingsConfigurator.swift */; };
 		A44EB32628BCE3BF00321021 /* CarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EB32528BCE3BF00321021 /* CarsViewController.swift */; };
 		A46BC46C28BFEEB300E66366 /* OwnersPhoneNumberConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BC46B28BFEEB300E66366 /* OwnersPhoneNumberConfirmationViewController.swift */; };
@@ -129,7 +129,6 @@
 		A4D9E58F28C8D49300D743D7 /* ProfileEmailPhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9E58E28C8D49300D743D7 /* ProfileEmailPhoneCell.swift */; };
 		A4D9E59128C8D4A400D743D7 /* ProfileDeleteLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D9E59028C8D4A400D743D7 /* ProfileDeleteLogoutCell.swift */; };
 		A4DF48C128BFAD8000A97EEC /* ChangeCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A482DAF628AEB1FA00BB95FC /* ChangeCityViewController.swift */; };
-		A4DF9AA428B43895009D6D66 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */; };
 		A4DF9AA528B4397E009D6D66 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA72C28ABDB19001EC8D4 /* CardsViewController.swift */; };
 		A4DF9AA628B43987009D6D66 /* FinesAndEvacuationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48BA72E28ABDB51001EC8D4 /* FinesAndEvacuationsViewController.swift */; };
 		A4EACC2228B77F3700E759D3 /* CodeEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EACC2128B77F3700E759D3 /* CodeEnterViewController.swift */; };
@@ -280,7 +279,6 @@
 		A43F4FEC28AD4BF2006D6AFC /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		A43F4FEE28AD4C22006D6AFC /* SettingsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeader.swift; sourceTree = "<group>"; };
 		A43F4FF028AD4E2C006D6AFC /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
-		A43F4FF228AD4EE5006D6AFC /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		A43F4FF628AD51E4006D6AFC /* SettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurator.swift; sourceTree = "<group>"; };
 		A44EB32528BCE3BF00321021 /* CarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsViewController.swift; sourceTree = "<group>"; };
 		A46BC46B28BFEEB300E66366 /* OwnersPhoneNumberConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnersPhoneNumberConfirmationViewController.swift; sourceTree = "<group>"; };
@@ -290,7 +288,6 @@
 		A482DB0528AEF7B300BB95FC /* AboutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutConfigurator.swift; sourceTree = "<group>"; };
 		A48BA71D28ABD391001EC8D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A48BA72028ABDA56001EC8D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A48BA72228ABDA6C001EC8D4 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		A48BA72428ABDA8E001EC8D4 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		A48BA72628ABDA98001EC8D4 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		A48BA72A28ABDB01001EC8D4 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
@@ -1207,6 +1204,15 @@
 			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
+		A425DC4128DE44660029E4AA /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */,
+				A48BA73428ABEE24001EC8D4 /* Settings */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		A43F4FEB28AD4BDD006D6AFC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1238,7 +1244,6 @@
 				A48BA72028ABDA56001EC8D4 /* SettingsViewController.swift */,
 				A43F4FF028AD4E2C006D6AFC /* SettingsTableView.swift */,
 				A48BA73528ABF1E7001EC8D4 /* SettingsCellView.swift */,
-				A43F4FF228AD4EE5006D6AFC /* SettingsHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1267,12 +1272,10 @@
 			children = (
 				A4EFE4D328C7A85C004D590D /* Profile */,
 				A4B1EED528AFEFBF00764A6C /* ChangeCity */,
-				A48BA73428ABEE24001EC8D4 /* Settings */,
-				A48BA72228ABDA6C001EC8D4 /* NotificationsViewController.swift */,
 				A48BA72428ABDA8E001EC8D4 /* NewsViewController.swift */,
 				A48BA72628ABDA98001EC8D4 /* HistoryViewController.swift */,
 				A48BA72A28ABDB01001EC8D4 /* AnalyticsViewController.swift */,
-				A4DF9AA328B43895009D6D66 /* NotificationsViewController.swift */,
+				A425DC4128DE44660029E4AA /* Notifications */,
 				A48BA72C28ABDB19001EC8D4 /* CardsViewController.swift */,
 				A48BA72E28ABDB51001EC8D4 /* FinesAndEvacuationsViewController.swift */,
 				A44EB32528BCE3BF00321021 /* CarsViewController.swift */,
@@ -1833,6 +1836,7 @@
 				A4EACC2628B91F8300E759D3 /* CodeEnterConfigurator.swift in Sources */,
 				A4D9E59128C8D4A400D743D7 /* ProfileDeleteLogoutCell.swift in Sources */,
 				9496460528AF86CE0095FB6E /* ParkingSearchBottomSheet.swift in Sources */,
+				A425DC4228DE44890029E4AA /* NotificationsViewController.swift in Sources */,
 				947CE2E428BE3BD300894AA7 /* FilterParameters.swift in Sources */,
 				9496463A28B69BAE0095FB6E /* PaymentChoiceRouter.swift in Sources */,
 				94A7F46128AD09D4001FD271 /* SearchSceneConfigurator.swift in Sources */,
@@ -1859,8 +1863,6 @@
 				A4EFE4E028C7A9E6004D590D /* ProfileHeaderView.swift in Sources */,
 				94D5775A28A2802E00C7F7D3 /* TimeTableViewCell.swift in Sources */,
 				94D5775C28A2D9E000C7F7D3 /* LabelContentSizedButton.swift in Sources */,
-				A43F4FF328AD4EE5006D6AFC /* SettingsHeaderView.swift in Sources */,
-				A4DF9AA428B43895009D6D66 /* NotificationsViewController.swift in Sources */,
 				94D2155C288F285E00DFE786 /* ParkingGateway.swift in Sources */,
 				A4DF9AA628B43987009D6D66 /* FinesAndEvacuationsViewController.swift in Sources */,
 				A48BA73128ABDB65001EC8D4 /* FeedbackViewController.swift in Sources */,

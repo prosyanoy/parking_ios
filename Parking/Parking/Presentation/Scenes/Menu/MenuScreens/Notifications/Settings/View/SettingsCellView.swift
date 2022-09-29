@@ -14,7 +14,7 @@ final class SettingsCellView: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 20)
+        label.font = .overpassRegular17
         label.textColor = .black
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
@@ -25,6 +25,7 @@ final class SettingsCellView: UITableViewCell {
     
     let switchHandler: UISwitch = {
         let switchHandler = UISwitch()
+        switchHandler.onTintColor = UIColor(red: 143/255, green: 109/255, blue: 216/255, alpha: 1)
         return switchHandler
     }()
     
@@ -33,7 +34,7 @@ final class SettingsCellView: UITableViewCell {
         setupLayout()
         configureUI()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -47,12 +48,12 @@ final class SettingsCellView: UITableViewCell {
     private func setupLayout() {
         addSubview(titleLabel)
         addSubview(switchHandler)
-
+        
         NSLayoutConstraint.activate([
-
+            
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: switchHandler.leadingAnchor, constant: 16)
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60)
         ])
     }
 }
@@ -60,6 +61,7 @@ final class SettingsCellView: UITableViewCell {
 extension SettingsCellView {
     func configure(with settingsViewModel: SettingsViewModelProtocol, for indexPath: IndexPath) {
         let cell = settingsViewModel.getCellViewModel(for: indexPath)
+        
         titleLabel.text = cell.title
     }
 }
