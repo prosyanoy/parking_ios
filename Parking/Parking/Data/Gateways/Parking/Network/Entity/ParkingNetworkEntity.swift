@@ -15,12 +15,6 @@ enum ParkingNetworkEntityError: Error {
 }
 
 
-protocol DomainConvertable {
-    associatedtype DomainEntity
-    func parseToDomain() throws -> DomainEntity
-}
-
-
 struct ParkingNetworkEntity: Decodable,
                              DomainConvertable {
     let id: String
@@ -35,7 +29,7 @@ struct ParkingNetworkEntity: Decodable,
     let ev: String
     let disabled: String
     
-    let costPerHour: [[String : String]]
+    let costPerHour: [[String : Int]]
     let time: [[WorkScheduleNetworkEntity]]
     
     enum CodingKeys: CodingKey {
@@ -72,7 +66,7 @@ struct ParkingNetworkEntity: Decodable,
             self.ev = try container.decode(String.self, forKey: .ev)
             self.disabled = try container.decode(String.self, forKey: .disabled)
             
-            self.costPerHour = try container.decode([[String : String]].self, forKey: .cost_per_hour)
+            self.costPerHour = try container.decode([[String : Int]].self, forKey: .cost_per_hour)
             self.time = try container.decode([[WorkScheduleNetworkEntity]].self, forKey: .time)
         } catch let error {
             throw error

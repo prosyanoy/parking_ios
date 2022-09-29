@@ -34,6 +34,7 @@
 		9408FF5328906B33002B1C12 /* MainMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF5228906B33002B1C12 /* MainMapRouter.swift */; };
 		9408FF5728906C89002B1C12 /* MommysEye in Frameworks */ = {isa = PBXBuildFile; productRef = 9408FF5628906C89002B1C12 /* MommysEye */; };
 		9408FF59289070D4002B1C12 /* SceneConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */; };
+		9435672528E48E0F0031F692 /* DomainConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435672428E48E060031F692 /* DomainConvertable.swift */; };
 		947CE2E428BE3BD300894AA7 /* FilterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947CE2E328BE3BD300894AA7 /* FilterParameters.swift */; };
 		947CE2E628BE3CB800894AA7 /* MapFiltersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947CE2E528BE3CB800894AA7 /* MapFiltersRouter.swift */; };
 		947CE2ED28C233C300894AA7 /* MapFiltersTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947CE2EC28C233C300894AA7 /* MapFiltersTableViewHeader.swift */; };
@@ -208,6 +209,7 @@
 		9408FF4F28906B1A002B1C12 /* MainMapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapConfigurator.swift; sourceTree = "<group>"; };
 		9408FF5228906B33002B1C12 /* MainMapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapRouter.swift; sourceTree = "<group>"; };
 		9408FF58289070D4002B1C12 /* SceneConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfiguratorProtocol.swift; sourceTree = "<group>"; };
+		9435672428E48E060031F692 /* DomainConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainConvertable.swift; sourceTree = "<group>"; };
 		947CE2E328BE3BD300894AA7 /* FilterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterParameters.swift; sourceTree = "<group>"; };
 		947CE2E528BE3CB800894AA7 /* MapFiltersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFiltersRouter.swift; sourceTree = "<group>"; };
 		947CE2E928BE848800894AA7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -611,6 +613,14 @@
 				9408FF5228906B33002B1C12 /* MainMapRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		9435672328E48E060031F692 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				9435672428E48E060031F692 /* DomainConvertable.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		9468EEF72891488B0098DD98 /* Presentation */ = {
@@ -1047,6 +1057,7 @@
 			isa = PBXGroup;
 			children = (
 				94D21554288F285E00DFE786 /* Gateways */,
+				9435672328E48E060031F692 /* Infrastructure */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1826,6 +1837,7 @@
 				9496463A28B69BAE0095FB6E /* PaymentChoiceRouter.swift in Sources */,
 				94A7F46128AD09D4001FD271 /* SearchSceneConfigurator.swift in Sources */,
 				26DB5304289EFB5F00CF0611 /* MenuConfigurator.swift in Sources */,
+				9435672528E48E0F0031F692 /* DomainConvertable.swift in Sources */,
 				94A7F45E28ACFE0E001FD271 /* SearchTableViewCell.swift in Sources */,
 				A4C4880828CBE75700F5BA5D /* EnterEmailViewController.swift in Sources */,
 				26EC2716289809B300B84D2A /* MenuRouter.swift in Sources */,
