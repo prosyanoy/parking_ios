@@ -19,40 +19,33 @@ protocol ProfileViewModelProtocol {
 
 final class ProfileViewModel: ProfileViewModelProtocol {
     
-    var profileInfo = ProfileInfo(surname: "", name: "", patronymic: "", phone: "", email: "")
+    var profileInfo = ProfileInfo(surname: nil, name: nil, patronymic: nil, phone: nil, email: nil)
     
     func getCellViewModel(for indexPath: IndexPath) -> String {
         
         var cellInfo: String = ""
         switch indexPath.section {
         case 0:
-            cellInfo = profileInfo.surname ?? ""
+            cellInfo = (profileInfo.name ?? "Имя") + " " + (profileInfo.surname ?? "Фамилия")
         case 1:
-            cellInfo = profileInfo.name ?? ""
+            cellInfo = profileInfo.surname ?? ""
         case 2:
+            cellInfo = profileInfo.name ?? ""
+        case 3:
             cellInfo = profileInfo.patronymic ?? ""
         case 4:
-            if profileInfo.email != "" {
-                cellInfo = profileInfo.email!
-            } else {
-                cellInfo = "Необязательно"
-            }
-        default:
-            cellInfo = "Необязательно"
-        }
-        if indexPath.section == 3 {
             let phone = UserDefaultsDataManager.userPhoneNumber
             cellInfo = "+7 \(phone)"
-        }
-        if indexPath.section == 5 {
-            switch indexPath.row {
-            case 0:
-                cellInfo = "Удалить учетную запись"
-            case 1:
-                cellInfo = "Выйти"
-            default:
-                cellInfo = ""
+        case 5:
+            if profileInfo.email != nil {
+                cellInfo = profileInfo.email!
+            } else {
+                cellInfo = "email@example.ru"
             }
+        case 6:
+            cellInfo = "Удалить учетную запись"
+        default:
+            cellInfo = "Необязательно"
         }
         return cellInfo
     }
@@ -60,12 +53,16 @@ final class ProfileViewModel: ProfileViewModelProtocol {
     func getHeaderViewModel(for section: Int) -> String {
         var header: String = ""
         switch section {
-        case 0:
-            header = "Фамилия"
         case 1:
-            header = "Имя"
+            header = "Фамилия"
         case 2:
+            header = "Имя"
+        case 3:
             header = "Отчество"
+        case 4:
+            header = "Телефон"
+        case 5:
+            header = "Электронная почта"
         default:
             header = ""
         }
@@ -73,13 +70,10 @@ final class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     func getNumberOfSections() -> Int {
-        return 6
+        return 7
     }
     
     func getNumberOfRowsInSection(section: Int) -> Int {
-        if section == 5 {
-            return 2
-        }
         return 1
     }
 }

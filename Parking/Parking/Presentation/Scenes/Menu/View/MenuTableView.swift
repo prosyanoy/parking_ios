@@ -33,12 +33,13 @@ final class MenuTableView: UITableView {
         rowHeight = Constants.rowsHeight
         
         register(MenuCellView.self, forCellReuseIdentifier: MenuCellView.reuseIdentifier)
+        register(MenuTitleCellView.self, forCellReuseIdentifier: MenuTitleCellView.reuseIdentifier)
         register(MenuHeaderView.self, forHeaderFooterViewReuseIdentifier: MenuHeaderView.reuseIdentifier)
     }
 }
 
 extension MenuTableView {
     private struct Constants {
-        static var rowsHeight: CGFloat { 68 }
+        static var rowsHeight: CGFloat { 45 }
     }
 }

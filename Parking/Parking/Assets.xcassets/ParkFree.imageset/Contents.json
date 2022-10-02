@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Car.png",
+      "filename" : "ParkFree.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Car@2x.png",
+      "filename" : "ParkFree@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Car@3x.png",
+      "filename" : "ParkFree@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -21,7 +21,7 @@ final class MenuCellView: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .overpassMedium17
+        label.font = .overpassLight17
         label.textColor = .black
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
@@ -38,13 +38,6 @@ final class MenuCellView: UITableViewCell {
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .right
         return label
-    }()
-    
-    private let separatorView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .separator
-        return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -66,14 +59,12 @@ final class MenuCellView: UITableViewCell {
     
     private func configureUI() {
         backgroundColor = .white
-        accessoryType = .disclosureIndicator
     }
     
     private func setupLayout() {
         addSubview(icon)
         addSubview(titleLabel)
         addSubview(rightLabel)
-        addSubview(separatorView)
         
         NSLayoutConstraint.activate([
             icon.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -87,10 +78,6 @@ final class MenuCellView: UITableViewCell {
             rightLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -56),
             rightLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            separatorView.topAnchor.constraint(equalTo: topAnchor),
-            separatorView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -8),
-            separatorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            separatorView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
 }
@@ -101,11 +88,6 @@ extension MenuCellView {
         icon.image = UIImage(named: cell.iconName)?.withTintColor(UIColor(red: 143/255, green: 109/255, blue: 216/255, alpha: 1))
         titleLabel.text = cell.title
         rightLabel.text = cell.rightText
-        if indexPath.row != 0 {
-            separatorView.isHidden = false
-        } else {
-            separatorView.isHidden = true
-        }
     }
 }
 

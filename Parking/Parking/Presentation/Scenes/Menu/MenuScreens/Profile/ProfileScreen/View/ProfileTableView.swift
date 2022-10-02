@@ -20,9 +20,8 @@ final class ProfileTableView: UITableView {
     }
     
     private func setupContent() {
-        let lightGrayBackgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = lightGrayBackgroundColor
+        backgroundColor = .white
         contentInset = .zero
         allowsSelection = true
         allowsMultipleSelection = false
@@ -36,13 +35,14 @@ final class ProfileTableView: UITableView {
         
         register(ProfileNameCell.self, forCellReuseIdentifier: ProfileNameCell.reuseIdentifier)
         register(ProfileEmailPhoneCell.self, forCellReuseIdentifier: ProfileEmailPhoneCell.reuseIdentifier)
-        register(ProfileDeleteLogoutCell.self, forCellReuseIdentifier: ProfileDeleteLogoutCell.reuseIdentifier)
+        register(ProfileDeleteCell.self, forCellReuseIdentifier: ProfileDeleteCell.reuseIdentifier)
         register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: ProfileHeaderView.reuseIdentifier)
+        register(ProfileTitleCell.self, forCellReuseIdentifier: ProfileTitleCell.reuseIdentifier)
     }
 }
 
 extension ProfileTableView {
     private struct Constants {
-        static var rowsHeight: CGFloat { 50 }
+        static var rowsHeight: CGFloat { 45 }
     }
 }

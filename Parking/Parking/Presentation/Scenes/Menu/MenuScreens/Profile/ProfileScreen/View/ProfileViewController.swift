@@ -12,6 +12,17 @@ final class ProfileViewController: UIViewController, UITextFieldDelegate {
     var viewModel: ProfileViewModelProtocol
     let profileTableView = ProfileTableView(frame: CGRect.zero, style: .insetGrouped)
     
+    private let saveButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(red: 143/255, green: 109/255, blue: 216/255, alpha: 1)
+        button.setTitle("Сохранить изменения", for: .normal)
+        button.titleLabel?.font = .overpassBold17
+        button.layer.cornerRadius = 10
+        button.isHidden = true
+        return button
+    }()
+    
     init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -27,6 +38,7 @@ final class ProfileViewController: UIViewController, UITextFieldDelegate {
         configureUI()
         setDelegates()
         setupLayout()
+        saveButton.addTarget(self, action: #selector(saveProfileInfo), for: .touchUpInside)
     }
     
     private func fetchProfileInfo() {
@@ -41,32 +53,32 @@ final class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func configureUI() {
-        view.backgroundColor = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1)
+        view.backgroundColor = .white
         title = "Личный кабинет"
-        navigationItem.setRightBarButton(
-            UIBarButtonItem(title: "Готово",
-                            style: .plain,
-                            target: self,
-                            action: #selector(saveProfileInfo)),
-            animated: false)
     }
     
     private func setupLayout() {
         view.addSubview(profileTableView)
+        view.addSubview(saveButton)
         
         NSLayoutConstraint.activate([
-            profileTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            profileTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            profileTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            profileTableView.bottomAnchor.constraint(equalTo: saveButton.topAnchor),
             profileTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            saveButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
-    private func deleteProfile(title: String) {
-        let alert = UIAlertController(title: "Вы уверены что хотите \(title.lowercased())? Вся информация об оплатах и добавленных машинах будет утеряна",
+    private func deleteProfile() {
+        let alert = UIAlertController(title: "Вы уверены что хотите удалить учетную запись? Все данные также будут удалены.",
                                       message: "",
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [unowned self] _ in
+        alert.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { [unowned self] _ in
             let domain = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: domain)
             UserDefaults.standard.synchronize()
@@ -81,11 +93,11 @@ final class ProfileViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true)
     }
     
-    private func logOut(title: String) {
-        let alert = UIAlertController(title: "Вы уверены что хотите \(title.lowercased())?",
+    @objc func logOut() {
+        let alert = UIAlertController(title: "Вы уверены что хотите выйти из учетной записи?",
                                       message: "",
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [unowned self] _ in
+        alert.addAction(UIAlertAction(title: "Выйти", style: .default, handler: { [unowned self] _ in
             print("Log out")
             UserDefaultsDataManager.userIsLogedIn = false
             let vc = UserPhoneNumberConfirmationConfigurator.configure()
@@ -104,6 +116,18 @@ final class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     
     //MARK: - UITextFieldDelegate
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor(red: 143/255, green: 109/255, blue: 216/255, alpha: 1).cgColor
+        textField.layer.borderWidth = 2
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        textField.layer.borderColor = UIColor.gray.cgColor
+        textField.layer.borderWidth = 1
+        saveButton.isHidden = false
+    }
+    
     func textFieldDidChangeSelection(_ textField: UITextField) {
         switch textField.tag {
         case 0:
@@ -143,66 +167,67 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 3 {
-            return 60
+        if section == 6 {
+            return 0
         } else {
             return 30
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section <= 3 && section >= 1 {
+            return 10
+        }
+        return 0
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section <= 2 {
+        var returnCell: UITableViewCell = UITableViewCell()
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTitleCell.reuseIdentifier, for: indexPath) as? ProfileTitleCell
+            cell?.configure(with: viewModel, for: indexPath)
+            cell?.logoutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+            returnCell = cell ?? ProfileTitleCell()
+        case 1,2,3:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfileNameCell.reuseIdentifier, for: indexPath) as? ProfileNameCell
             cell?.configure(with: viewModel, for: indexPath)
             cell?.profileTextField.delegate = self
             cell?.profileTextField.tag = indexPath.section
-            return cell ?? ProfileNameCell()
-        } else if indexPath.section == 5 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileDeleteLogoutCell.reuseIdentifier, for: indexPath) as? ProfileDeleteLogoutCell
-            cell?.configure(with: viewModel, for: indexPath)
-            return cell ?? ProfileDeleteLogoutCell()
-        } else {
+            returnCell = cell ?? ProfileNameCell()
+        case 4,5:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProfileEmailPhoneCell.reuseIdentifier, for: indexPath) as? ProfileEmailPhoneCell
             cell?.configure(with: viewModel, for: indexPath)
-            return cell ?? ProfileEmailPhoneCell()
+            cell?.accessoryView?.tintColor = UIColor(red: 143/255, green: 109/255, blue: 216/255, alpha: 1)
+            returnCell = cell ?? ProfileEmailPhoneCell()
+        case 6:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileDeleteCell.reuseIdentifier, for: indexPath) as? ProfileDeleteCell
+            cell?.configure(with: viewModel, for: indexPath)
+            returnCell = cell ?? ProfileDeleteCell()
+        default:
+            break
         }
+        return returnCell
     }
-    
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         var vc: UIViewController = UIViewController()
         switch indexPath.section {
-        case 0:
+        case 1,2,3:
             let cell = tableView.cellForRow(at: indexPath) as? ProfileNameCell
             cell?.profileTextField.becomeFirstResponder()
-        case 1:
-            let cell = tableView.cellForRow(at: indexPath) as? ProfileNameCell
-            cell?.profileTextField.becomeFirstResponder()
-        case 2:
-            let cell = tableView.cellForRow(at: indexPath) as? ProfileNameCell
-            cell?.profileTextField.becomeFirstResponder()
-        case 3:
-            vc = UserPhoneNumberConfirmationConfigurator.configure()
-            self.navigationController?.pushViewController(vc, animated: true)
         case 4:
-            vc = EnterEmailViewController()
+            vc = ChangePhonenumberConfigurator.configure()
             self.navigationController?.pushViewController(vc, animated: true)
         case 5:
-            switch indexPath.row {
-            case 0:
-                let cell = tableView.cellForRow(at: indexPath) as? ProfileDeleteLogoutCell
-                let cellTitle = cell?.titleLabel.text
-                deleteProfile(title: cellTitle ?? "")
-                vc = UserPhoneNumberConfirmationConfigurator.configure()
-                vc.modalPresentationStyle = .fullScreen
-                self.navigationController?.present(vc, animated: true)
-            case 1:
-                let cell = tableView.cellForRow(at: indexPath) as? ProfileDeleteLogoutCell
-                let cellTitle = cell?.titleLabel.text
-                logOut(title: cellTitle ?? "")
-            default:
-                break
-            }
+            vc = EnterEmailViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 6:
+            deleteProfile()
+            vc = UserPhoneNumberConfirmationConfigurator.configure()
+            vc.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(vc, animated: true)
         default:
             break
         }

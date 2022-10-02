@@ -71,15 +71,31 @@ extension MenuViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MenuCellView.reuseIdentifier, for: indexPath) as? MenuCellView
-        cell?.configure(with: viewModel, for: indexPath)
-        return cell ?? MenuCellView()
+        var returnCell: UITableViewCell = UITableViewCell()
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MenuTitleCellView.reuseIdentifier, for: indexPath) as? MenuTitleCellView
+            cell?.configure(with: viewModel, for: indexPath)
+            cell?.accessoryView?.tintColor = UIColor(red: 143/255, green: 109/255, blue: 216/255, alpha: 1)
+            returnCell = cell ?? MenuTitleCellView()
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MenuCellView.reuseIdentifier, for: indexPath) as? MenuCellView
+            cell?.configure(with: viewModel, for: indexPath)
+            returnCell = cell ?? MenuCellView()
+        }
+        return returnCell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MenuHeaderView.reuseIdentifier) as? MenuHeaderView
         header?.configure(with: viewModel, for: section)
         return header ?? MenuHeaderView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
+        return tableView.sectionHeaderHeight
     }
 }
 
@@ -91,21 +107,21 @@ extension MenuViewController: UITableViewDelegate {
         var vc: UIViewController = UIViewController()
         switch indexPath.section {
         case 0:
+            vc = ProfileConfigurator.configure()
+        case 1:
             switch indexPath.row {
             case 0:
-                vc = ProfileConfigurator.configure()
+                vc = MyParkingsViewController()
             case 1:
-                vc = ChangeCityViewController()
-            case 2:
                 vc = NotificationsViewController()
-            case 3:
+            case 2:
                 vc = NewsViewController()
-            case 4:
-                vc = HistoryViewController()
+            case 3:
+                vc = CarsViewController()
             default:
                 print("default")
             }
-        case 1:
+        case 2:
             switch indexPath.row {
             case 0:
                 if let paymentNC = WalletPaymentSceneConfigurator.configure() as? UINavigationController {
@@ -115,18 +131,16 @@ extension MenuViewController: UITableViewDelegate {
                     }
                 }
             case 1:
-                vc = AnalyticsViewController()
-            case 2:
-                vc = CardsViewController()
+                vc = FinesAndEvacuationsViewController()
             default:
                 print("default")
             }
-        case 2:
+        case 3:
             switch indexPath.row {
             case 0:
-                vc = CarsViewController()
+                vc = ChangeCityViewController()
             case 1:
-                vc = FinesAndEvacuationsViewController()
+                vc = FreeParkingViewController()
             case 2:
                 vc = FeedbackViewController()
             case 3:
