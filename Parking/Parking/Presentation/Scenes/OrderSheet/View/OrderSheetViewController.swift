@@ -22,18 +22,21 @@ final class OrderSheetViewController: UIViewController,
     // MARK: - State
     
     private let parking: Parking
+    private let routeInformation: [Double]
     
     
     // MARK: - Init
     
     init(transitionDelegate: UIViewControllerTransitioningDelegate,
          parking: Parking,
+         routeInformation: [Double],
          didLayoutHeightCallback: @escaping (Float) -> Void,
          dismissOrderSheetCallback: @escaping () -> Void,
          nibName nibNameOrNil: String?,
          bundle nibBundleOrNil: Bundle?) {
         self.transitionDelegate = transitionDelegate
         self.parking = parking
+        self.routeInformation = routeInformation
         self.didLayoutHeightCallback = didLayoutHeightCallback
         self.dismissOrderSheetCallback = dismissOrderSheetCallback
         super.init(nibName: nibNameOrNil,
@@ -170,6 +173,7 @@ final class OrderSheetViewController: UIViewController,
                 fatalError()
             }
             cell.selectionStyle = .none
+            cell.setTimeLabel(String("\(Int(routeInformation[0])) мин (\(Int(routeInformation[1])) км)"))
             return cell
         default:
             fatalError()
