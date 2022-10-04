@@ -163,7 +163,7 @@ private extension FeedbackViewController {
             self.transparentView.alpha = 0.5
             
             let frame = CGRect(x: frames.origin.x,
-                               y: frames.origin.y + frames.height + 5,
+                               y: frames.origin.y + frames.height + 40,
                                width: frames.width,
                                height: CGFloat(self.reportOptions.count * 50 + 20))
             self.optionsTableView.frame = frame

@@ -8,6 +8,7 @@
 import UIKit
 import YandexMapsMobile
 import CoreLocation
+import MapKit
 
 
 protocol MainMapYMKDrawerProtocol {
@@ -221,12 +222,12 @@ final class MainMapYMKDrawer: NSObject,
         if let mapObjectPlacemark = mapObject as? YMKPlacemarkMapObject {
             onPlacemarkTap(mapObjectPlacemark)
         }
-        //
         guard selectedMapObject !== mapObject,
               let parking = placesParkingBindingTable[mapObject],
               let placemark = parkingPlacemarksBindingTable[parking.id] else {
-                  return false
-              }
+            return false
+        }
+        
         switch mapObject {
             // POLYLINE
         case let polyline as YMKPolylineMapObject:
@@ -236,23 +237,28 @@ final class MainMapYMKDrawer: NSObject,
             placemark.setIconWith(drawPlacemarkImage(
                 parkingCost: parking.hourCost,
                 isSelected: .selected))
-            interactor.onMapParkingObjectTap(parking: parking,
-                                             // DID LAYOUT HEIGHT CALLBACK
-                                             didLayoutHeightCallback: { [weak self] newHeight in
-                self?.animateToNewMapFrameCenter(overlappedAreaHeight: newHeight,
-                                                 targetPoint: placemark.geometry)
-            },
-                                             // DISMISS CALLBACK
-                                             dismissOrderSheetCallback: { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.setColor(polyline: polyline,
-                                    isSelected: .unselected)
-                placemark.setIconWith(strongSelf.drawPlacemarkImage(
-                    parkingCost: parking.hourCost,
-                    isSelected: .unselected))
-                strongSelf.selectedMapObject = nil
-                strongSelf.animateToInitialMapFrameCenter()
-            })
+            
+            getRouteInformation(parking: parking) { metrics in
+                self.interactor.onMapParkingObjectTap(parking: parking,
+                                                      routeInformation: metrics,
+                                                      // DID LAYOUT HEIGHT CALLBACK
+                                                      didLayoutHeightCallback: { [weak self] newHeight in
+                    self?.animateToNewMapFrameCenter(overlappedAreaHeight: newHeight,
+                                                     targetPoint: placemark.geometry)
+                },
+                                                      // DISMISS CALLBACK
+                                                      dismissOrderSheetCallback: { [weak self] in
+                    guard let strongSelf = self else { return }
+                    strongSelf.setColor(polyline: polyline,
+                                        isSelected: .unselected)
+                    placemark.setIconWith(strongSelf.drawPlacemarkImage(
+                        parkingCost: parking.hourCost,
+                        isSelected: .unselected))
+                    strongSelf.selectedMapObject = nil
+                    strongSelf.animateToInitialMapFrameCenter()
+                })
+            }
+            
             // POLYGON
         case let polygon as YMKPolygonMapObject:
             setColor(polygon: polygon,
@@ -261,29 +267,75 @@ final class MainMapYMKDrawer: NSObject,
             placemark.setIconWith(drawPlacemarkImage(
                 parkingCost: parking.hourCost,
                 isSelected: .selected))
-            interactor.onMapParkingObjectTap(parking: parking,
-                                             // DID LAYOUT HEIGHT CALLBACK
-                                             didLayoutHeightCallback: { [weak self] newHeight in
-                self?.animateToNewMapFrameCenter(overlappedAreaHeight: newHeight,
-                                                 targetPoint: placemark.geometry)
-            },
-                                             // DISMISS CALLBACK
-                                             dismissOrderSheetCallback: { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.setColor(polygon: polygon,
-                                    isSelected: .unselected)
-                placemark.setIconWith(strongSelf.drawPlacemarkImage(
-                    parkingCost: parking.hourCost,
-                    isSelected: .unselected))
-                strongSelf.selectedMapObject = nil
-                strongSelf.animateToInitialMapFrameCenter()
-            })
             
+            getRouteInformation(parking: parking) { metrics in
+                self.interactor.onMapParkingObjectTap(parking: parking,
+                                                      routeInformation: metrics,
+                                                      // DID LAYOUT HEIGHT CALLBACK
+                                                      didLayoutHeightCallback: { [weak self] newHeight in
+                    self?.animateToNewMapFrameCenter(overlappedAreaHeight: newHeight,
+                                                     targetPoint: placemark.geometry)
+                },
+                                                      // DISMISS CALLBACK
+                                                      dismissOrderSheetCallback: { [weak self] in
+                    guard let strongSelf = self else { return }
+                    strongSelf.setColor(polygon: polygon,
+                                        isSelected: .unselected)
+                    placemark.setIconWith(strongSelf.drawPlacemarkImage(
+                        parkingCost: parking.hourCost,
+                        isSelected: .unselected))
+                    strongSelf.selectedMapObject = nil
+                    strongSelf.animateToInitialMapFrameCenter()
+                })
+            }
         default:
             return false
         }
         return true
     }
+    
+    // Строим маршрут (А - локация юзера, В - локация парковки) и получаем из него массив в виде [время, путь]
+    private func getRouteInformation(parking: Parking, completionHandler: @escaping ([Double]) -> Void) {
+        // Позиция юзера как начало маршрута
+        guard let location = userLocationLayer?.cameraPosition()?.target else { return }
+        
+        let startLocation = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        let startLocationPlacemark = MKPlacemark(coordinate: startLocation, addressDictionary: nil)
+        let startMapItem = MKMapItem(placemark: startLocationPlacemark)
+        
+        // Позиция парковки, как конец маршрута
+        let endLocation = CLLocationCoordinate2D(latitude: parking.coordinates.point[0],
+                                                 longitude: parking.coordinates.point[1])
+        let endLocationPlacemark = MKPlacemark(coordinate: endLocation, addressDictionary: nil)
+        let endMapItem = MKMapItem(placemark: endLocationPlacemark)
+        
+        let routeDirectionRequest = MKDirections.Request()
+        routeDirectionRequest.source = startMapItem
+        routeDirectionRequest.destination = endMapItem
+        
+        let direction = MKDirections(request: routeDirectionRequest)
+        var result: [Double] = []
+        
+        // Строим маршрут и берем из него время и путь
+        direction.calculate { response, error in
+            guard let response = response else {
+                if let error = error {
+                    print("Error while getting route: \(error.localizedDescription)")
+                }
+                return
+            }
+            let route = response.routes[0]
+            
+            let distance = Double(route.distance)/1000
+            let time = Double(route.expectedTravelTime)/60
+            
+            result.append(time)
+            result.append(distance)
+            
+            completionHandler([time, distance])
+        }
+    }
+    
     
     private func animateToNewMapFrameCenter(overlappedAreaHeight: Float, targetPoint: YMKPoint) {
         let mapViewWidth = Float(yMapView.mapWindow.width())
@@ -334,7 +386,7 @@ final class MainMapYMKDrawer: NSObject,
                                             zoom: map.cameraPosition.zoom,
                                             azimuth: 0,
                                             tilt: 0)
-       
+        
         let newFocusPoint = YMKScreenPoint(x: mapViewWidth / 2,
                                            y: mapViewHeight / 2)
         guard let newCenter = yMapView.mapWindow.screenToWorld(with: newFocusPoint) else { return }
@@ -611,7 +663,7 @@ final class MainMapYMKDrawer: NSObject,
     
     
     // MARK: - Buttons layer interface
-
+    
     func menuButtonTapped() {
         interactor.menuButtonTapped()
     }
@@ -642,8 +694,8 @@ final class MainMapYMKDrawer: NSObject,
         let currentZoom = map.cameraPosition.zoom
         guard let centerPoint = currentCenterPoint(),
               currentZoom <= maxZoom else {
-                  return
-              }
+            return
+        }
         let newZoom = currentZoom + 1
         let cameraPosition = YMKCameraPosition(target: centerPoint,
                                                zoom: newZoom,
@@ -660,8 +712,8 @@ final class MainMapYMKDrawer: NSObject,
         let currentZoom = map.cameraPosition.zoom
         guard let centerPoint = currentCenterPoint(),
               currentZoom >= minZoom else {
-                  return
-              }
+            return
+        }
         let newZoom = currentZoom - 1
         let cameraPosition = YMKCameraPosition(target: centerPoint,
                                                zoom: newZoom,

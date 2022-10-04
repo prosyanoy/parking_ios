@@ -12,6 +12,7 @@ import UIKit
 protocol MainMapRouterProtocol {
     func onMapTap()
     func onMapParkingObjectTap(parking: Parking,
+                               routeInformation: [Double],
                                didLayoutHeightCallback: @escaping (Float) -> Void,
                                dismissOrderSheetCallback: @escaping () -> Void)
     func menuButtonTapped()
@@ -28,6 +29,7 @@ protocol MainMapRouterProtocol {
 
 
 final class MainMapRouter: MainMapRouterProtocol {
+    
     
     // MARK: - Dependencies
     
@@ -59,12 +61,14 @@ final class MainMapRouter: MainMapRouterProtocol {
     }
     
     func onMapParkingObjectTap(parking: Parking,
+                               routeInformation: [Double],
                                didLayoutHeightCallback: @escaping (Float) -> Void,
                                dismissOrderSheetCallback: @escaping () -> Void) {
         dismissPresentedVCIfPossible()
         let transitionDelegate = OrderSheetTransitionDelegate()
         let orderVC = OrderSheetViewController(transitionDelegate: transitionDelegate,
                                                parking: parking,
+                                               routeInformation: routeInformation,
                                                didLayoutHeightCallback: didLayoutHeightCallback,
                                                dismissOrderSheetCallback: dismissOrderSheetCallback,
                                                nibName: nil,

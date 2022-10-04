@@ -77,5 +77,9 @@ final class TimeTableViewCell: UITableViewCell {
         horizontalStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     }
     
+    func setTimeLabel(_ text: String) {
+        descriptionTimeButton.setTitle(text, for: .normal)
+    }
+    
     
 }
