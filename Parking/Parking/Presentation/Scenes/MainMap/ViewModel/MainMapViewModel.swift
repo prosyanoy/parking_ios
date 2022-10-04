@@ -13,7 +13,6 @@ protocol MainMapDrawerInteractorProtocol: AnyObject {
     var parkings: Publisher<[Parking]> { get }
     func onMapTap()
     func onMapParkingObjectTap(parking: Parking,
-                               routeInformation: [Double],
                                didLayoutHeightCallback: @escaping (Float) -> Void,
                                dismissOrderSheetCallback: @escaping () -> Void)
     func menuButtonTapped()
@@ -80,11 +79,9 @@ final class MainMapViewModel: MainMapViewModelProtocol,
     }
     
     func onMapParkingObjectTap(parking: Parking,
-                               routeInformation: [Double],
                                didLayoutHeightCallback: @escaping (Float) -> Void,
                                dismissOrderSheetCallback: @escaping () -> Void) {
         router.onMapParkingObjectTap(parking: parking,
-                                     routeInformation: routeInformation,
                                      didLayoutHeightCallback: didLayoutHeightCallback,
                                      dismissOrderSheetCallback: dismissOrderSheetCallback)
     }
