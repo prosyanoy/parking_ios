@@ -15,7 +15,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .overpassLight17
-        label.textColor = .black
+        label.textColor = .lightGray
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .left

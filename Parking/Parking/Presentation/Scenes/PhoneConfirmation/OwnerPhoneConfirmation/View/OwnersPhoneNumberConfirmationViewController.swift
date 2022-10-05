@@ -65,9 +65,6 @@ class OwnersPhoneNumberConfirmationViewController: UIViewController {
         textfield.keyboardType = .decimalPad
         textfield.placeholder = "(123) 456-7890"
         textfield.font = .overpassMedium17
-        if let text = textfield.text {
-            textfield.text = text.applyPatternOnNumbers(pattern: "(###) ###-####", replacementCharacter: "#")
-        }
         textfield.borderStyle = .none
         return textfield
     }()

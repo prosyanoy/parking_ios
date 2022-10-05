@@ -18,11 +18,17 @@ final class ProfileNameCell: UITableViewCell {
         textField.font = .overpassMedium17
         textField.isUserInteractionEnabled = true
         textField.returnKeyType = .done
+        textField.layer.cornerRadius = 10
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.gray.cgColor
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 50))
+        textField.leftViewMode = .always
         return textField
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
         setupLayout()
         configureUI()
     }
@@ -40,7 +46,7 @@ final class ProfileNameCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             
-            profileTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            profileTextField.leadingAnchor.constraint(equalTo: leadingAnchor),
             profileTextField.trailingAnchor.constraint(equalTo: trailingAnchor),
             profileTextField.topAnchor.constraint(equalTo: topAnchor),
             profileTextField.bottomAnchor.constraint(equalTo: bottomAnchor)

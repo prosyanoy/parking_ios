@@ -8,28 +8,32 @@
 import Foundation
 import UIKit
 
-final class EnterEmailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+final class EnterEmailViewController: UIViewController, UITextFieldDelegate {
     
-    var email: String = ""
-    
-    private let tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.isScrollEnabled = false
-        tableView.register(EnterEmailCellView.self, forCellReuseIdentifier: EnterEmailCellView.reuseIdentifier)
-        return tableView
+    let emailTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        let leftLabel = UILabel()
+        leftLabel.text = "  E-Mail: "
+        leftLabel.textColor = .black
+        leftLabel.font = .overpassMedium17
+        textField.leftView = leftLabel
+        textField.leftViewMode = .always
+        textField.textAlignment = .left
+        textField.font = .overpassMedium17
+        textField.isUserInteractionEnabled = true
+        textField.returnKeyType = .done
+        textField.layer.cornerRadius = 10
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.gray.cgColor
+        return textField
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        setDelegates()
         setupLayout()
-    }
-    
-    private func setDelegates() {
-        tableView.dataSource = self
-        tableView.delegate = self
+        emailTextField.delegate = self
     }
     
     private func configureUI() {
@@ -44,13 +48,13 @@ final class EnterEmailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     private func setupLayout() {
-        view.addSubview(tableView)
+        view.addSubview(emailTextField)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            emailTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            emailTextField.heightAnchor.constraint(equalToConstant: 50)
             
         ])
     }
@@ -58,34 +62,25 @@ final class EnterEmailViewController: UIViewController, UITableViewDelegate, UIT
     @objc func saveEmail() {
         guard let vcCount = self.navigationController?.viewControllers.count  else {return}
         let backVC = self.navigationController?.viewControllers[vcCount - 2] as! ProfileViewController
-        backVC.viewModel.profileInfo.email = email
-        backVC.profileTableView.reloadData()
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        if let text = textField.text, !text.isEmpty {
-            email = text
+        if let text = emailTextField.text {
+            backVC.viewModel.profileInfo.email = text
+            backVC.profileTableView.reloadData()
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: EnterEmailCellView.reuseIdentifier) as? EnterEmailCellView
-        cell?.emailTextField.delegate = self
-        return cell ?? EnterEmailCellView()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let cell = tableView.cellForRow(at: indexPath) as? EnterEmailCellView
-        cell?.emailTextField.becomeFirstResponder()
-    }
-    
     //MARK: - UITextFieldDelegate
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor(red: 143/255, green: 109/255, blue: 216/255, alpha: 1).cgColor
+        textField.layer.borderWidth = 2
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        textField.layer.borderColor = UIColor.gray.cgColor
+        textField.layer.borderWidth = 1
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if (string == "\n") {

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Car.png",
+      "filename" : "Feedback.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Car@2x.png",
+      "filename" : "Feedback@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Car@3x.png",
+      "filename" : "Feedback@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

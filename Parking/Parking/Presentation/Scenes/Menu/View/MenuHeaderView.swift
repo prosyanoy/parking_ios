@@ -13,8 +13,8 @@ final class MenuHeaderView: UITableViewHeaderFooterView {
 	private let titleLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.font = .boldSystemFont(ofSize: 20)
-		label.textColor = .black
+		label.font = .overpassLight17
+		label.textColor = .lightGray
 		label.numberOfLines = 1
 		label.adjustsFontSizeToFitWidth = true
 		label.textAlignment = .left
@@ -48,6 +48,5 @@ extension MenuHeaderView {
 	func configure(with menuViewModel: MenuViewModelProtocol, for section: Int) {
 		let header = menuViewModel.getHeaderViewModel(for: section)
 		titleLabel.text = header.title
-        
 	}
 }

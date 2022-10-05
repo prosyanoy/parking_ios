@@ -20,25 +20,27 @@ final class MenuViewModel: MenuViewModelProtocol {
     
     private let menuInfo = [
         [
+            [""],
+            ["person.crop.circle","Имя Фамилия"]
+        ],
+        [
             ["Основные"],
-            ["User", "Личный кабинет"],
-            ["MapPin", "Изменить город"],
-            ["BellSimple", "Уведомления"],
-            ["GlobeHemisphereWest", "Новости"],
-            ["MapTrifold", "История"]
+            ["Parking", "Мои стоянки"],
+            ["Notifications", "Уведомления"],
+            ["News", "Новости"],
+            ["Car", "Мои автомобили"]
         ],
         [
             ["Оплата"],
-            ["CurrencyRub", "Пополнить счет"],
-            ["ChartBar", "Аналитика расходов"],
-            ["CreditCard", "Банковские карты"]
+            ["Balance", "Мой счет"],
+            ["Fines", "Штрафы и эвакуации"]
         ],
         [
             ["Другое"],
-            ["Car", "Автомобили"],
-            ["Note", "Штрафы и эвакуации"],
-            ["Chats", "Обратная связь"],
-            ["Info", "О приложении"]
+            ["Change", "Изменить город"],
+            ["ParkFree", "Паркуйся бесплатно"],
+            ["Feedback", "Обратная связь"],
+            ["About", "О приложении"]
         ],
     ]
     
